@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Dashboard.Earth</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>		
+
+<style>
+			table.result {
+				width: 100%;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			table.result td:nth-child(n+2) {
+				text-align: center;
+			}
+			table.result tr:hover {
+				background-color: yellow;
+			}
+			h2 {
+				margin-bottom: 0;
+			}
+			input {
+				width: 100%;
+				font-size: 20px;
+				font-family: inherit;;
+				margin-bottom: 8px;
+			}
+
+			/* CSS Spinner-  https://github.com/webkul/csspin */
+			.cp-spinner{width:48px;height:48px;display:inline-block;box-sizing:border-box;position:relative}.cp-meter{border-radius:50%;border-top:solid 6px #0fd6ff;border-right:solid 6px #0fd6ff;border-bottom:solid 6px #0fd6ff;border-left:solid 6px #0fd6ff;width:48px;height:48px;display:inline-block;box-sizing:border-box}.cp-meter:before{border-radius:3px;content:" ";width:6px;height:12px;display:inline-block;box-sizing:border-box;background-color:#0fd6ff;position:absolute;top:5px;left:16px;transform-origin:center bottom;animation:cp-meter-animate-before 1s linear infinite}@keyframes cp-meter-animate-before{0%{transform:rotate(-45deg)}100%{transform:rotate(315deg)}}
+
+		</style>
+</head>
+<body>
+<script>
+
+
+
+function doFunction(params) {
+xmlhttp = new XMLHttpRequest();
+var url = "http://sandbox.ora.me:6196/halo/14211";
+
+        console.log(params);
+xmlhttp.open("PUT", url, true);
+xmlhttp.setRequestHeader("Content-type", "application/json");
+xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log(xmlhttp.responseText);
+document.getElementById('myiFrame').src+= '';
+    }
+}
+
+
+
+  xmlhttp.send(JSON.stringify(params));
+}
+
+function getAQI() {
+xmlhttp = new XMLHttpRequest();
+var url = "http://api.waqi.info/feed/shanghai/?token=af7b0a3e41155a7f956dbb5688fda009f98c1243";
+xmlhttp.open("GET", url, true);
+xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    var obj = JSON.parse(xmlhttp.responseText);
+        console.log(obj.data.aqi/300);
+        doFunction(obj.data.aqi/300);
+    }
+}
+
+
+
+  xmlhttp.send();
+}
+//
+function init( tokenId, inputId, outputId ) {
+
+	token.id = tokenId;
+
+	var input = $(inputId);
+	var timer = null;
+	var output = $(outputId);
+
+	input.on("keyup",function(){
+
+		/* Debounce */
+		if (timer) clearTimeout(timer);
+		timer = setTimeout(function(){
+			search(input.val(), output);
+		},250);
+
+	})
+
+}
+
+function search(keyword, output) {
+
+	var info = token()=="af7b0a3e41155a7f956dbb5688fda009f98c1243"?"(based on demo token)":""
+	output.html("<h2>Search results "+info+":</h2>")
+	output.append($("<div/>").html("Loading..."))
+	output.append($("<div/>").addClass("cp-spinner cp-meter"))
+
+	$.getJSON("http://api.waqi.info/search/?token="+token()+"&keyword="+keyword,function(result){
+
+		var info = token()=="demo"?"(based on demo token)":""
+		output.html("<h2>Search results "+info+":</h2>")
+		if (!result || (result.status!="ok")) {
+			output.append("Sorry, something wrong happend: ")
+			if (result.data) output.append($("<code>").html(result.data))
+			return
+		}
+
+		if (result.data.length==0) {
+			output.append("Sorry, there is no result for your query!")
+			return
+		}
+
+		var table = $("<table/>").addClass("result")
+		output.append(table)
+
+		output.append($("<div/>").html("Click on any of the station to see the detailled AQI"))
+
+		var stationInfo = $("<div/>")
+		output.append(stationInfo)
+
+		result.data.forEach(function(station,i){
+			var tr = $("<tr>");
+			tr.append($("<td>").html(station.station.name))
+			tr.append($("<td>").html(colorize(station.aqi)))
+			tr.append($("<td>").html(station.time.stime))
+			tr.on("click",function(){
+				showStation(station,stationInfo)
+			})
+			table.append(tr)
+			if (i==0) showStation(station,stationInfo)
+		})
+
+//console.log(result);
+
+
+	});
+}
+
+function showStation(station, output) {
+	output.html("<h2>Pollutants & Weather conditions:</h2>")
+	output.append($("<div/>").html("Loading..."))
+	output.append($("<div/>").addClass("cp-spinner cp-meter"))
+
+	$.getJSON("http://api.waqi.info/feed/@"+station.uid+"/?token="+token(),function(result){
+
+		output.html("<h2>Pollutants & Weather conditions:</h2>")
+		if (!result || (result.status!="ok")) {
+			output.append("Sorry, something wrong happend: ")
+			if (result.data) output.append($("<code>").html(result.data))
+			return
+		}
+       
+        
+       var parameters = {"app":1000401,
+  "vertices":{
+    "size":result.data.iaqi.co.v/10,
+    "speed":result.data.iaqi.pm25.v/100,
+    "brightness":result.data.iaqi.t.v/100,
+    "complexity":result.data.iaqi.no2.v/100,
+    "color":result.data.aqi/300,
+    "wobble":result.data.iaqi.w.v/100,
+    "colorCenter":result.data.iaqi.o3.v/100,
+    "colorCenterRatio":result.data.iaqi.so2.v/100,
+    "waveCount":Math.floor(Math.random() * (10 - 1)) + 1,
+    "highlightRing":Math.random()
+  },
+  "id":"14211"
+};
+
+ doFunction(parameters);
+
+		var names = {
+			pm25: "PM<sub>2.5</sub>",
+			pm10: "PM<sub>10</sub>",
+			o3: "Ozone",
+			no2: "Nitrogen Dioxide",
+			so2: "Sulphur Dioxide",
+			co: "Carbon Monoxyde",
+			t: "Temperature",
+			w: "Wind",
+			r: "Rain (precipitation)",
+			h: "Relative Humidity",
+			d: "Dew",
+			p: "Atmostpheric Pressure"
+		}
+
+		output.append($("<div>").html("Station: "+result.data.city.name+" on "+result.data.time.s))
+
+		var table = $("<table/>").addClass("result")
+		output.append(table)
+
+		for (var specie in result.data.iaqi) {
+			var aqi = result.data.iaqi[specie].v
+			
+			var tr = $("<tr>");
+			tr.append($("<td>").html(names[specie]||specie))
+			tr.append($("<td>").html(colorize(aqi,specie)))
+			table.append(tr)
+		}
+	})
+}
+
+function token() {
+	return $(token.id).val()||"af7b0a3e41155a7f956dbb5688fda009f98c1243";
+}
+
+
+function colorize(aqi, specie ) {
+	specie = specie||"aqi"
+	if (["pm25","pm10","no2","so2","co","o3","aqi"].indexOf(specie)<0) return aqi;
+
+	var spectrum = [
+		{a:0,  b:"#cccccc",f:"#ffffff"},
+		{a:50, b:"#009966",f:"#ffffff"},
+		{a:100,b:"#ffde33",f:"#000000"},
+		{a:150,b:"#ff9933",f:"#000000"},
+		{a:200,b:"#cc0033",f:"#ffffff"},
+		{a:300,b:"#660099",f:"#ffffff"},
+		{a:500,b:"#7e0023",f:"#ffffff"}
+		];
+
+
+	var i = 0;
+	for (i=0;i<spectrum.length-2;i++) {
+		if (aqi=="-"||aqi<=spectrum[i].a) break;
+	};	
+	return $("<div/>")
+		.html(aqi)
+		.css("font-size","120%")
+		.css("min-width","30px")
+		.css("text-align","center")
+		.css("background-color",spectrum[i].b)
+		.css("color",spectrum[i].f)
+
+}
+</script>
+
+		<h1>Real Time Dashboard.Earth Data and Halo</h1>
+		<div style='float:left;width:49%'>
+		<h2> Pick a location: </h2>
+		<input id='input-station' placeholder="for instance 'los angeles'">
+		<br>
+		Search for a city and see the current conditions and halo representing it.
+		</div>
+
+		<div style='float:right;width:49%'>
+	</div>
+		<div style='clear: both'></div>
+
+
+		<br>
+
+		<div id='result-search' style='min-height: 300px'></div>
+<iframe src="http://sandbox.ora.me/embed?id=14211&size=600" style="border:0px #ffffff none;" id="myiFrame" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="600px" allowfullscreen></iframe>
+<br/>
+
+
+		<script>init("#input-token","#input-station","#result-search")</script>
+</body>
+</html>
