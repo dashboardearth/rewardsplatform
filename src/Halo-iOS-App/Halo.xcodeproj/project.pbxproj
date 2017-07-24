@@ -12,8 +12,6 @@
 		7144D08C1F213A3F00D9FED7 /* HaloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */; };
 		7144D0941F21406B00D9FED7 /* HaloTimeSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */; };
 		717618AF1F20385000359412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717618AE1F20385000359412 /* AppDelegate.swift */; };
-		717618B11F20385000359412 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717618B01F20385000359412 /* FirstViewController.swift */; };
-		717618B31F20385000359412 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717618B21F20385000359412 /* SecondViewController.swift */; };
 		717618B61F20385000359412 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717618B41F20385000359412 /* Main.storyboard */; };
 		717618B81F20385000359412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 717618B71F20385000359412 /* Assets.xcassets */; };
 		717618BB1F20385000359412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717618B91F20385000359412 /* LaunchScreen.storyboard */; };
@@ -55,8 +53,6 @@
 		7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloTimeSlice.swift; sourceTree = "<group>"; };
 		717618AB1F20385000359412 /* Halo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Halo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717618AE1F20385000359412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		717618B01F20385000359412 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		717618B21F20385000359412 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		717618B51F20385000359412 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		717618B71F20385000359412 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		717618BA1F20385000359412 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -153,8 +149,6 @@
 				717618E01F20399D00359412 /* User Interface */,
 				717618DE1F20386D00359412 /* Custom Views */,
 				717618AE1F20385000359412 /* AppDelegate.swift */,
-				717618B01F20385000359412 /* FirstViewController.swift */,
-				717618B21F20385000359412 /* SecondViewController.swift */,
 				717618B41F20385000359412 /* Main.storyboard */,
 				717618B71F20385000359412 /* Assets.xcassets */,
 				717618B91F20385000359412 /* LaunchScreen.storyboard */,
@@ -406,11 +400,9 @@
 			files = (
 				717618EB1F203A0700359412 /* HaloView.swift in Sources */,
 				7144D0941F21406B00D9FED7 /* HaloTimeSlice.swift in Sources */,
-				717618B31F20385000359412 /* SecondViewController.swift in Sources */,
 				71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */,
 				7144D0881F203B9B00D9FED7 /* Readme.md in Sources */,
 				717618AF1F20385000359412 /* AppDelegate.swift in Sources */,
-				717618B11F20385000359412 /* FirstViewController.swift in Sources */,
 				71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */,
 				7144D08C1F213A3F00D9FED7 /* HaloViewController.swift in Sources */,
 			);
