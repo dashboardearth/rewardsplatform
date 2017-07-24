@@ -27,6 +27,7 @@
 		717618EF1F203A0700359412 /* line-dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E51F2039DD00359412 /* line-dots.png */; };
 		717618F01F203A0700359412 /* line-solid.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E31F2039DD00359412 /* line-solid.png */; };
 		717618F11F203A0700359412 /* main.web.js in Resources */ = {isa = PBXBuildFile; fileRef = 717618E91F2039DD00359412 /* main.web.js */; };
+		71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		717618E71F2039DD00359412 /* calories-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calories-gradient.png"; sourceTree = "<group>"; };
 		717618E81F2039DD00359412 /* indexLarge.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = indexLarge.html; sourceTree = "<group>"; };
 		717618E91F2039DD00359412 /* main.web.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.web.js; sourceTree = "<group>"; };
+		71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A7E508DACBFE148EF85D5E76 /* Pods-Halo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Halo/Pods-Halo.debug.xcconfig"; sourceTree = "<group>"; };
 		F7758AA0A8DAD59B36493979 /* libPods-Halo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Halo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -203,6 +205,7 @@
 		717618E01F20399D00359412 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */,
 				7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */,
 				7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */,
 			);
@@ -404,6 +407,7 @@
 				7144D0881F203B9B00D9FED7 /* Readme.md in Sources */,
 				717618AF1F20385000359412 /* AppDelegate.swift in Sources */,
 				717618B11F20385000359412 /* FirstViewController.swift in Sources */,
+				71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */,
 				7144D08C1F213A3F00D9FED7 /* HaloViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
