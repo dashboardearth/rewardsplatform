@@ -1,0 +1,3 @@
+target 'Halo' do
+	pod 'GoogleMaps'
+end

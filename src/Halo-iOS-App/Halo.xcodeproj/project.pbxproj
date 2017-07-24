@@ -1,0 +1,699 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45A792377167CBBB03CD37FA /* libPods-Halo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7758AA0A8DAD59B36493979 /* libPods-Halo.a */; };
+		7144D0881F203B9B00D9FED7 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 7144D0871F203B9B00D9FED7 /* Readme.md */; };
+		7144D08C1F213A3F00D9FED7 /* HaloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */; };
+		7144D0941F21406B00D9FED7 /* HaloTimeSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */; };
+		717618AF1F20385000359412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717618AE1F20385000359412 /* AppDelegate.swift */; };
+		717618B61F20385000359412 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717618B41F20385000359412 /* Main.storyboard */; };
+		717618B81F20385000359412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 717618B71F20385000359412 /* Assets.xcassets */; };
+		717618BB1F20385000359412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717618B91F20385000359412 /* LaunchScreen.storyboard */; };
+		717618C61F20385000359412 /* HaloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717618C51F20385000359412 /* HaloTests.swift */; };
+		717618D11F20385000359412 /* HaloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717618D01F20385000359412 /* HaloUITests.swift */; };
+		717618EA1F203A0700359412 /* calories-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E71F2039DD00359412 /* calories-gradient.png */; };
+		717618EB1F203A0700359412 /* HaloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717618E61F2039DD00359412 /* HaloView.swift */; };
+		717618EC1F203A0700359412 /* indexLarge.html in Resources */ = {isa = PBXBuildFile; fileRef = 717618E81F2039DD00359412 /* indexLarge.html */; };
+		717618ED1F203A0700359412 /* indexMedium.html in Resources */ = {isa = PBXBuildFile; fileRef = 717618E21F2039DD00359412 /* indexMedium.html */; };
+		717618EE1F203A0700359412 /* indexSmall.html in Resources */ = {isa = PBXBuildFile; fileRef = 717618E41F2039DD00359412 /* indexSmall.html */; };
+		717618EF1F203A0700359412 /* line-dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E51F2039DD00359412 /* line-dots.png */; };
+		717618F01F203A0700359412 /* line-solid.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E31F2039DD00359412 /* line-solid.png */; };
+		717618F11F203A0700359412 /* main.web.js in Resources */ = {isa = PBXBuildFile; fileRef = 717618E91F2039DD00359412 /* main.web.js */; };
+		71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */; };
+		71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		717618C21F20385000359412 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 717618A31F20385000359412 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 717618AA1F20385000359412;
+			remoteInfo = Halo;
+		};
+		717618CD1F20385000359412 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 717618A31F20385000359412 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 717618AA1F20385000359412;
+			remoteInfo = Halo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00BB0C3A043CC68EB285553B /* Pods-Halo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Halo/Pods-Halo.release.xcconfig"; sourceTree = "<group>"; };
+		7144D0871F203B9B00D9FED7 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloViewController.swift; sourceTree = "<group>"; };
+		7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloTimeSlice.swift; sourceTree = "<group>"; };
+		717618AB1F20385000359412 /* Halo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Halo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		717618AE1F20385000359412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		717618B51F20385000359412 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		717618B71F20385000359412 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		717618BA1F20385000359412 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		717618BC1F20385000359412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		717618C11F20385000359412 /* HaloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		717618C51F20385000359412 /* HaloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloTests.swift; sourceTree = "<group>"; };
+		717618C71F20385000359412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		717618CC1F20385000359412 /* HaloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		717618D01F20385000359412 /* HaloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloUITests.swift; sourceTree = "<group>"; };
+		717618D21F20385000359412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		717618E21F2039DD00359412 /* indexMedium.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = indexMedium.html; sourceTree = "<group>"; };
+		717618E31F2039DD00359412 /* line-solid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line-solid.png"; sourceTree = "<group>"; };
+		717618E41F2039DD00359412 /* indexSmall.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = indexSmall.html; sourceTree = "<group>"; };
+		717618E51F2039DD00359412 /* line-dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line-dots.png"; sourceTree = "<group>"; };
+		717618E61F2039DD00359412 /* HaloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloView.swift; sourceTree = "<group>"; };
+		717618E71F2039DD00359412 /* calories-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calories-gradient.png"; sourceTree = "<group>"; };
+		717618E81F2039DD00359412 /* indexLarge.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = indexLarge.html; sourceTree = "<group>"; };
+		717618E91F2039DD00359412 /* main.web.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.web.js; sourceTree = "<group>"; };
+		71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewViewController.swift; sourceTree = "<group>"; };
+		A7E508DACBFE148EF85D5E76 /* Pods-Halo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Halo/Pods-Halo.debug.xcconfig"; sourceTree = "<group>"; };
+		F7758AA0A8DAD59B36493979 /* libPods-Halo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Halo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		717618A81F20385000359412 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45A792377167CBBB03CD37FA /* libPods-Halo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		717618BE1F20385000359412 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		717618C91F20385000359412 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31EC09D7C435FCBE9C979FB1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7E508DACBFE148EF85D5E76 /* Pods-Halo.debug.xcconfig */,
+				00BB0C3A043CC68EB285553B /* Pods-Halo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3A5276B9DF1A10A3538C63D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7758AA0A8DAD59B36493979 /* libPods-Halo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		717618A21F20385000359412 = {
+			isa = PBXGroup;
+			children = (
+				7144D0871F203B9B00D9FED7 /* Readme.md */,
+				717618AD1F20385000359412 /* Halo */,
+				717618C41F20385000359412 /* HaloTests */,
+				717618CF1F20385000359412 /* HaloUITests */,
+				717618AC1F20385000359412 /* Products */,
+				31EC09D7C435FCBE9C979FB1 /* Pods */,
+				3A5276B9DF1A10A3538C63D7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		717618AC1F20385000359412 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				717618AB1F20385000359412 /* Halo.app */,
+				717618C11F20385000359412 /* HaloTests.xctest */,
+				717618CC1F20385000359412 /* HaloUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		717618AD1F20385000359412 /* Halo */ = {
+			isa = PBXGroup;
+			children = (
+				717618E01F20399D00359412 /* User Interface */,
+				717618DE1F20386D00359412 /* Custom Views */,
+				717618AE1F20385000359412 /* AppDelegate.swift */,
+				717618B41F20385000359412 /* Main.storyboard */,
+				717618B71F20385000359412 /* Assets.xcassets */,
+				717618B91F20385000359412 /* LaunchScreen.storyboard */,
+				717618BC1F20385000359412 /* Info.plist */,
+			);
+			path = Halo;
+			sourceTree = "<group>";
+		};
+		717618C41F20385000359412 /* HaloTests */ = {
+			isa = PBXGroup;
+			children = (
+				717618C51F20385000359412 /* HaloTests.swift */,
+				717618C71F20385000359412 /* Info.plist */,
+			);
+			path = HaloTests;
+			sourceTree = "<group>";
+		};
+		717618CF1F20385000359412 /* HaloUITests */ = {
+			isa = PBXGroup;
+			children = (
+				717618D01F20385000359412 /* HaloUITests.swift */,
+				717618D21F20385000359412 /* Info.plist */,
+			);
+			path = HaloUITests;
+			sourceTree = "<group>";
+		};
+		717618DE1F20386D00359412 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				717618DF1F20388F00359412 /* HaloView */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		717618DF1F20388F00359412 /* HaloView */ = {
+			isa = PBXGroup;
+			children = (
+				717618E71F2039DD00359412 /* calories-gradient.png */,
+				717618E61F2039DD00359412 /* HaloView.swift */,
+				717618E81F2039DD00359412 /* indexLarge.html */,
+				717618E21F2039DD00359412 /* indexMedium.html */,
+				717618E41F2039DD00359412 /* indexSmall.html */,
+				717618E51F2039DD00359412 /* line-dots.png */,
+				717618E31F2039DD00359412 /* line-solid.png */,
+				717618E91F2039DD00359412 /* main.web.js */,
+			);
+			path = HaloView;
+			sourceTree = "<group>";
+		};
+		717618E01F20399D00359412 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */,
+				7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */,
+				7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */,
+				71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		717618AA1F20385000359412 /* Halo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 717618D51F20385000359412 /* Build configuration list for PBXNativeTarget "Halo" */;
+			buildPhases = (
+				EC9A500041E8B8ADDB78FF30 /* [CP] Check Pods Manifest.lock */,
+				717618A71F20385000359412 /* Sources */,
+				717618A81F20385000359412 /* Frameworks */,
+				717618A91F20385000359412 /* Resources */,
+				859B57F8454D23D6EBD42B4E /* [CP] Embed Pods Frameworks */,
+				5064CB4C26BDC38F57664289 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Halo;
+			productName = Halo;
+			productReference = 717618AB1F20385000359412 /* Halo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		717618C01F20385000359412 /* HaloTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 717618D81F20385000359412 /* Build configuration list for PBXNativeTarget "HaloTests" */;
+			buildPhases = (
+				717618BD1F20385000359412 /* Sources */,
+				717618BE1F20385000359412 /* Frameworks */,
+				717618BF1F20385000359412 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				717618C31F20385000359412 /* PBXTargetDependency */,
+			);
+			name = HaloTests;
+			productName = HaloTests;
+			productReference = 717618C11F20385000359412 /* HaloTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		717618CB1F20385000359412 /* HaloUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 717618DB1F20385000359412 /* Build configuration list for PBXNativeTarget "HaloUITests" */;
+			buildPhases = (
+				717618C81F20385000359412 /* Sources */,
+				717618C91F20385000359412 /* Frameworks */,
+				717618CA1F20385000359412 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				717618CE1F20385000359412 /* PBXTargetDependency */,
+			);
+			name = HaloUITests;
+			productName = HaloUITests;
+			productReference = 717618CC1F20385000359412 /* HaloUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		717618A31F20385000359412 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = dashboardearth;
+				TargetAttributes = {
+					717618AA1F20385000359412 = {
+						CreatedOnToolsVersion = 9.0;
+					};
+					717618C01F20385000359412 = {
+						CreatedOnToolsVersion = 9.0;
+						TestTargetID = 717618AA1F20385000359412;
+					};
+					717618CB1F20385000359412 = {
+						CreatedOnToolsVersion = 9.0;
+						TestTargetID = 717618AA1F20385000359412;
+					};
+				};
+			};
+			buildConfigurationList = 717618A61F20385000359412 /* Build configuration list for PBXProject "Halo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 717618A21F20385000359412;
+			productRefGroup = 717618AC1F20385000359412 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				717618AA1F20385000359412 /* Halo */,
+				717618C01F20385000359412 /* HaloTests */,
+				717618CB1F20385000359412 /* HaloUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		717618A91F20385000359412 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				717618ED1F203A0700359412 /* indexMedium.html in Resources */,
+				717618BB1F20385000359412 /* LaunchScreen.storyboard in Resources */,
+				717618EA1F203A0700359412 /* calories-gradient.png in Resources */,
+				717618B81F20385000359412 /* Assets.xcassets in Resources */,
+				717618F01F203A0700359412 /* line-solid.png in Resources */,
+				717618F11F203A0700359412 /* main.web.js in Resources */,
+				717618B61F20385000359412 /* Main.storyboard in Resources */,
+				717618EE1F203A0700359412 /* indexSmall.html in Resources */,
+				717618EC1F203A0700359412 /* indexLarge.html in Resources */,
+				717618EF1F203A0700359412 /* line-dots.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		717618BF1F20385000359412 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		717618CA1F20385000359412 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5064CB4C26BDC38F57664289 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Halo/Pods-Halo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		859B57F8454D23D6EBD42B4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Halo/Pods-Halo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC9A500041E8B8ADDB78FF30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		717618A71F20385000359412 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				717618EB1F203A0700359412 /* HaloView.swift in Sources */,
+				7144D0941F21406B00D9FED7 /* HaloTimeSlice.swift in Sources */,
+				71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */,
+				7144D0881F203B9B00D9FED7 /* Readme.md in Sources */,
+				717618AF1F20385000359412 /* AppDelegate.swift in Sources */,
+				71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */,
+				7144D08C1F213A3F00D9FED7 /* HaloViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		717618BD1F20385000359412 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				717618C61F20385000359412 /* HaloTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		717618C81F20385000359412 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				717618D11F20385000359412 /* HaloUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		717618C31F20385000359412 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 717618AA1F20385000359412 /* Halo */;
+			targetProxy = 717618C21F20385000359412 /* PBXContainerItemProxy */;
+		};
+		717618CE1F20385000359412 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 717618AA1F20385000359412 /* Halo */;
+			targetProxy = 717618CD1F20385000359412 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		717618B41F20385000359412 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				717618B51F20385000359412 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		717618B91F20385000359412 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				717618BA1F20385000359412 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		717618D31F20385000359412 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		717618D41F20385000359412 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		717618D61F20385000359412 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7E508DACBFE148EF85D5E76 /* Pods-Halo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2SMGFN4264;
+				INFOPLIST_FILE = Halo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dashboardearth.Halo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		717618D71F20385000359412 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00BB0C3A043CC68EB285553B /* Pods-Halo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2SMGFN4264;
+				INFOPLIST_FILE = Halo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dashboardearth.Halo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		717618D91F20385000359412 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2SMGFN4264;
+				INFOPLIST_FILE = HaloTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dashboardearth.HaloTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Halo.app/Halo";
+			};
+			name = Debug;
+		};
+		717618DA1F20385000359412 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2SMGFN4264;
+				INFOPLIST_FILE = HaloTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dashboardearth.HaloTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Halo.app/Halo";
+			};
+			name = Release;
+		};
+		717618DC1F20385000359412 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 2SMGFN4264;
+				INFOPLIST_FILE = HaloUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dashboardearth.HaloUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Halo;
+			};
+			name = Debug;
+		};
+		717618DD1F20385000359412 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 2SMGFN4264;
+				INFOPLIST_FILE = HaloUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dashboardearth.HaloUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Halo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		717618A61F20385000359412 /* Build configuration list for PBXProject "Halo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				717618D31F20385000359412 /* Debug */,
+				717618D41F20385000359412 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		717618D51F20385000359412 /* Build configuration list for PBXNativeTarget "Halo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				717618D61F20385000359412 /* Debug */,
+				717618D71F20385000359412 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		717618D81F20385000359412 /* Build configuration list for PBXNativeTarget "HaloTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				717618D91F20385000359412 /* Debug */,
+				717618DA1F20385000359412 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		717618DB1F20385000359412 /* Build configuration list for PBXNativeTarget "HaloUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				717618DC1F20385000359412 /* Debug */,
+				717618DD1F20385000359412 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 717618A31F20385000359412 /* Project object */;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
+<title></title>
+<canvas id="haloCanvas" width="294" height="353"></canvas>
+<script src="main.web.js"></script>
+<script>
+
+HaloInitialize({
+               width:294.0,
+               height: 353.0,
+               initialState: {},
+               fullscreen: true,
+               arcball: false
+});
+HaloSetMode('present');
+HaloSetGlobalParams({
+    size: 0.6,
+    color: 0.05,
+    complexity: 0.6,
+    speed: 0.5,
+    brightness: 1,
+    wobble: 0.1
+  })
+
+</script>
+</head>
+<body>
+</body>
+</html>
