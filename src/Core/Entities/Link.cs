@@ -7,14 +7,14 @@ namespace Planet.Dashboard.Rewards.Core.Entities
     /// <summary>
     /// Represents a collection of links between a source entity and one or more entities.
     /// </summary>
-    public abstract class LinksCollection<T>
+    public abstract class LinksCollection<T> : Document
     {
         /// <summary>
         /// Value for this property will be used to horizontally partition data for this link.
         /// This ensures that links for a particular entity will be placed in the same partition 
         /// for effecient read.
         /// </summary>
-        public string PartitionId
+        public override string PartitionId
         {
             get
             {
@@ -38,15 +38,6 @@ namespace Planet.Dashboard.Rewards.Core.Entities
         /// <see cref="EntityType"/> of source entity.(eg: <see cref="EntityType.User"/> for <see cref="LinkType.UserEvent"/>
         /// </summary>
         public abstract EntityType SourceType
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Unique identifier of BinaryLinks.
-        /// </summary>
-        public string Id
         {
             get;
             set;

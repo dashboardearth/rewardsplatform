@@ -32,29 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Azure.Documents.Client, Version=1.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\rewards\packages\Microsoft.Azure.DocumentDB.1.15.0\lib\net45\Microsoft.Azure.Documents.Client.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\rewards\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Entities\ActionEdits.cs" />
     <Compile Include="Entities\AffiliationUserOrganization.cs" />
     <Compile Include="Entities\Affiliation.cs" />
     <Compile Include="Entities\CauseEnrolled.cs" />
     <Compile Include="Entities\AccessLevel.cs" />
+    <Compile Include="Entities\Document.cs" />
     <Compile Include="Entities\Link.cs" />
     <Compile Include="Entities\PointsGranted.cs" />
     <Compile Include="Entities\Beacon.cs" />
@@ -66,19 +49,33 @@
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Cause.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="EntityDBClient.cs" />
+    <Compile Include="IEntityDBClient.cs" />
+    <Compile Include="Guard.cs" />
     <Compile Include="IEventProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Azure.Documents.Client, Version=1.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.DocumentDB.1.15.0\lib\net45\Microsoft.Azure.Documents.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\rewards\packages\Microsoft.Azure.DocumentDB.1.15.0\build\Microsoft.Azure.DocumentDB.targets" Condition="Exists('..\rewards\packages\Microsoft.Azure.DocumentDB.1.15.0\build\Microsoft.Azure.DocumentDB.targets')" />
+  <Import Project="..\packages\Microsoft.Azure.DocumentDB.1.15.0\build\Microsoft.Azure.DocumentDB.targets" Condition="Exists('..\packages\Microsoft.Azure.DocumentDB.1.15.0\build\Microsoft.Azure.DocumentDB.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\rewards\packages\Microsoft.Azure.DocumentDB.1.15.0\build\Microsoft.Azure.DocumentDB.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\rewards\packages\Microsoft.Azure.DocumentDB.1.15.0\build\Microsoft.Azure.DocumentDB.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Azure.DocumentDB.1.15.0\build\Microsoft.Azure.DocumentDB.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Azure.DocumentDB.1.15.0\build\Microsoft.Azure.DocumentDB.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
