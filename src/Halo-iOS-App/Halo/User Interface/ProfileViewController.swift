@@ -10,7 +10,11 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    var profileNameView:UIView?
+    var profileTitleView:UIView?
+    var profileImage:UIImageView?
+    var profileTitleLabel:UILabel?
+    var profileSubtitleLabel:UILabel?
+    
     var tableView:UITableView?
 
     override func viewDidLoad() {
@@ -28,11 +32,35 @@ class ProfileViewController: UIViewController {
     
     func layout() {
         
-        self.profileNameView = UIView()
-        let profileNameView = self.profileNameView!
-        profileNameView.translatesAutoresizingMaskIntoConstraints = false
-        profileNameView.backgroundColor = UIColor(white: 1, alpha: 1)
-        self.view.addSubview(profileNameView)
+        // layout profileTitleView
+        
+        self.profileTitleView = UIView()
+        let profileTitleView = self.profileTitleView!
+        profileTitleView.translatesAutoresizingMaskIntoConstraints = false
+        profileTitleView.backgroundColor = UIColor(white: 1, alpha: 1)
+        self.view.addSubview(profileTitleView)
+        
+        let profileImage = UIImageView(image: UIImage(named: "profile"))
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.contentMode = .scaleAspectFit
+        profileTitleView.addSubview(profileImage)
+        self.profileImage = profileImage
+        
+        let profileTitleLabel = UILabel()
+        profileTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        profileTitleLabel.text = "Hacker_01"
+        profileTitleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        profileTitleView.addSubview(profileTitleLabel)
+        self.profileTitleLabel = profileTitleLabel
+        
+        let profileSubtitleLabel = UILabel()
+        profileSubtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        profileSubtitleLabel.text = "Active 2 days"
+        profileSubtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        profileTitleView.addSubview(profileSubtitleLabel)
+        self.profileSubtitleLabel = profileSubtitleLabel
+        
+        // layout tableView
         
         self.tableView = UITableView()
         let tableView = self.tableView!
@@ -45,9 +73,15 @@ class ProfileViewController: UIViewController {
     }
     
     func setupConstraints() {
-        let views = ["tableView": self.tableView!, "profileNameView" : self.profileNameView!]
+        let views = ["tableView": self.tableView!,
+                     "profileTitleView" : self.profileTitleView!,
+            "profileImage": self.profileImage!,
+            "profileTitleLabel": self.profileTitleLabel!,
+            "profileSubtitleLabel": self.profileSubtitleLabel!]
         
         var allConstraints = [NSLayoutConstraint]()
+        
+        // overall layout
         
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
             withVisualFormat: "H:|[tableView]|",
@@ -55,13 +89,33 @@ class ProfileViewController: UIViewController {
             metrics: nil,
             views: views))
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[profileNameView]|",
+            withVisualFormat: "H:|[profileTitleView]|",
             options: [],
             metrics: nil,
             views: views))
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|[profileNameView(100)][tableView]|",
+            withVisualFormat: "V:|[profileTitleView(100)][tableView]|",
             options: [],
+            metrics: nil,
+            views: views))
+        
+        // profileTitleView
+        
+        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|[profileImage]-10-[profileTitleLabel]-(>=0)-|",
+            options: [],
+            metrics: nil,
+            views: views))
+        
+        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-[profileImage]-|",
+            options: [],
+            metrics: nil,
+            views: views))
+        
+        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-[profileTitleLabel]-0-[profileSubtitleLabel]-|",
+            options: [.alignAllLeft],
             metrics: nil,
             views: views))
         
@@ -76,17 +130,31 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if section == 0 {
+            return 1
+        } else {
+            return 5
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+            cell.textLabel?.text = "Halo"
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+            cell.textLabel?.text = "Completed Challenge #\(indexPath.row)"
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
+        if section == 0 {
+            return "Personal Halo"
+        } else {
+            return "Completed Challenges"
+        }
     }
 }
 

@@ -28,6 +28,7 @@
 		717618F01F203A0700359412 /* line-solid.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E31F2039DD00359412 /* line-solid.png */; };
 		717618F11F203A0700359412 /* main.web.js in Resources */ = {isa = PBXBuildFile; fileRef = 717618E91F2039DD00359412 /* main.web.js */; };
 		71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */; };
+		71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		717618E81F2039DD00359412 /* indexLarge.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = indexLarge.html; sourceTree = "<group>"; };
 		717618E91F2039DD00359412 /* main.web.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.web.js; sourceTree = "<group>"; };
 		71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewViewController.swift; sourceTree = "<group>"; };
 		A7E508DACBFE148EF85D5E76 /* Pods-Halo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Halo/Pods-Halo.debug.xcconfig"; sourceTree = "<group>"; };
 		F7758AA0A8DAD59B36493979 /* libPods-Halo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Halo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -208,6 +210,7 @@
 				71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */,
 				7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */,
 				7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */,
+				71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				717618EB1F203A0700359412 /* HaloView.swift in Sources */,
 				7144D0941F21406B00D9FED7 /* HaloTimeSlice.swift in Sources */,
 				717618B31F20385000359412 /* SecondViewController.swift in Sources */,
+				71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */,
 				7144D0881F203B9B00D9FED7 /* Readme.md in Sources */,
 				717618AF1F20385000359412 /* AppDelegate.swift in Sources */,
 				717618B11F20385000359412 /* FirstViewController.swift in Sources */,
