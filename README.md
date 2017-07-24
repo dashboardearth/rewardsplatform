@@ -1,9 +1,19 @@
 # rewards platform
 
-Product and Tech plan: https://docs.google.com/document/d/1ZSCsIiMyTydRYW9p0uYF0yrWoHJ8WB9flHt9pB9NRZQ
+Basic Idea:
+Buckminster Fuller's World Game interfaced with through a mobile experience.
 
-## here we start with a simple helper project to reward people for using github
+Clickable Prototype:
+https://share.proto.io/3CUATB/
 
-here's a fun example using getbadges.io: https://dashboardearth-rewardsplatform.getbadges.io/activity
+Product and Tech spec:
+https://docs.google.com/document/d/1ZSCsIiMyTydRYW9p0uYF0yrWoHJ8WB9flHt9pB9NRZQ
+
+## Example of Use Case of Rewards Platform
+
+### Github Activity
+Overview: Be the first world game players by building the world game.
+
+Example of turning Github activity into a game using platform from getbadges.io: https://dashboardearth-rewardsplatform.getbadges.io/activity
 
 
