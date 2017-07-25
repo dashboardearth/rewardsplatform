@@ -1,0 +1,13 @@
+Progress of mock up of city view of individual halos:
+
+For right now, halos will be static/an image will act as a place holder for the halos.
+Working with mock up data.
+
+Working to use a D3 overlay on Google Maps to view the city and individual halos.
+
+One element in mock-up data:
+{
+    "coordinates": [<latitude>, <longitude>],
+    "halo": <img file path(?)>,
+    "user": <user data, but for now just a username>
+}
