@@ -90,7 +90,7 @@ class ProfileViewController: UIViewController {
     }
     
     func setupDataModel() {
-        self.challenges = Challenge.GetList()
+        self.challenges = Challenge.GetCompletedList()
         self.player = Player.SharedInstance()
     }
 }

@@ -81,16 +81,18 @@ public class HaloView: WKWebView, WKScriptMessageHandler, WKNavigationDelegate {
 
         #if debugUNboxed
             let singleColor = m.color.first ?? 0.0
-            let thingToPassToColor = (m.color.count > 1 ? m.color : singleColor) as Any // making sure passing an array of 1 is the same as a single value
+            var thingToPassToColor = (m.color.count > 1 ? m.color : singleColor) as Any // making sure passing an array of 1 is the same as a single value
         #else
-            let thingToPassToColor = m.color // but pass the array when not debugging because it's not different
+            var thingToPassToColor = m.color // but pass the array when not debugging because it's not different
         #endif
-
+        
+//        thingToPassToColor = [0.1, 0.1, 0.1, 1.0]
+        
         let haloScaleBonus = 0.0 // 0.3 //made to make matchup better to old sizes that used the webview differently
         let haloScaleRadiusBonus = haloScaleBonus / 2
         let haloScaleFactor = haloScaleBonus + 1.0
         let haloScaleRadiusFactor = haloScaleRadiusBonus + 1.0
-        let params = "HaloSetGlobalParams({ size: \(m.size * haloScaleFactor), color: \(thingToPassToColor), complexity: \(complexity), speed: \(m.speed),  wobble: \(wobble), colorCenter: \(m.colorCenter), colorCenterRatio: \(min(0.7, m.colorCenterRatio)), minRingRadius: \(m.minRingRadius * haloScaleRadiusFactor), maxRingRadius: \(m.maxRingRadius * haloScaleRadiusFactor), minNumRings: \(m.minNumRings), maxNumRings: \(m.maxNumRings), waveCount: \(m.waveCount), waveSpeed: \(m.waveSpeed), waveColor: \(m.waveColor), showAuraAtRing: \(m.showAuraAtRing), highlightRing: \(m.highlightRing), waveIntensity: \(m.waveIntensity), evenLineDistribution: \(m.evenLineDistribution), solidLines: \(m.solidLines), showGrid: \(m.showGrid), auraOpacity: \(m.auraOpacity), brightness: \(m.brightness), stratified: \(m.isEnergyMap) })"
+        let params = "HaloSetGlobalParams({ size: \(m.size * haloScaleFactor), color: 0.1, complexity: \(complexity), speed: \(m.speed),  wobble: \(wobble), colorCenter: \(m.colorCenter), colorCenterRatio: \(min(0.7, m.colorCenterRatio)), minRingRadius: \(m.minRingRadius * haloScaleRadiusFactor), maxRingRadius: \(m.maxRingRadius * haloScaleRadiusFactor), minNumRings: \(m.minNumRings), maxNumRings: \(m.maxNumRings), waveCount: \(m.waveCount), waveSpeed: \(m.waveSpeed), waveColor: \(m.waveColor), showAuraAtRing: \(m.showAuraAtRing), highlightRing: \(m.highlightRing), waveIntensity: \(m.waveIntensity), evenLineDistribution: \(m.evenLineDistribution), solidLines: \(m.solidLines), showGrid: \(m.showGrid), auraOpacity: \(m.auraOpacity), brightness: \(m.brightness), stratified: \(m.isEnergyMap) })"
 
         //print("params: \(params) :params")
         isStillEvaluatingJS = true

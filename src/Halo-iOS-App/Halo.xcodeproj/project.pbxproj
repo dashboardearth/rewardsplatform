@@ -32,6 +32,7 @@
 		71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */; };
 		71C13E221F26AE430082D141 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C13E211F26AE430082D141 /* Challenge.swift */; };
 		71C13E241F26B3840082D141 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C13E231F26B3840082D141 /* Player.swift */; };
+		71C32CA21F27D97800D09BB3 /* MapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C32CA11F27D97800D09BB3 /* MapCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewViewController.swift; sourceTree = "<group>"; };
 		71C13E211F26AE430082D141 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		71C13E231F26B3840082D141 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		71C32CA11F27D97800D09BB3 /* MapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCardView.swift; sourceTree = "<group>"; };
 		A7E508DACBFE148EF85D5E76 /* Pods-Halo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Halo/Pods-Halo.debug.xcconfig"; sourceTree = "<group>"; };
 		F7758AA0A8DAD59B36493979 /* libPods-Halo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Halo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -213,12 +215,13 @@
 			isa = PBXGroup;
 			children = (
 				71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */,
-				7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */,
 				71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */,
+				7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */,
 				7130968D1F26BDCF004988D8 /* HaloCardView.swift */,
 				713096911F26F07A004988D8 /* SeparatorLineView.swift */,
 				71B741C31F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift */,
 				71B741C51F27CD0800CE10D3 /* ProfileHeaderView.swift */,
+				71C32CA11F27D97800D09BB3 /* MapCardView.swift */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				7144D0881F203B9B00D9FED7 /* Readme.md in Sources */,
 				7130968E1F26BDCF004988D8 /* HaloCardView.swift in Sources */,
 				717618AF1F20385000359412 /* AppDelegate.swift in Sources */,
+				71C32CA21F27D97800D09BB3 /* MapCardView.swift in Sources */,
 				71B741C61F27CD0800CE10D3 /* ProfileHeaderView.swift in Sources */,
 				71C13E221F26AE430082D141 /* Challenge.swift in Sources */,
 				71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */,
