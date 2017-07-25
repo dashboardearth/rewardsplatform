@@ -1,6 +1,5 @@
 ﻿namespace Planet.Dashboard.Rewards.Services.ApiController
 {
-    using Microsoft.OData.Core;
     using Planet.Dashboard.Rewards.Core.Entities;
     using System;
     using System.Linq;
@@ -12,6 +11,26 @@
 
     public class UsersController : BaseController<User>
     {
+        public override async Task<IHttpActionResult> Get([FromODataUri] string key, ODataQueryOptions<User> queryOptions)
+        {
+
+            Guid id;
+            if (Guid.TryParse(key, out id))
+            {
+                return await base.Get(key, queryOptions);
+            }
+
+            User read = await DBClient.GetUserByUsernameAsync(key);
+
+            if(read == null)
+            {
+                return this.NotFound();
+            }
+
+            return this.Ok(read);
+        }
+
+
         [EnableQuery]
         public async Task<IQueryable<Organization>> GetAffiliations([FromODataUri] string key)
         {
