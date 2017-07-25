@@ -12,7 +12,8 @@ import GoogleMaps
 class MapCardView: UIView {
     
     private var containerView:UIView?
-    private var mapView:UIView?
+    private var mapView:GMSMapView?
+    private var mapMarker:GMSMarker?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +31,7 @@ class MapCardView: UIView {
         self.addSubview(containerView)
         self.containerView = containerView
         
-        let camera = GMSCameraPosition.camera(withLatitude: 47.642, longitude: -122.128, zoom: 12.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 47.642, longitude: -122.128, zoom: 4.0)
         let mapWidth = UIScreen.main.bounds.size.width
         let frame = CGRect(x: 0, y: 0, width: mapWidth, height: mapWidth)
         let mapView = GMSMapView.map(withFrame: frame, camera: camera)
@@ -41,6 +42,7 @@ class MapCardView: UIView {
         marker.title = "Redmond, WA"
         marker.snippet = "Redmond"
         marker.map = mapView
+        self.mapMarker = marker
         
         containerView.addSubview(mapView!)
         
@@ -75,6 +77,14 @@ class MapCardView: UIView {
         allConstraints.append(contentsOf: NSLayoutConstraint.fillSuperview(view: self.mapView!))
         
         NSLayoutConstraint.activate(allConstraints)
+    }
+    
+    func addMarker(latitude: Double, longitue: Double) {
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitue)
+        marker.title = "Redmond, WA"
+        marker.snippet = "Redmond"
+        marker.map = self.mapView
     }
 
 }

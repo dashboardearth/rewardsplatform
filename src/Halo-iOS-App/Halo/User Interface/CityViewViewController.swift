@@ -50,10 +50,6 @@ class CityViewViewController: UIViewController {
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "LabelCell")
         
         self.view.addSubview(tableView)
-        
-        // init map view
-        self.mapCardView = MapCardView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
-        self.mapCardView!.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupConstraints() {
@@ -77,8 +73,17 @@ class CityViewViewController: UIViewController {
     }
     
     func setupDataModel() {
+        
+        // init map view
+        self.mapCardView = MapCardView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+        self.mapCardView!.translatesAutoresizingMaskIntoConstraints = false
+        
         self.challenges = Challenge.GetActiveList()
         self.player = Player.SharedInstance()
+        
+        for c in self.challenges {
+            self.mapCardView?.addMarker(latitude: c.latitude, longitue: c.longitude)
+        }
     }
 }
 

@@ -33,10 +33,24 @@ extension Challenge {
         var challenges = Challenge.s_challenges
         if challenges.count == 0 {
             challenges.append(Challenge(name:"Create Dashboard Earth Account", points:10, isCompleted: true))
+            challenges[0].latitude = 47.642
+            challenges[0].longitude = -122.128
+            
             challenges.append(Challenge(name:"Reuse water cup at work", points:10, isCompleted: false))
+            challenges[1].latitude = 47.242
+            challenges[1].longitude = -122.628
+            
             challenges.append(Challenge(name:"Plant trees", points:50, isCompleted: false))
+            challenges[2].latitude = 47.142
+            challenges[2].longitude = -122.028
+            
             challenges.append(Challenge(name:"Bike to work", points:50, isCompleted: true))
+            challenges[3].latitude = 47.442
+            challenges[3].longitude = -122.028
+            
             challenges.append(Challenge(name:"Write to senator", points:100, isCompleted: false))
+            challenges[4].latitude = 47.942
+            challenges[4].longitude = -122.728
         }
         
         return challenges
