@@ -17,6 +17,9 @@
             builder.EnableLowerCamelCase();
             builder.EntitySet<User>("Users");
             builder.EntitySet<Organization>("Organizations");
+            builder.EntitySet<Beacon>("Beacons");
+            builder.EntitySet<Core.Entities.Action>("Actions");
+            builder.EntitySet<Event>("Events");
             config.MapODataServiceRoute("odata", "api/beta", builder.GetEdmModel());
         }
     }
