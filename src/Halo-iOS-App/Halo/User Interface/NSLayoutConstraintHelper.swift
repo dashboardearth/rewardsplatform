@@ -36,4 +36,11 @@ extension NSLayoutConstraint {
             views: views))
         return allConstraints
     }
+    
+    class func pinCenterSuperview(view: UIView) -> [NSLayoutConstraint] {
+        var allConstraints = [NSLayoutConstraint]()
+        allConstraints.append(NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: view.superview!, attribute: .centerX, multiplier: 1.0, constant: 0.0))
+        allConstraints.append(NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: view.superview!, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+        return allConstraints
+    }
 }

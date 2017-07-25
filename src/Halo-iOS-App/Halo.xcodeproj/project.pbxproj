@@ -27,6 +27,7 @@
 		717618F01F203A0700359412 /* line-solid.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E31F2039DD00359412 /* line-solid.png */; };
 		717618F11F203A0700359412 /* main.web.js in Resources */ = {isa = PBXBuildFile; fileRef = 717618E91F2039DD00359412 /* main.web.js */; };
 		71B741C41F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B741C31F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift */; };
+		71B741C61F27CD0800CE10D3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B741C51F27CD0800CE10D3 /* ProfileHeaderView.swift */; };
 		71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */; };
 		71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */; };
 		71C13E221F26AE430082D141 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C13E211F26AE430082D141 /* Challenge.swift */; };
@@ -77,6 +78,7 @@
 		717618E81F2039DD00359412 /* indexLarge.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = indexLarge.html; sourceTree = "<group>"; };
 		717618E91F2039DD00359412 /* main.web.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.web.js; sourceTree = "<group>"; };
 		71B741C31F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintHelper.swift; sourceTree = "<group>"; };
+		71B741C51F27CD0800CE10D3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewViewController.swift; sourceTree = "<group>"; };
 		71C13E211F26AE430082D141 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				7130968D1F26BDCF004988D8 /* HaloCardView.swift */,
 				713096911F26F07A004988D8 /* SeparatorLineView.swift */,
 				71B741C31F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift */,
+				71B741C51F27CD0800CE10D3 /* ProfileHeaderView.swift */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				7144D0881F203B9B00D9FED7 /* Readme.md in Sources */,
 				7130968E1F26BDCF004988D8 /* HaloCardView.swift in Sources */,
 				717618AF1F20385000359412 /* AppDelegate.swift in Sources */,
+				71B741C61F27CD0800CE10D3 /* ProfileHeaderView.swift in Sources */,
 				71C13E221F26AE430082D141 /* Challenge.swift in Sources */,
 				71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */,
 				71B741C41F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift in Sources */,

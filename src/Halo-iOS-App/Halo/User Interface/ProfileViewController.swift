@@ -11,13 +11,7 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     // Views
-    private var profileTitleView:UIView?
-    private var profileImage:UIImageView?
-    private var profileTitleLabel:UILabel?
-    private var profileSubtitleLabel:UILabel?
-    
     private var tableView:UITableView?
-    
     private var haloCardView:HaloCardView?
     
     // Data Model
@@ -30,6 +24,7 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.setupDataModel()
         
+        self.setupNavigationBarItems()
         self.layout()
         self.setupConstraints()
     }
@@ -39,34 +34,22 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupNavigationBarItems() {
+        if let navigationItem = self.navigationController?.navigationBar.topItem {
+
+            navigationItem.titleView = ProfileHeaderView(frame: CGRect.zero)
+            
+            let scoreButton = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(scoreTapped))
+            navigationItem.rightBarButtonItem = scoreButton
+            
+        }
+    }
+    
+    @objc func scoreTapped() {
+    
+    }
+    
     func layout() {
-        
-        // layout profileTitleView
-        
-        self.profileTitleView = UIView()
-        let profileTitleView = self.profileTitleView!
-        profileTitleView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(profileTitleView)
-        
-        let profileImage = UIImageView(image: UIImage(named: "profile"))
-        profileImage.translatesAutoresizingMaskIntoConstraints = false
-        profileImage.contentMode = .scaleAspectFit
-        profileTitleView.addSubview(profileImage)
-        self.profileImage = profileImage
-        
-        let profileTitleLabel = UILabel()
-        profileTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        profileTitleLabel.text = self.player.name
-        profileTitleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
-        profileTitleView.addSubview(profileTitleLabel)
-        self.profileTitleLabel = profileTitleLabel
-        
-        let profileSubtitleLabel = UILabel()
-        profileSubtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        profileSubtitleLabel.text = "Active for \(Int(self.player.activeDays)) days"
-        profileSubtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        profileTitleView.addSubview(profileSubtitleLabel)
-        self.profileSubtitleLabel = profileSubtitleLabel
         
         // layout tableView
         
@@ -89,42 +72,17 @@ class ProfileViewController: UIViewController {
         
         let views = ["topLayoutGuide": self.topLayoutGuide,
                      "bottomLayoutGuide": self.bottomLayoutGuide,
-                     "tableView": self.tableView!,
-                     "profileTitleView" : self.profileTitleView!,
-                     "profileImage": self.profileImage!,
-                     "profileTitleLabel": self.profileTitleLabel!,
-                     "profileSubtitleLabel": self.profileSubtitleLabel!] as [String : Any]
+                     "tableView": self.tableView!] as [String : Any]
         
         var allConstraints = [NSLayoutConstraint]()
         
         // overall layout
         
         allConstraints.append(contentsOf: NSLayoutConstraint.horizontalFillSuperview(view: self.tableView!))
-        allConstraints.append(contentsOf: NSLayoutConstraint.horizontalFillSuperview(view: self.profileTitleView!))
         
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|[topLayoutGuide][profileTitleView(100)][tableView][bottomLayoutGuide]|",
+            withVisualFormat: "V:|[topLayoutGuide][tableView][bottomLayoutGuide]|",
             options: [],
-            metrics: nil,
-            views: views))
-        
-        // profileTitleView
-        
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[profileImage]-10-[profileTitleLabel]-(>=0)-|",
-            options: [],
-            metrics: nil,
-            views: views))
-        
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-[profileImage]-|",
-            options: [],
-            metrics: nil,
-            views: views))
-        
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-[profileTitleLabel]-0-[profileSubtitleLabel]-|",
-            options: [.alignAllLeft],
             metrics: nil,
             views: views))
         

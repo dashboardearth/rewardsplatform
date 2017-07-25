@@ -140,7 +140,7 @@ class HaloCardView: UIView {
         // bottom view
         
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|[dailyProgressLabel]|",
+            withVisualFormat: "V:|[dailyProgressLabel]-4-|",
             options: [],
             metrics: nil,
             views: views))
