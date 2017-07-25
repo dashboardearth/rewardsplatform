@@ -44,17 +44,18 @@
         }
 
         // POST: api/<version>/Users
-        public IHttpActionResult Post(User user)
+        public async Task<IHttpActionResult> Post(User user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            User newUser = await BaseController.DBClient.Create<User>(user);
             // TODO: Add create logic here.
 
             // return Created(user);
-            return StatusCode(HttpStatusCode.NotImplemented);
+            return this.Created<User>(newUser);
         }
 
         // PATCH: api/<version>/Users(5)
@@ -74,7 +75,7 @@
 
             await DBClient.Update<User>(read);            
 
-            return Updated(read);            
+            return this.Updated<User>(read);
         }
 
         // DELETE: api/<version>/Users('5')
