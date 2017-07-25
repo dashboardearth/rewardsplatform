@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Dashboard.Earth</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>		
+        <script src="userhalo.js"></script>
+    </head>
+    <body>
+        <form id="my-form" action="">
+            Enter a Halo ID: <input id="idInputField" type="text" name="username">
+            <input id="showHalo" type="submit" value="Show Halo">
+            <input id="updateHalo" type="submit" value="Update and Show Halo">
+        </form>
+        <br />
+        <button id="generateHalo">Generate New Halo</button> Halo ID: <span id="haloId"></span>
+        <br />
+        <iframe id="userhalo" style="border:0px #ffffff none;" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="600px" allowfullscreen></iframe>
+    </body>
+</html>

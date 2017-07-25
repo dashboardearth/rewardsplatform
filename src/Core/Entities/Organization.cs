@@ -9,11 +9,17 @@ namespace Planet.Dashboard.Rewards.Core.Entities
     /// </summary>
     public class Organization : Entity
     {
+        public string Name
+        {
+            get;
+            set;
+        }
+
         public override string PartitionId
         {
             get
             {
-                return this.Id;
+                return this.id;
             }
             set
             {
