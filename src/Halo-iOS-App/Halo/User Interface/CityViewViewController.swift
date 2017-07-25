@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import GoogleMaps
 
 class CityViewViewController: UIViewController {
     
@@ -17,6 +19,8 @@ class CityViewViewController: UIViewController {
     // Data Model
     private var player:Player = Player()
     private var challenges:[Challenge] = []
+    
+    private let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +35,6 @@ class CityViewViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @objc func scoreTapped() {
-        
     }
     
     func layout() {
@@ -73,6 +73,18 @@ class CityViewViewController: UIViewController {
     }
     
     func setupDataModel() {
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
         
         // init map view
         self.mapCardView = MapCardView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
@@ -150,7 +162,18 @@ extension CityViewViewController: UITableViewDelegate {
         }
     }
     
-    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //
-    //    }
+}
+
+extension CityViewViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        
+        let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude,
+                                              longitude: locValue.longitude,
+                                              zoom: 12)
+        
+        self.mapCardView?.moveCurrentMarker(latitude: locValue.latitude, longitue: locValue.longitude)
+        self.mapCardView?.animate(to: camera!)
+    }
 }

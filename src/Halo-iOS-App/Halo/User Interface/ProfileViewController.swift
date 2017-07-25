@@ -27,6 +27,9 @@ class ProfileViewController: UIViewController {
         self.setupNavigationBarItems()
         self.layout()
         self.setupConstraints()
+        
+        let request = WebServiceRequest()
+        request.get(url: URL(string: "http://planetdashmshackforgood2017.azurewebsites.net/api/beta/Organizations(%272df036ed-0041-4fb1-a1d0-046d12f4542d%27)")!)
     }
 
     override func didReceiveMemoryWarning() {
