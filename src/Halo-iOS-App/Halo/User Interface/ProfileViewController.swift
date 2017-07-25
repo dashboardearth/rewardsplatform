@@ -10,17 +10,21 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    var profileTitleView:UIView?
-    var profileImage:UIImageView?
-    var profileTitleLabel:UILabel?
-    var profileSubtitleLabel:UILabel?
+    // Views
+    private var tableView:UITableView?
+    private var haloCardView:HaloCardView?
     
-    var tableView:UITableView?
+    // Data Model
+    private var player:Player = Player()
+    private var challenges:[Challenge] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupDataModel()
+        
+        self.setupNavigationBarItems()
         self.layout()
         self.setupConstraints()
     }
@@ -30,96 +34,64 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupNavigationBarItems() {
+        if let navigationItem = self.navigationController?.navigationBar.topItem {
+
+            navigationItem.titleView = ProfileHeaderView(frame: CGRect.zero)
+            
+            let scoreButton = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(scoreTapped))
+            navigationItem.rightBarButtonItem = scoreButton
+            
+        }
+    }
+    
+    @objc func scoreTapped() {
+    
+    }
+    
     func layout() {
-        
-        // layout profileTitleView
-        
-        self.profileTitleView = UIView()
-        let profileTitleView = self.profileTitleView!
-        profileTitleView.translatesAutoresizingMaskIntoConstraints = false
-        profileTitleView.backgroundColor = UIColor(white: 1, alpha: 1)
-        self.view.addSubview(profileTitleView)
-        
-        let profileImage = UIImageView(image: UIImage(named: "profile"))
-        profileImage.translatesAutoresizingMaskIntoConstraints = false
-        profileImage.contentMode = .scaleAspectFit
-        profileTitleView.addSubview(profileImage)
-        self.profileImage = profileImage
-        
-        let profileTitleLabel = UILabel()
-        profileTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        profileTitleLabel.text = "Hacker_01"
-        profileTitleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
-        profileTitleView.addSubview(profileTitleLabel)
-        self.profileTitleLabel = profileTitleLabel
-        
-        let profileSubtitleLabel = UILabel()
-        profileSubtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        profileSubtitleLabel.text = "Active 2 days"
-        profileSubtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        profileTitleView.addSubview(profileSubtitleLabel)
-        self.profileSubtitleLabel = profileSubtitleLabel
         
         // layout tableView
         
         self.tableView = UITableView()
         let tableView = self.tableView!
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "LabelCell")
         
         self.view.addSubview(tableView)
+        
+        // init HaloView
+        self.haloCardView = HaloCardView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+        self.haloCardView!.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupConstraints() {
-        let views = ["tableView": self.tableView!,
-                     "profileTitleView" : self.profileTitleView!,
-            "profileImage": self.profileImage!,
-            "profileTitleLabel": self.profileTitleLabel!,
-            "profileSubtitleLabel": self.profileSubtitleLabel!]
+        
+        let views = ["topLayoutGuide": self.topLayoutGuide,
+                     "bottomLayoutGuide": self.bottomLayoutGuide,
+                     "tableView": self.tableView!] as [String : Any]
         
         var allConstraints = [NSLayoutConstraint]()
         
         // overall layout
         
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[tableView]|",
-            options: [],
-            metrics: nil,
-            views: views))
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[profileTitleView]|",
-            options: [],
-            metrics: nil,
-            views: views))
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|[profileTitleView(100)][tableView]|",
-            options: [],
-            metrics: nil,
-            views: views))
-        
-        // profileTitleView
+        allConstraints.append(contentsOf: NSLayoutConstraint.horizontalFillSuperview(view: self.tableView!))
         
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[profileImage]-10-[profileTitleLabel]-(>=0)-|",
+            withVisualFormat: "V:|[topLayoutGuide][tableView][bottomLayoutGuide]|",
             options: [],
-            metrics: nil,
-            views: views))
-        
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-[profileImage]-|",
-            options: [],
-            metrics: nil,
-            views: views))
-        
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-[profileTitleLabel]-0-[profileSubtitleLabel]-|",
-            options: [.alignAllLeft],
             metrics: nil,
             views: views))
         
         NSLayoutConstraint.activate(allConstraints)
+    }
+    
+    func setupDataModel() {
+        self.challenges = Challenge.GetList()
+        self.player = Player.SharedInstance()
     }
 }
 
@@ -133,25 +105,35 @@ extension ProfileViewController: UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 5
+            return self.challenges.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-            cell.textLabel?.text = "Halo"
+            cell.selectionStyle = .none
+            if let haloView = self.haloCardView {
+                cell.contentView.addSubview(haloView)
+                NSLayoutConstraint.activate(NSLayoutConstraint.fillSuperview(view: haloView))
+            }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-            cell.textLabel?.text = "Completed Challenge #\(indexPath.row)"
+            
+            if indexPath.row < self.challenges.count {
+                let challenge = self.challenges[indexPath.row]
+                cell.textLabel?.text = challenge.name
+                cell.detailTextLabel?.text = "\(challenge.points) points"
+            }
+            
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Personal Halo"
+            return ""
         } else {
             return "Completed Challenges"
         }
@@ -160,10 +142,22 @@ extension ProfileViewController: UITableViewDataSource {
 
 extension ProfileViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 200
-//    }
-//
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0.01
+        } else {
+            return 30
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 400
+        } else {
+            return 80
+        }
+    }
+    
 //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 //
 //    }
