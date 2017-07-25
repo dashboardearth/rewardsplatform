@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace githubpulluserevents
+namespace GitHubTypes
 {
 	class UserData
 	{
@@ -13,6 +13,11 @@ namespace githubpulluserevents
 		public int GetCount(EventType eventType)
 		{
 			return Events.Count(e => e.type == eventType);
+		}
+
+		public IList<Event> GetEventsOfType(EventType eventType)
+		{
+			return Events.Where(e => e.type == eventType).ToList();
 		}
 	}
 }

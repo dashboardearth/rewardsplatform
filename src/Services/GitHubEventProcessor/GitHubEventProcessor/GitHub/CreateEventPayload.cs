@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace GitHubTypes
 {
-	class Repository
+	class CreateEventPayload : IEventPayload
 	{
-		public int id { get; set; }
-		public string name { get; set; }
-		public string url { get; set; }
 	}
 }

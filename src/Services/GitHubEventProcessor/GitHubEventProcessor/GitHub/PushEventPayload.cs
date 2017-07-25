@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace githubpulluserevents
+namespace GitHubTypes
 {
-	class Payload
+	class PushEventPayload : IEventPayload
 	{
 		public int push_id { get; set; }
 		public int size { get; set; }
