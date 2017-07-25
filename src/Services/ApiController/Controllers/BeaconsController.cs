@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,64 +15,67 @@ using System.Threading.Tasks;
 
 namespace Planet.Dashboard.Rewards.Services.ApiController.Controllers
 {
-    public class OrganizationsController : BaseController<Organization>
+    public class BeaconsController : BaseController<Beacon>
     {
         private static ODataValidationSettings _validationSettings = new ODataValidationSettings();
 
-        // GET: 
-        public async Task<IHttpActionResult> GetOrg([FromODataUri] string key, ODataQueryOptions<Organization> queryOptions)
+        // GET: api/
+        public async Task<IHttpActionResult> GetBeacon([FromODataUri] string key, ODataQueryOptions<Beacon> queryOptions)
         {
             // Validate query
-            try {
+            try
+            {
                 queryOptions.Validate(_validationSettings);
-            } catch (ODataException ex)
+            }
+            catch (ODataException ex)
             {
                 return BadRequest(ex.Message);
             }
 
-            Organization result = await DBClient.GetAsync<Organization>(key, key);
+            Beacon result = await DBClient.GetAsync<Beacon>(key, key);
 
             if (result == null)
             {
                 return this.NotFound();
             }
-            return this.Ok<Organization>(result);
+
+            return this.Ok<Beacon>(result);
         }
 
-        // POST: 
-        public async Task<IHttpActionResult> Post(Organization org)
+        // POST: api/Beacon
+        public async Task<IHttpActionResult> Post (Beacon beacon)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            Organization newOrg = await BaseController<Organization>.DBClient.Create<Organization>(org);
+            Beacon newBeacon = await DBClient.Create<Beacon>(beacon);
 
-            return this.Created<Organization>(newOrg);
+            return this.Created<Beacon>(newBeacon);
         }
 
-        // PATCH: 
+        // PATCH: api/
         [AcceptVerbs("PATCH", "MERGE")]
-        public  async Task<IHttpActionResult> Patch([FromODataUri] string key, Delta<Organization> delta)
+        public async Task<IHttpActionResult> Patch([FromODataUri] string key, Delta<Beacon> delta)
         {
             Validate(delta.GetEntity());
 
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            Organization read = await DBClient.GetAsync<Organization>(key, key);
+            Beacon read = await DBClient.GetAsync<Beacon>(key, key);
 
             delta.Patch(read);
 
-            await DBClient.Update<Organization>(read);
+            await DBClient.Update<Beacon>(read);
 
-            return this.Updated<Organization>(read);
+            return this.Updated<Beacon>(read);
         }
 
-        // DELETE: 
+        // DELETE: api/
         public async Task<IHttpActionResult> Delete([FromODataUri] string key)
         {
             await DBClient.Delete(key, key);
