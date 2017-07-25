@@ -18,7 +18,7 @@ class HaloCardView: UIView {
     private var middleView:UIView?
     private var bottomView:UIView?
     
-    private var haloView:HaloView?
+    public var haloView:HaloView?
     private var dailyProgressLabel:UILabel?
     
     override init(frame: CGRect) {

@@ -41,12 +41,11 @@ class ProfileViewController: UIViewController {
             
             let scoreButton = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(scoreTapped))
             navigationItem.rightBarButtonItem = scoreButton
-            
         }
     }
     
     @objc func scoreTapped() {
-    
+        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: 0.9)
     }
     
     func layout() {
