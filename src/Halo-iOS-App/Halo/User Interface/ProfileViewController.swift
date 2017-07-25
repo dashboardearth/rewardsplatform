@@ -46,7 +46,6 @@ class ProfileViewController: UIViewController {
         self.profileTitleView = UIView()
         let profileTitleView = self.profileTitleView!
         profileTitleView.translatesAutoresizingMaskIntoConstraints = false
-        profileTitleView.backgroundColor = UIColor(white: 0.7, alpha: 1)
         self.view.addSubview(profileTitleView)
         
         let profileImage = UIImageView(image: UIImage(named: "profile"))
@@ -82,31 +81,27 @@ class ProfileViewController: UIViewController {
         
         // init HaloView
         self.haloCardView = HaloCardView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+        self.haloCardView!.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupConstraints() {
-        let views = ["tableView": self.tableView!,
+        
+        let views = ["topLayoutGuide": self.topLayoutGuide,
+                     "tableView": self.tableView!,
                      "profileTitleView" : self.profileTitleView!,
-            "profileImage": self.profileImage!,
-            "profileTitleLabel": self.profileTitleLabel!,
-            "profileSubtitleLabel": self.profileSubtitleLabel!]
+                     "profileImage": self.profileImage!,
+                     "profileTitleLabel": self.profileTitleLabel!,
+                     "profileSubtitleLabel": self.profileSubtitleLabel!] as [String : Any]
         
         var allConstraints = [NSLayoutConstraint]()
         
         // overall layout
         
+        allConstraints.append(contentsOf: NSLayoutConstraint.horizontalFillSuperview(view: self.tableView!))
+        allConstraints.append(contentsOf: NSLayoutConstraint.horizontalFillSuperview(view: self.profileTitleView!))
+        
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[tableView]|",
-            options: [],
-            metrics: nil,
-            views: views))
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[profileTitleView]|",
-            options: [],
-            metrics: nil,
-            views: views))
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|[profileTitleView(100)][tableView]|",
+            withVisualFormat: "V:|[topLayoutGuide][profileTitleView(100)][tableView]|",
             options: [],
             metrics: nil,
             views: views))
@@ -136,7 +131,7 @@ class ProfileViewController: UIViewController {
     
     func setupDataModel() {
         self.challenges = Challenge.GetList()
-        self.player = Player.Load()
+        self.player = Player.SharedInstance()
     }
 }
 
@@ -157,8 +152,10 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+            cell.selectionStyle = .none
             if let haloView = self.haloCardView {
                 cell.contentView.addSubview(haloView)
+                NSLayoutConstraint.activate(NSLayoutConstraint.fillSuperview(view: haloView))
             }
             return cell
         } else {

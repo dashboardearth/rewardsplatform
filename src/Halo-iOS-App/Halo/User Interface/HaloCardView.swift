@@ -26,19 +26,19 @@ class HaloCardView: UIView {
         
         let topView = UIView()
         topView.translatesAutoresizingMaskIntoConstraints = false
-        topView.backgroundColor = UIColor.green
+//        topView.backgroundColor = UIColor.green
         self.addSubview(topView)
         self.topView = topView
         
         let middleView = UIView()
         middleView.translatesAutoresizingMaskIntoConstraints = false
-        middleView.backgroundColor = UIColor.blue
+//        middleView.backgroundColor = UIColor.blue
         self.addSubview(middleView)
         self.middleView = middleView
         
         let bottomView = UIView()
         bottomView.translatesAutoresizingMaskIntoConstraints = false
-        bottomView.backgroundColor = UIColor.purple
+//        bottomView.backgroundColor = UIColor.purple
         self.addSubview(bottomView)
         self.bottomView = bottomView
         
@@ -67,7 +67,7 @@ class HaloCardView: UIView {
         
         let scoreLabel = UILabel()
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        scoreLabel.text = "10"
+        scoreLabel.text = Player.SharedInstance().score.description
         scoreLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         bottomView.addSubview(scoreLabel)
         self.scoreLabel = scoreLabel
@@ -77,6 +77,7 @@ class HaloCardView: UIView {
         redeemButton.setTitle("REDEEM", for: .normal)
         redeemButton.setTitleColor(UIColor.black, for: .normal)
         redeemButton.setTitleColor(UIColor.gray, for: .highlighted)
+        redeemButton.addTarget(self, action: #selector(redeemTapped), for: .touchUpInside)
         bottomView.addSubview(redeemButton)
         self.redeemButton = redeemButton
         
@@ -147,11 +148,17 @@ class HaloCardView: UIView {
             views: views))
         
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[scoreLabel][redeemButton]|",
+            withVisualFormat: "H:|[scoreLabel][redeemButton(100)]|",
             options: [.alignAllCenterY],
             metrics: nil,
             views: views))
         
         NSLayoutConstraint.activate(allConstraints)
+    }
+    
+    @objc func redeemTapped() {
+        let player = Player.SharedInstance()
+        player.score = player.score + 1
+        self.scoreLabel?.text = player.score.description
     }
 }
