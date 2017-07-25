@@ -40,7 +40,7 @@ extension Player {
                 p.firstSeenDate = firstSeenDate
             }
             
-            p.activeDays = Date().timeIntervalSince(p.firstSeenDate) / (24.0 * 60.0 * 60.0);
+            p.activeDays = (Date().timeIntervalSince(p.firstSeenDate) / (24.0 * 60.0 * 60.0)) + 1.0; // adding one to start from 1 day
             
             Player.s_player = p
         }
