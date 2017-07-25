@@ -33,12 +33,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entities\ActionEdits.cs" />
+    <Compile Include="Entities\DefaultLinksCollection.cs" />
     <Compile Include="Entities\AffiliationUserOrganization.cs" />
     <Compile Include="Entities\Affiliation.cs" />
     <Compile Include="Entities\CauseEnrolled.cs" />
     <Compile Include="Entities\AccessLevel.cs" />
-    <Compile Include="Entities\Document.cs" />
-    <Compile Include="Entities\Link.cs" />
+    <Compile Include="Entities\PagedResult.cs" />
+    <Compile Include="Entities\PartitionedEntry.cs" />
+    <Compile Include="Entities\Entry.cs" />
+    <Compile Include="Entities\LinksCollection.cs" />
     <Compile Include="Entities\PointsGranted.cs" />
     <Compile Include="Entities\Beacon.cs" />
     <Compile Include="Entities\Action.cs" />

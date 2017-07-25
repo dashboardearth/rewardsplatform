@@ -9,11 +9,23 @@ namespace Planet.Dashboard.Rewards.Core.Entities
     /// </summary>
     public class User : Entity
     {
+        public string GivenName
+        {
+            get;
+            set;
+        }
+
+        public string LastName
+        {
+            get;
+            set;
+        }
+
         public override string PartitionId
         {
             get
             {
-                return this.Id;
+                return this.id;
             }
 
             set
@@ -33,6 +45,15 @@ namespace Planet.Dashboard.Rewards.Core.Entities
         }
 
         public IList<CauseEnrolled> Causes
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// User can have many ids in different system. (eg: GitHub Id, Facebook id etc). They will have a unique id in 
+        /// </summary>
+        public IList<string> AlternateIds
         {
             get;
             set;

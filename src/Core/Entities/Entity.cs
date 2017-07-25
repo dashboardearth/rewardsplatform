@@ -7,7 +7,7 @@ namespace Planet.Dashboard.Rewards.Core.Entities
     /// <summary>
     /// Represents an entity that will be persisted in some database.
     /// </summary>
-    public abstract class Entity : Document
+    public abstract class Entity : PartitionedEntry
     {   
         /// <summary>
         /// Type of entity.

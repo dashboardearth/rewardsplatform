@@ -14,17 +14,10 @@
         {
             // Web API configuration and services
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EnableLowerCamelCase();
             builder.EntitySet<User>("Users");
+            builder.EntitySet<Organization>("Organizations");
             config.MapODataServiceRoute("odata", "api/beta", builder.GetEdmModel());
-
-            // Web API routes
-            //config.MapHttpAttributeRoutes();
-
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
         }
     }
 }
