@@ -1,5 +1,7 @@
 ﻿// TODO: Copyright
 
+using System;
+
 namespace Planet.Dashboard.Rewards.Core.Entities
 {
     /// <summary>
@@ -78,13 +80,13 @@ namespace Planet.Dashboard.Rewards.Core.Entities
 			set;
 		}
 		
-		public datetime(?) StartDateTime
+		public DateTime StartDateTime
 		{
 			get;
 			set;
 		}
 		
-		public datetime(?) EndDateTime
+		public DateTime EndDateTime
 		{
 			get;
 			set;
