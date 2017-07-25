@@ -73,6 +73,7 @@ class ProfileViewController: UIViewController {
         self.tableView = UITableView()
         let tableView = self.tableView!
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "LabelCell")
@@ -87,6 +88,7 @@ class ProfileViewController: UIViewController {
     func setupConstraints() {
         
         let views = ["topLayoutGuide": self.topLayoutGuide,
+                     "bottomLayoutGuide": self.bottomLayoutGuide,
                      "tableView": self.tableView!,
                      "profileTitleView" : self.profileTitleView!,
                      "profileImage": self.profileImage!,
@@ -101,7 +103,7 @@ class ProfileViewController: UIViewController {
         allConstraints.append(contentsOf: NSLayoutConstraint.horizontalFillSuperview(view: self.profileTitleView!))
         
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|[topLayoutGuide][profileTitleView(100)][tableView]|",
+            withVisualFormat: "V:|[topLayoutGuide][profileTitleView(100)][tableView][bottomLayoutGuide]|",
             options: [],
             metrics: nil,
             views: views))
@@ -186,7 +188,7 @@ extension ProfileViewController: UITableViewDelegate {
         if section == 0 {
             return 0.01
         } else {
-            return 20
+            return 30
         }
     }
     

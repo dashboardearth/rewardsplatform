@@ -11,7 +11,6 @@
 		7130968E1F26BDCF004988D8 /* HaloCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7130968D1F26BDCF004988D8 /* HaloCardView.swift */; };
 		713096921F26F07A004988D8 /* SeparatorLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713096911F26F07A004988D8 /* SeparatorLineView.swift */; };
 		7144D0881F203B9B00D9FED7 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 7144D0871F203B9B00D9FED7 /* Readme.md */; };
-		7144D08C1F213A3F00D9FED7 /* HaloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */; };
 		7144D0941F21406B00D9FED7 /* HaloTimeSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */; };
 		717618AF1F20385000359412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717618AE1F20385000359412 /* AppDelegate.swift */; };
 		717618B61F20385000359412 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717618B41F20385000359412 /* Main.storyboard */; };
@@ -56,7 +55,6 @@
 		7130968D1F26BDCF004988D8 /* HaloCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloCardView.swift; sourceTree = "<group>"; };
 		713096911F26F07A004988D8 /* SeparatorLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLineView.swift; sourceTree = "<group>"; };
 		7144D0871F203B9B00D9FED7 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
-		7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloViewController.swift; sourceTree = "<group>"; };
 		7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloTimeSlice.swift; sourceTree = "<group>"; };
 		717618AB1F20385000359412 /* Halo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Halo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717618AE1F20385000359412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */,
-				7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */,
 				7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */,
 				71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */,
 				7130968D1F26BDCF004988D8 /* HaloCardView.swift */,
@@ -432,7 +429,6 @@
 				71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */,
 				71B741C41F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift in Sources */,
 				71C13E241F26B3840082D141 /* Player.swift in Sources */,
-				7144D08C1F213A3F00D9FED7 /* HaloViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

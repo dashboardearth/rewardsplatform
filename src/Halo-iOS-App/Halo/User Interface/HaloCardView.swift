@@ -12,46 +12,48 @@ class HaloCardView: UIView {
     
     private static let haloSize:Double = 300
     
+    private var containerView:UIView?
+    
     private var topView:UIView?
     private var middleView:UIView?
     private var bottomView:UIView?
     
     private var haloView:HaloView?
-    private var todayDateLabel:UILabel?
-    private var scoreLabel:UILabel?
-    private var redeemButton:UIButton?
+    private var dailyProgressLabel:UILabel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+        
+        let containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // add round corner and shadow
+        containerView.backgroundColor = UIColor.white
+        containerView.layer.cornerRadius = 12
+        containerView.layer.masksToBounds = true
+        
+        self.addSubview(containerView)
+        self.containerView = containerView
+        
         let topView = UIView()
         topView.translatesAutoresizingMaskIntoConstraints = false
-//        topView.backgroundColor = UIColor.green
-        self.addSubview(topView)
+        containerView.addSubview(topView)
         self.topView = topView
         
         let middleView = UIView()
         middleView.translatesAutoresizingMaskIntoConstraints = false
-//        middleView.backgroundColor = UIColor.blue
-        self.addSubview(middleView)
+        containerView.addSubview(middleView)
         self.middleView = middleView
         
         let bottomView = UIView()
         bottomView.translatesAutoresizingMaskIntoConstraints = false
-//        bottomView.backgroundColor = UIColor.purple
-        self.addSubview(bottomView)
+        containerView.addSubview(bottomView)
         self.bottomView = bottomView
         
         // top view
         
-        let todayDateLabel = UILabel()
-        todayDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        let formatter = DateFormatter()
-        formatter.dateFormat = "d MMM"
-        todayDateLabel.text = formatter.string(from: Date())
-        todayDateLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        topView.addSubview(todayDateLabel)
-        self.todayDateLabel = todayDateLabel
         
         // middle view
         
@@ -59,27 +61,17 @@ class HaloCardView: UIView {
         let frame = CGRect(x: 0, y: 0, width: HaloCardView.haloSize, height: HaloCardView.haloSize)
         let haloView = HaloView(frame: frame, viewModel: viewModel)
         haloView.translatesAutoresizingMaskIntoConstraints = false
-        haloView.backgroundColor = UIColor.red
         middleView.addSubview(haloView)
         self.haloView = haloView
         
         // bottom view
         
-        let scoreLabel = UILabel()
-        scoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        scoreLabel.text = Player.SharedInstance().score.description
-        scoreLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        bottomView.addSubview(scoreLabel)
-        self.scoreLabel = scoreLabel
-        
-        let redeemButton = UIButton()
-        redeemButton.translatesAutoresizingMaskIntoConstraints = false
-        redeemButton.setTitle("REDEEM", for: .normal)
-        redeemButton.setTitleColor(UIColor.black, for: .normal)
-        redeemButton.setTitleColor(UIColor.gray, for: .highlighted)
-        redeemButton.addTarget(self, action: #selector(redeemTapped), for: .touchUpInside)
-        bottomView.addSubview(redeemButton)
-        self.redeemButton = redeemButton
+        let dailyProgressLabel = UILabel()
+        dailyProgressLabel.translatesAutoresizingMaskIntoConstraints = false
+        dailyProgressLabel.text = "Daily progress"
+        dailyProgressLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        bottomView.addSubview(dailyProgressLabel)
+        self.dailyProgressLabel = dailyProgressLabel
         
         self.setupConstraints()
     }
@@ -90,15 +82,26 @@ class HaloCardView: UIView {
     
     func setupConstraints() {
         
-        let views = ["topView": self.topView!,
-                     "middleView": self.middleView!,
-                     "bottomView": self.bottomView!,
-                     "haloView": self.haloView!,
-                     "todayDateLabel" : self.todayDateLabel!,
-                     "scoreLabel": self.scoreLabel!,
-                     "redeemButton": self.redeemButton!] as [String : Any]
+        let views = ["containerView": self.containerView!,
+            "topView": self.topView!,
+            "middleView": self.middleView!,
+            "bottomView": self.bottomView!,
+            "haloView": self.haloView!,
+            "dailyProgressLabel": self.dailyProgressLabel!] as [String : Any]
         
         var allConstraints = [NSLayoutConstraint]()
+        
+        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-8-[containerView]-8-|",
+            options: [],
+            metrics: nil,
+            views: views))
+        
+        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-8-[containerView]-8-|",
+            options: [],
+            metrics: nil,
+            views: views))
         
         // overall layout
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
@@ -124,11 +127,6 @@ class HaloCardView: UIView {
         
         // top view
         
-        allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|[todayDateLabel]|",
-            options: [],
-            metrics: nil,
-            views: views))
         
         // middle view
         
@@ -142,13 +140,13 @@ class HaloCardView: UIView {
         // bottom view
         
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|[scoreLabel]|",
+            withVisualFormat: "V:|[dailyProgressLabel]|",
             options: [],
             metrics: nil,
             views: views))
         
         allConstraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[scoreLabel][redeemButton(100)]|",
+            withVisualFormat: "H:|-8-[dailyProgressLabel]-8-|",
             options: [.alignAllCenterY],
             metrics: nil,
             views: views))
@@ -156,9 +154,4 @@ class HaloCardView: UIView {
         NSLayoutConstraint.activate(allConstraints)
     }
     
-    @objc func redeemTapped() {
-        let player = Player.SharedInstance()
-        player.score = player.score + 1
-        self.scoreLabel?.text = player.score.description
-    }
 }

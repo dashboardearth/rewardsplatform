@@ -249,7 +249,7 @@
                     wobbleFadeout: 1,
                     debug: !0,
                     growth: .01,
-                    background: [0, 0, 0, 1],
+                    background: [1, 1, 1, 1],
                     glow: .75,
                     growth: .05,
                     solidLines: !0,
