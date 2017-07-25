@@ -9,6 +9,7 @@ namespace GitHubTypes
 	enum State
 	{
 		open,
+		opened,
 		closed,
 		all
 	}
