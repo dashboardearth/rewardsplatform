@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
     
     private var tableView:UITableView?
     
-    private var haloView:HaloView?
+    private var haloCardView:HaloCardView?
     
     // Data Model
     private var player:Player = Player()
@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
         self.profileTitleView = UIView()
         let profileTitleView = self.profileTitleView!
         profileTitleView.translatesAutoresizingMaskIntoConstraints = false
-        profileTitleView.backgroundColor = UIColor(white: 1, alpha: 1)
+        profileTitleView.backgroundColor = UIColor(white: 0.7, alpha: 1)
         self.view.addSubview(profileTitleView)
         
         let profileImage = UIImageView(image: UIImage(named: "profile"))
@@ -81,10 +81,7 @@ class ProfileViewController: UIViewController {
         self.view.addSubview(tableView)
         
         // init HaloView
-        
-        let viewModel = HaloTimeSlice()
-        let frame = CGRect(x: 0, y: 0, width: 400, height: 400)
-        self.haloView = HaloView(frame: frame, viewModel: viewModel)
+        self.haloCardView = HaloCardView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
     }
     
     func setupConstraints() {
@@ -160,7 +157,7 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-            if let haloView = self.haloView {
+            if let haloView = self.haloCardView {
                 cell.contentView.addSubview(haloView)
             }
             return cell
