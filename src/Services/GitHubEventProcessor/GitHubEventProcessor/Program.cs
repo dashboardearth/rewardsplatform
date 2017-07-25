@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace githubpulluserevents
+namespace GitHubTypes
 {
 	static class HttpRequestHelper
 	{
@@ -26,7 +26,8 @@ namespace githubpulluserevents
 												 "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident / 6.0)");
 
 				// $todo Pass in GitHub user into this function and build Uri from that
-				HttpResponseMessage response = await client.GetAsync(@"/users/oneCodeSlinger/events");
+//				HttpResponseMessage response = await client.GetAsync(@"/users/oneCodeSlinger/events");
+				HttpResponseMessage response = await client.GetAsync(@"/users/un1crom/events");
 
 				response.EnsureSuccessStatusCode();
 				result = await response.Content.ReadAsStringAsync();
