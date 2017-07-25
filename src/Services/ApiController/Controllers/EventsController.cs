@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,64 +15,66 @@ using System.Threading.Tasks;
 
 namespace Planet.Dashboard.Rewards.Services.ApiController.Controllers
 {
-    public class OrganizationsController : BaseController<Organization>
+    public class EventsController : BaseController<Event>
     {
         private static ODataValidationSettings _validationSettings = new ODataValidationSettings();
 
         // GET: 
-        public async Task<IHttpActionResult> GetOrg([FromODataUri] string key, ODataQueryOptions<Organization> queryOptions)
+        public async Task<IHttpActionResult> GetEvent([FromODataUri] string key, ODataQueryOptions<Event> queryOptions)
         {
-            // Validate query
-            try {
+            // Validate the query
+            try
+            {
                 queryOptions.Validate(_validationSettings);
             } catch (ODataException ex)
             {
                 return BadRequest(ex.Message);
             }
 
-            Organization result = await DBClient.GetAsync<Organization>(key, key);
+            Event result = await DBClient.GetAsync<Event>(key, key);
 
             if (result == null)
             {
                 return this.NotFound();
             }
-            return this.Ok<Organization>(result);
+
+            return this.Ok<Event>(result);
         }
 
-        // POST: 
-        public async Task<IHttpActionResult> Post(Organization org)
+        // POST: api/
+        public async Task<IHttpActionResult> Post(Event currentEvent)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            Organization newOrg = await BaseController<Organization>.DBClient.Create<Organization>(org);
+            Event newEvent = await BaseController<Event>.DBClient.Create<Event>(currentEvent);
 
-            return this.Created<Organization>(newOrg);
+            return this.Created<Event>(newEvent);
         }
 
-        // PATCH: 
-        [AcceptVerbs("PATCH", "MERGE")]
-        public  async Task<IHttpActionResult> Patch([FromODataUri] string key, Delta<Organization> delta)
+        // PATCH: api/
+        [AcceptVerbs("PATCH", "MERGE")] 
+        public async Task<IHttpActionResult> Patch([FromODataUri] string key, Delta<Event> delta)
         {
             Validate(delta.GetEntity());
 
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            Organization read = await DBClient.GetAsync<Organization>(key, key);
+            Event read = await DBClient.GetAsync<Event>(key, key);
 
             delta.Patch(read);
 
-            await DBClient.Update<Organization>(read);
+            await DBClient.Update<Event>(read);
 
-            return this.Updated<Organization>(read);
+            return this.Updated<Event>(read);
         }
 
-        // DELETE: 
+        // DELETE: api/Event/5
         public async Task<IHttpActionResult> Delete([FromODataUri] string key)
         {
             await DBClient.Delete(key, key);
