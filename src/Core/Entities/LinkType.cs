@@ -11,6 +11,7 @@ namespace Planet.Dashboard.Rewards.Core.Entities
     /// </summary>
     public enum LinkType
     {
+        Unknown = 0,
         Affiliation_UserOrganization,
         Affiliation_OrganizationUser,
 

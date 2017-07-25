@@ -2,12 +2,14 @@
 
 namespace Planet.Dashboard.Rewards.Core.Entities
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// Represents a collection of links between a source entity and one or more entities.
     /// </summary>
-    public abstract class LinksCollection<T> : Document
+    public abstract class LinksCollection<T> : PartitionedEntry where T: Entry
     {
         /// <summary>
         /// Value for this property will be used to horizontally partition data for this link.
@@ -55,7 +57,7 @@ namespace Planet.Dashboard.Rewards.Core.Entities
         /// <summary>
         /// Contains information about other entities that the source entity is linked to.
         /// </summary>
-        public IList<T> TargeEntities
+        public IList<T> TargetEntities
         {
             get;
             set;
@@ -81,6 +83,34 @@ namespace Planet.Dashboard.Rewards.Core.Entities
         {
             get;
             set;
+        }
+
+        public static LinksCollection<U> Create<U>(
+            string sourceId, 
+            string partitionId, 
+            EntityType sourceType, 
+            LinkType linkType,
+            IEnumerable<U> links,
+            int sequenceNumber = 0) where U : Entry
+        {
+            DefaultLinksCollection<U> result;
+
+            switch (linkType)
+            {
+                case LinkType.Affiliation_UserOrganization:
+                    result = new DefaultLinksCollection<U>();
+                    break;
+                default:
+                    throw new NotImplementedException(linkType.ToString());
+            }
+
+            result.LinkType = linkType;
+            result.SourceId = sourceId;
+            result.SourceType = sourceType;
+            result.PartitionId = partitionId;
+            result.SequenceNumber = sequenceNumber;
+            result.TargetEntities = new List<U>(links);
+            return result;
         }
     }
 }
