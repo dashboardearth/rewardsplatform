@@ -1,26 +1,19 @@
-﻿// TODO: Copyright
+// TODO: Copyright
 
 namespace Planet.Dashboard.Rewards.Core.Entities
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Refer documentation for details : https://docs.google.com/document/d/1ZSCsIiMyTydRYW9p0uYF0yrWoHJ8WB9flHt9pB9NRZQ/edit
     /// </summary>
-    public class Organization : Entity
+    public class CompletedAction : Entity
     {
-        public string Name
-        {
-            get;
-            set;
-        }
-
         public override string PartitionId
         {
             get
             {
-                return this.id;
+                return this.OrganizationId;
             }
+
             set
             {
             }
@@ -30,41 +23,56 @@ namespace Planet.Dashboard.Rewards.Core.Entities
         {
             get
             {
-                return EntityType.Organization;
+                return EntityType.CompletedAction;
             }
             set
             {
-            }            
+            }
         }
+		
+		public string CompletionId
+		{
+			get;
+			set;
+		}
 
-        public IList<CauseEnrolled> Causes
+        public string OrganizationId
         {
             get;
             set;
         }
 		
-		public string AddressStreet
-		{
-			get;
-			set;
-		}
-		public string AddressState
-		{
-			get;
-			set;
-		}
-		public int AddressZip
-		{
-			get;
-			set;
-		}
-		public double Currency 
+		public string ActionId
 		{
 			get;
 			set;
 		}
 		
-		public bool IsActive
+		public string EventBeaconId
+		{
+			get;
+			set;
+		}
+		
+		public int ExperienceGained
+		{
+			get;
+			set;
+		}
+		
+		public double CurrencyGained
+		{
+			get;
+			set;
+		}
+		
+		public DateTime DateTimeCompleted
+		{
+			get;
+			set;
+		}
+		
+		public string Category
 		{
 			get;
 			set;

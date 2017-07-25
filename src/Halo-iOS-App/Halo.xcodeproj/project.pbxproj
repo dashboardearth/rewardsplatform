@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		45A792377167CBBB03CD37FA /* libPods-Halo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7758AA0A8DAD59B36493979 /* libPods-Halo.a */; };
+		7130968E1F26BDCF004988D8 /* HaloCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7130968D1F26BDCF004988D8 /* HaloCardView.swift */; };
+		713096921F26F07A004988D8 /* SeparatorLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713096911F26F07A004988D8 /* SeparatorLineView.swift */; };
 		7144D0881F203B9B00D9FED7 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 7144D0871F203B9B00D9FED7 /* Readme.md */; };
-		7144D08C1F213A3F00D9FED7 /* HaloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */; };
 		7144D0941F21406B00D9FED7 /* HaloTimeSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */; };
 		717618AF1F20385000359412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717618AE1F20385000359412 /* AppDelegate.swift */; };
 		717618B61F20385000359412 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717618B41F20385000359412 /* Main.storyboard */; };
@@ -25,8 +26,13 @@
 		717618EF1F203A0700359412 /* line-dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E51F2039DD00359412 /* line-dots.png */; };
 		717618F01F203A0700359412 /* line-solid.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E31F2039DD00359412 /* line-solid.png */; };
 		717618F11F203A0700359412 /* main.web.js in Resources */ = {isa = PBXBuildFile; fileRef = 717618E91F2039DD00359412 /* main.web.js */; };
+		71B741C41F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B741C31F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift */; };
+		71B741C61F27CD0800CE10D3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B741C51F27CD0800CE10D3 /* ProfileHeaderView.swift */; };
 		71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */; };
 		71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */; };
+		71C13E221F26AE430082D141 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C13E211F26AE430082D141 /* Challenge.swift */; };
+		71C13E241F26B3840082D141 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C13E231F26B3840082D141 /* Player.swift */; };
+		71C32CA21F27D97800D09BB3 /* MapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C32CA11F27D97800D09BB3 /* MapCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +54,9 @@
 
 /* Begin PBXFileReference section */
 		00BB0C3A043CC68EB285553B /* Pods-Halo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Halo/Pods-Halo.release.xcconfig"; sourceTree = "<group>"; };
+		7130968D1F26BDCF004988D8 /* HaloCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloCardView.swift; sourceTree = "<group>"; };
+		713096911F26F07A004988D8 /* SeparatorLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLineView.swift; sourceTree = "<group>"; };
 		7144D0871F203B9B00D9FED7 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
-		7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloViewController.swift; sourceTree = "<group>"; };
 		7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloTimeSlice.swift; sourceTree = "<group>"; };
 		717618AB1F20385000359412 /* Halo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Halo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717618AE1F20385000359412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,8 +78,13 @@
 		717618E71F2039DD00359412 /* calories-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calories-gradient.png"; sourceTree = "<group>"; };
 		717618E81F2039DD00359412 /* indexLarge.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = indexLarge.html; sourceTree = "<group>"; };
 		717618E91F2039DD00359412 /* main.web.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.web.js; sourceTree = "<group>"; };
+		71B741C31F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintHelper.swift; sourceTree = "<group>"; };
+		71B741C51F27CD0800CE10D3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewViewController.swift; sourceTree = "<group>"; };
+		71C13E211F26AE430082D141 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		71C13E231F26B3840082D141 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		71C32CA11F27D97800D09BB3 /* MapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCardView.swift; sourceTree = "<group>"; };
 		A7E508DACBFE148EF85D5E76 /* Pods-Halo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Halo/Pods-Halo.debug.xcconfig"; sourceTree = "<group>"; };
 		F7758AA0A8DAD59B36493979 /* libPods-Halo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Halo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -146,6 +158,7 @@
 		717618AD1F20385000359412 /* Halo */ = {
 			isa = PBXGroup;
 			children = (
+				71C13E201F26AE0D0082D141 /* Data Model */,
 				717618E01F20399D00359412 /* User Interface */,
 				717618DE1F20386D00359412 /* Custom Views */,
 				717618AE1F20385000359412 /* AppDelegate.swift */,
@@ -202,11 +215,24 @@
 			isa = PBXGroup;
 			children = (
 				71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */,
-				7144D08B1F213A3F00D9FED7 /* HaloViewController.swift */,
-				7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */,
 				71BBF34E1F269CFD002717A2 /* CityViewViewController.swift */,
+				7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */,
+				7130968D1F26BDCF004988D8 /* HaloCardView.swift */,
+				713096911F26F07A004988D8 /* SeparatorLineView.swift */,
+				71B741C31F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift */,
+				71B741C51F27CD0800CE10D3 /* ProfileHeaderView.swift */,
+				71C32CA11F27D97800D09BB3 /* MapCardView.swift */,
 			);
 			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		71C13E201F26AE0D0082D141 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				71C13E211F26AE430082D141 /* Challenge.swift */,
+				71C13E231F26B3840082D141 /* Player.swift */,
+			);
+			path = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,11 +426,17 @@
 			files = (
 				717618EB1F203A0700359412 /* HaloView.swift in Sources */,
 				7144D0941F21406B00D9FED7 /* HaloTimeSlice.swift in Sources */,
+				713096921F26F07A004988D8 /* SeparatorLineView.swift in Sources */,
 				71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */,
 				7144D0881F203B9B00D9FED7 /* Readme.md in Sources */,
+				7130968E1F26BDCF004988D8 /* HaloCardView.swift in Sources */,
 				717618AF1F20385000359412 /* AppDelegate.swift in Sources */,
+				71C32CA21F27D97800D09BB3 /* MapCardView.swift in Sources */,
+				71B741C61F27CD0800CE10D3 /* ProfileHeaderView.swift in Sources */,
+				71C13E221F26AE430082D141 /* Challenge.swift in Sources */,
 				71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */,
-				7144D08C1F213A3F00D9FED7 /* HaloViewController.swift in Sources */,
+				71B741C41F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift in Sources */,
+				71C13E241F26B3840082D141 /* Player.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,7 +600,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2SMGFN4264;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Halo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dashboardearth.Halo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -583,7 +617,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2SMGFN4264;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Halo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dashboardearth.Halo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

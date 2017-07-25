@@ -35,5 +35,66 @@ namespace Planet.Dashboard.Rewards.Core.Entities
             get;
             set;
         }
+		
+		public string Name 
+		{
+			get;
+			set;
+		}
+		
+		public string Description
+		{
+			get;
+			set;
+		}
+		
+		public string CreatedBy
+		{
+			get;
+			set;
+		}
+		
+		public DateTime CreatedDate
+		{
+			get;
+			set;
+		}
+		
+		public string ApprovedBy
+		{
+			get;
+			set;
+		}
+		
+		public DateTime ApprovedDated
+		{
+			get;
+			set;
+		}
+		
+		public bool OpenEnded 
+		{
+			get;
+			set;
+		}
+		
+		public datetime(?) StartDateTime
+		{
+			get;
+			set;
+		}
+		
+		public datetime(?) EndDateTime
+		{
+			get;
+			set;
+		}
+		
+		public bool RegistrationRequired
+		{
+			get;
+			set;
+		}
+		
     }
 }
