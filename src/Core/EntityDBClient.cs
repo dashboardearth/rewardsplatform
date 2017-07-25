@@ -85,6 +85,21 @@ namespace Planet.Dashboard.Rewards.Core
             }
         }
 
+        public async Task<Entities.User> GetUserByUsernameAsync(string username)
+        {
+            Guard.AgainstNullOrWhitespace(nameof(username), username);
+
+            Entities.PagedResult<Entities.User> result = await this.ListAsync<Entities.User>(item => item.UserName == username, string.Empty, true);
+
+            while(result.More && !result.Result.Any())
+            {
+                result = await this.ListAsync<Entities.User>(item => item.id == username, result.Cursor, true);
+            }
+
+
+            return result.Result.FirstOrDefault();
+        }
+
         public async Task<T> Create<T>(T data) where T : Entities.PartitionedEntry
         {
             Guard.AgainstNull(nameof(data), data);

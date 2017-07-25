@@ -1,5 +1,7 @@
 ﻿// TODO: Copyright
 
+using System;
+
 namespace Planet.Dashboard.Rewards.Core.Entities
 {
     /// <summary>
@@ -35,5 +37,50 @@ namespace Planet.Dashboard.Rewards.Core.Entities
             get;
             set;
         }
+		
+		public double Latitude
+		{
+			get;
+			set;
+		}
+		
+		public double Longitutde
+		{
+			get;
+			set;
+		}
+		
+		public string Name
+		{
+			get;
+			set;
+		}
+		
+		public string Description
+		{
+			get;
+			set;
+		}
+		
+		public string ApprovedBy
+		{
+			get;
+			set;
+		}
+		
+		public DateTime ApprovedDate
+		{
+			get;
+			set;
+		}
+		
+		public bool Enabled
+		{
+			get;
+			set;
+		}
+		
+		
+		// TODO beacon to event; beacon to action
     }
 }

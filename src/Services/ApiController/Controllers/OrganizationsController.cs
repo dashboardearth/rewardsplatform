@@ -9,7 +9,6 @@ using System.Web.OData;
 using System.Web.OData.Query;
 using System.Web.OData.Routing;
 using Planet.Dashboard.Rewards.Core.Entities;
-using Microsoft.OData.Core;
 using Microsoft.Azure.Documents.Client;
 using System.Threading.Tasks;
 
