@@ -40,7 +40,9 @@ class ProfileViewController: UIViewController {
     func setupNavigationBarItems() {
         if let navigationItem = self.navigationController?.navigationBar.topItem {
 
-            navigationItem.titleView = ProfileHeaderView(frame: CGRect.zero)
+            let profileView = ProfileHeaderView(frame: CGRect.zero)
+            profileView.translatesAutoresizingMaskIntoConstraints = false
+            navigationItem.titleView = profileView
             
             let scoreButton = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(scoreTapped))
             navigationItem.rightBarButtonItem = scoreButton

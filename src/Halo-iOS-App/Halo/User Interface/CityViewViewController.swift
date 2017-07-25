@@ -75,7 +75,7 @@ class CityViewViewController: UIViewController {
     func setupDataModel() {
         
         // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
+        // self.locationManager.requestAlwaysAuthorization()
         
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
@@ -169,11 +169,11 @@ extension CityViewViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
-        let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude,
-                                              longitude: locValue.longitude,
-                                              zoom: 12)
+//        let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude,
+//                                              longitude: locValue.longitude,
+//                                              zoom: 16)
         
         self.mapCardView?.moveCurrentMarker(latitude: locValue.latitude, longitue: locValue.longitude)
-        self.mapCardView?.animate(to: camera!)
+        self.mapCardView?.updateCameraPosition(latitude: locValue.latitude, longitue: locValue.longitude)
     }
 }

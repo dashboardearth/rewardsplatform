@@ -14,6 +14,7 @@ class MapCardView: UIView {
     private var containerView:UIView?
     private var mapView:GMSMapView?
     private var currentMarker:GMSMarker?
+    private var currentCamera:GMSCameraPosition?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +32,8 @@ class MapCardView: UIView {
         self.addSubview(containerView)
         self.containerView = containerView
         
-        let camera = GMSCameraPosition.camera(withLatitude: 47.642, longitude: -122.128, zoom: 4.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 47.642, longitude: -122.128, zoom: 15.0)
+        self.currentCamera = camera
         let mapWidth = UIScreen.main.bounds.size.width
         let frame = CGRect(x: 0, y: 0, width: mapWidth, height: mapWidth)
         let mapView = GMSMapView.map(withFrame: frame, camera: camera)
@@ -93,8 +95,9 @@ class MapCardView: UIView {
         self.currentMarker?.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitue)
     }
     
-    func animate(to: GMSCameraPosition) {
-        self.mapView?.animate(to: to)
+    func updateCameraPosition(latitude: Double, longitue: Double) {
+        let cameraUpdate = GMSCameraUpdate.setTarget(CLLocationCoordinate2D(latitude: latitude, longitude: longitue))
+        self.mapView?.animate(with: cameraUpdate)
     }
 
 }
