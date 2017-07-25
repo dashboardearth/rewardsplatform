@@ -9,6 +9,7 @@ namespace githubpulluserevents
 {	enum EventType
 	{
 		CreateEvent,
+		ForkEvent,
 		PushEvent,
 		PullRequestEvent,
 	}

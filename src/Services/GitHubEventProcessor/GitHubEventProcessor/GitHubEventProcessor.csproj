@@ -47,19 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Author.cs" />
-    <Compile Include="Commit.cs" />
-    <Compile Include="Event.cs" />
-    <Compile Include="Organization.cs" />
-    <Compile Include="Payload.cs" />
+    <Compile Include="GitHub\Author.cs" />
+    <Compile Include="GitHub\Commit.cs" />
+    <Compile Include="GitHub\Event.cs" />
+    <Compile Include="GitHub\Organization.cs" />
+    <Compile Include="GitHub\Payload.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
-    <Compile Include="UserData.cs" />
+    <Compile Include="GitHub\Repository.cs" />
+    <Compile Include="GitHub\UserData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Halo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

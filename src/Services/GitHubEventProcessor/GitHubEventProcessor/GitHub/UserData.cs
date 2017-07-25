@@ -9,5 +9,10 @@ namespace githubpulluserevents
 	class UserData
 	{
 		public IList<Event> Events { get; set; }
+
+		public int GetCount(EventType eventType)
+		{
+			return Events.Count(e => e.type == eventType);
+		}
 	}
 }
