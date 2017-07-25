@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,46 +15,48 @@ using System.Threading.Tasks;
 
 namespace Planet.Dashboard.Rewards.Services.ApiController.Controllers
 {
-    public class OrganizationsController : BaseController<Organization>
+    public class ActionController : BaseController<Core.Entities.Action>
     {
         private static ODataValidationSettings _validationSettings = new ODataValidationSettings();
 
-        // GET: 
-        public async Task<IHttpActionResult> GetOrg([FromODataUri] string key, ODataQueryOptions<Organization> queryOptions)
+        // GET: api/
+        public async Task<IHttpActionResult> GetAction([FromODataUri] string key, ODataQueryOptions<Core.Entities.Action> queryOptions)
         {
-            // Validate query
-            try {
+            // Validate the query.
+            try
+            {
                 queryOptions.Validate(_validationSettings);
             } catch (ODataException ex)
             {
                 return BadRequest(ex.Message);
             }
 
-            Organization result = await DBClient.GetAsync<Organization>(key, key);
+            Core.Entities.Action result = await DBClient.GetAsync<Core.Entities.Action>(key, key);
 
             if (result == null)
             {
                 return this.NotFound();
             }
-            return this.Ok<Organization>(result);
+
+            return this.Ok<Core.Entities.Action>(result);
         }
 
-        // POST: 
-        public async Task<IHttpActionResult> Post(Organization org)
+        // POST: api/
+        public async Task<IHttpActionResult> Post(Core.Entities.Action action)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            Organization newOrg = await BaseController<Organization>.DBClient.Create<Organization>(org);
+            Core.Entities.Action newAction = await BaseController<Core.Entities.Action>.DBClient.Create<Core.Entities.Action>(action);
 
-            return this.Created<Organization>(newOrg);
+            return this.Created<Core.Entities.Action>(newAction);
         }
 
-        // PATCH: 
+        // PATCH: api/
         [AcceptVerbs("PATCH", "MERGE")]
-        public  async Task<IHttpActionResult> Patch([FromODataUri] string key, Delta<Organization> delta)
+        public async Task<IHttpActionResult> Patch([FromODataUri] string key, Delta<Core.Entities.Action> delta)
         {
             Validate(delta.GetEntity());
 
@@ -63,16 +65,16 @@ namespace Planet.Dashboard.Rewards.Services.ApiController.Controllers
                 return BadRequest(ModelState);
             }
 
-            Organization read = await DBClient.GetAsync<Organization>(key, key);
+            Core.Entities.Action read = await DBClient.GetAsync<Core.Entities.Action>(key, key);
 
             delta.Patch(read);
 
-            await DBClient.Update<Organization>(read);
+            await DBClient.Update<Core.Entities.Action>(read);
 
-            return this.Updated<Organization>(read);
+            return this.Updated<Core.Entities.Action>(read);
         }
 
-        // DELETE: 
+        // DELETE: api/
         public async Task<IHttpActionResult> Delete([FromODataUri] string key)
         {
             await DBClient.Delete(key, key);
