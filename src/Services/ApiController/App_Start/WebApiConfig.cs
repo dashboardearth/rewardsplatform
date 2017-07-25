@@ -1,6 +1,6 @@
 ﻿namespace Planet.Dashboard.Rewards.Services.ApiController
 {
-    using Planet.Dashboard.Rewards.Core.Entities;
+    using Core = Planet.Dashboard.Rewards.Core;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -15,8 +15,11 @@
             // Web API configuration and services
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EnableLowerCamelCase();
-            builder.EntitySet<User>("Users");
-            builder.EntitySet<Organization>("Organizations");
+            builder.EntitySet<Core.Entities.User>("Users");
+            builder.EntitySet<Core.Entities.Organization>("Organizations");
+            builder.EntitySet<Core.Entities.Action>("Actions");
+            builder.EntitySet<Core.Entities.Beacon>("Beacons");
+            builder.EntitySet<Core.Entities.Event>("Events");
             config.MapODataServiceRoute("odata", "api/beta", builder.GetEdmModel());
         }
     }
