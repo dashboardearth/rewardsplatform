@@ -16,68 +16,6 @@ using System.Threading.Tasks;
 namespace Planet.Dashboard.Rewards.Services.ApiController.Controllers
 {
     public class OrganizationsController : BaseController<Organization>
-    {
-        private static ODataValidationSettings _validationSettings = new ODataValidationSettings();
-
-        // GET: 
-        public async Task<IHttpActionResult> GetOrg([FromODataUri] string key, ODataQueryOptions<Organization> queryOptions)
-        {
-            // Validate query
-            try {
-                queryOptions.Validate(_validationSettings);
-            } catch (ODataException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
-            Organization result = await DBClient.GetAsync<Organization>(key, key);
-
-            if (result == null)
-            {
-                return this.NotFound();
-            }
-            return this.Ok<Organization>(result);
-        }
-
-        // POST: 
-        public async Task<IHttpActionResult> Post(Organization org)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            Organization newOrg = await BaseController<Organization>.DBClient.Create<Organization>(org);
-
-            return this.Created<Organization>(newOrg);
-        }
-
-        // PATCH: 
-        [AcceptVerbs("PATCH", "MERGE")]
-        public  async Task<IHttpActionResult> Patch([FromODataUri] string key, Delta<Organization> delta)
-        {
-            Validate(delta.GetEntity());
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            Organization read = await DBClient.GetAsync<Organization>(key, key);
-
-            delta.Patch(read);
-
-            await DBClient.Update<Organization>(read);
-
-            return this.Updated<Organization>(read);
-        }
-
-        // DELETE: 
-        public async Task<IHttpActionResult> Delete([FromODataUri] string key)
-        {
-            await DBClient.Delete(key, key);
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+    {        
     }
 }
