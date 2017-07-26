@@ -24,8 +24,8 @@ export class Row extends Component {
           </div>
           <div className='de-leaderboard--commits-container'>
             <div>
-              <p className='de-leaderboard--p-medium'>{`Points: ${points}XP`}</p>
-              <p className='de-leaderboard--p-small'>{`Lines of code: ${commits}`}</p>
+              <p className='de-leaderboard--p-medium de-leaderboard--p'>{`Points: ${points}XP`}</p>
+              <p className='de-leaderboard--p-small de-leaderboard--p'>{`Lines of code: ${commits}`}</p>
             </div>
             <img src="https://user-images.githubusercontent.com/10020218/28635322-0791ebe0-71ef-11e7-8aa3-85eadefdcfed.png" alt="Halo" className="de-leaderboard--halo" />
           </div>

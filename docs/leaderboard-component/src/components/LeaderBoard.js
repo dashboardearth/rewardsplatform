@@ -93,7 +93,7 @@ export class LeaderBoard extends Component {
       <div>
         <h2>Leaderboard</h2>
         <div style={{display: "flex", alignItems: "center"}}>
-          <p>Sort by:</p> 
+          <p className="de-leaderboard--p">Sort by:</p> 
           <button 
             onClick={() => this.sortBy('lines')} 
             className={this.state.sortOrder === "lines" ? "de-leaderboard--button de-leaderboard--button-active" : "de-leaderboard--button"}
