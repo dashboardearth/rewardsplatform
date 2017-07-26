@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("AIzaSyA8a_Cdq4AY4GAkaE2j6gdvkCvX8YqOou4")
         
+        print("\(UIScreen.main.bounds.size.width)")
+        
         if !Player.isFirstLaunchCompleted() {
             
             // onboarding experience

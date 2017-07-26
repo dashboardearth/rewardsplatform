@@ -60,5 +60,4 @@ extension Player {
         defaults.set(true, forKey: Player.defaultsKeyIsFirstLaunchCompleted)
     }
     
-    
 }
