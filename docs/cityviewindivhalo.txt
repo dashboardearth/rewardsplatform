@@ -1,5 +1,6 @@
 Progress of mock up of city view of individual halos:
 
+7/25
 For right now, halos will be static/an image will act as a place holder for the halos.
 Working with mock up data.
 
@@ -11,3 +12,37 @@ One element in mock-up data:
     "halo": <img file path(?)>,
     "user": <user data, but for now just a username>
 }
+
+---
+
+7/26
+data:
+{
+    username: [<latitude>, <longitude>],
+    username: [<latitude>, <longitude>],
+    ...
+}
+
+Will add an image in the value array.
+
+TODO: instead of the red circle representing the users, it will be an image representing their halos.
+
+Sources for d3 overlay on Google Maps: https://bl.ocks.org/mbostock/899711
+http://bl.ocks.org/darrenjaworski/6002022
+
+Dynamically adding image to circles in d3: https://stackoverflow.com/questions/41319599/how-to-add-image-to-circle-dynamically-in-d3js
+
+data:
+{
+    username: [<latitude>, <longitude>, <image path>],
+    username: [<latitude>, <longitude>, <image path>],
+    ...
+}
+
+The image in the circle is dynamic (images can be specific to users).
+Images used:
+http://www.terahard.org/assets/images/art/work07.jpg
+http://s3files.core77.com/blog/images/557455_73100_59709_bztPFNFPR.jpg
+http://atlasofthefuture.org/wp-content/uploads/2015/09/ORA_HALO_still3-1920x1477.jpg
+https://crunchbase-production-res.cloudinary.com/image/upload/c_limit,h_600,w_600/v1427775361/mzyzvki6tfpbmman0dqv.jpg
+https://s-media-cache-ak0.pinimg.com/originals/14/13/53/14135321c72ae56078bced1bc8728da8.jpg
