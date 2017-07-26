@@ -13,8 +13,10 @@ namespace Planet.Dashboard.GitHubEventProcessor
 	{
 		public static User ConvertGitHubUserDataToHaloUser(GitHubUserData userData)
 		{
-			// $todo
-			return new User();
+			User user = new User();
+			user.CountPushEvents = userData.GetPushEventCount();
+
+			return user;
 		}
 
 		public static async Task WriteUserToEntityDBAsync(User user, IEntityDBClient dbClient)
@@ -22,11 +24,8 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			await dbClient.Update<User>(user);
 			return;
 		}
-	}
 
-	class HaloDBClientWrapper
-	{
-		IEntityDBClient CreateDBClient()
+		public static IEntityDBClient CreateDBClient()
 		{
 			Uri endpoint = new Uri(ConfigurationManager.AppSettings["EntityDBServiceEndpoint"]);
 			string authKey = ConfigurationManager.AppSettings["EntityDBAuthKey"];
@@ -36,6 +35,5 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			IEntityDBClient client = new EntityDBClient(endpoint, authKey, DatabaseName, CollectionName);
 			return client;
 		}
-
 	}
 }
