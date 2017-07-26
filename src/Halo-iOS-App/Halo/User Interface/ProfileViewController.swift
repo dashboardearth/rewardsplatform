@@ -170,14 +170,25 @@ extension ProfileViewController: UITableViewDelegate {
 
 extension ProfileViewController: UserServiceDelegate {
     
-    func onUpdate(countPushEvents: Int) {
+    func normalize(_ x: Float) -> Float {
+        return min(10.0, max(0.0, x / 10.0))
+    }
+    
+    func onUpdate(countPushEvents: Int, halo: Halo) {
         
-        let size:Float = min(1.0, max(0.0, Float(countPushEvents) / 10.0))
+        self.haloCardView?.haloView?.setGlobalParam(name: "size", value: self.normalize(halo.size))
         
-        print("update halo to size:\(size)")
+        self.haloCardView?.haloView?.setGlobalParam(name: "speed", value: self.normalize(halo.speed))
+        self.haloCardView?.haloView?.setGlobalParam(name: "brightness", value: self.normalize(halo.brightness))
+        self.haloCardView?.haloView?.setGlobalParam(name: "complexity", value: self.normalize(halo.complexity))
+        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: self.normalize(halo.color))
+        self.haloCardView?.haloView?.setGlobalParam(name: "wobble", value: self.normalize(halo.wobble))
         
-        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: 0.6)
-        self.haloCardView?.haloView?.setGlobalParam(name: "size", value: size)
+        self.haloCardView?.haloView?.setGlobalParam(name: "colorCenter", value: self.normalize(halo.colorCenter))
+        self.haloCardView?.haloView?.setGlobalParam(name: "colorCenterRatio", value: self.normalize(halo.colorCenterRatio))
+        self.haloCardView?.haloView?.setGlobalParam(name: "waveCount", value:Float(halo.waveCount))
+        self.haloCardView?.haloView?.setGlobalParam(name: "highlightRing", value: self.normalize(halo.highlightRing))
+        
     }
     
 }
