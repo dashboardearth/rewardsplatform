@@ -13,7 +13,28 @@ namespace Planet.Dashboard.GitHubEventProcessor
 	{
 		public static void ConvertGitHubUserDataToHaloUserAsync(GitHubUserData userData, ref User user)
 		{
-			user.CountPushEvents = userData.GetPushEventCount();
+			//DaysActive => 'size':       (float),
+			//Velocity => 'speed':      (float),
+			//PullConversionRate => 'brightness': (float),
+			//Complexity(inverse) =>       'complexity': (float),
+			//CreateEventCount => 'color':      (float),
+			//Total Code Line Count =>       'wobble':     (float),
+			//PushEventCount => 'colorCenter': (float),
+			//PullEventCount => 'colorCenterRatio': (float),
+			//EventFrequencyCount    'waveCount':  (int),
+			//OverallContributorRanking => 'highlightRing': (float)
+			// that last one is... by adding up all the other ones, sort all users by total, then rank order
+
+			user.Size = userData.GetDaysActive();
+			user.Speed = userData.GetVelocity();
+			user.Brightness = userData.GetPullConversionRate();
+			user.Complexity = userData.GetPullConversionRate(); // $todo
+			user.Color = userData.GetCreateEventCount();
+			user.Wobble = userData.GetPullConversionRate(); // $todo
+			user.ColorCenter= userData.GetPushEventCount();
+			user.ColorCenterRatio = userData.GetPullRequestEventCount();
+			user.WaveCount = userData.GetDaysActive(); // $todo;
+			user.HighlightRing = userData.GetCreateEventCount() + userData.GetPushEventCount(); // $todo
 		}
 
 		public static async Task UpdateUserAsync(GitHubUserData userData, IEntityDBClient dbClient)
