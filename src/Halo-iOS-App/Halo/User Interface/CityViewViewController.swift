@@ -41,6 +41,9 @@ class CityViewViewController: UIViewController {
         
         // layout tableView
         
+        let nc = self.navigationController as? RootNavigationController
+        nc?.showHalo()
+        
         self.tableView = UITableView()
         let tableView = self.tableView!
         tableView.translatesAutoresizingMaskIntoConstraints = false

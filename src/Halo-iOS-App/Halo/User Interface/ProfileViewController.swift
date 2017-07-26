@@ -39,7 +39,9 @@ class ProfileViewController: UIViewController {
     }
     
     func setupNavigationBarItems() {
-        if let navigationItem = self.navigationController?.navigationBar.topItem {
+        let nc = self.navigationController as? RootNavigationController
+        nc?.hideHalo()
+        if let navigationItem = nc?.navigationBar.topItem {
 
             let profileView = ProfileHeaderView(frame: CGRect.zero)
             profileView.translatesAutoresizingMaskIntoConstraints = false
@@ -97,9 +99,9 @@ class ProfileViewController: UIViewController {
     func setupDataModel() {
         self.challenges = Challenge.GetCompletedList()
         self.player = Player.SharedInstance()
-        self.userServiceRequest = UserServiceRequest()
-        self.userServiceRequest?.delegate = self
-        self.userServiceRequest?.scheduleGetDataTask()
+//        self.userServiceRequest = UserServiceRequest()
+//        self.userServiceRequest?.delegate = self
+//        self.userServiceRequest?.scheduleGetDataTask()
     }
 }
 

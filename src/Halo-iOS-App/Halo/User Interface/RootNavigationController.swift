@@ -37,11 +37,11 @@ class RootNavigationController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
-    func showHalo() {
+    public func showHalo() {
         self.haloCardBackgroundView?.isHidden = false
     }
     
-    func hideHalo() {
+    public func hideHalo() {
         self.haloCardBackgroundView?.isHidden = true
     }
 
