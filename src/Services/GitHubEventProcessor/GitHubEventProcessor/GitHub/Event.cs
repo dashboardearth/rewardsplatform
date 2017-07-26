@@ -21,7 +21,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 		public string id { get; set; }
 		public EventType type { get; set; }
 		public Organization actor { get; set; }
-		[JsonProperty(PropertyName = "repro")]
+		[JsonProperty(PropertyName = "repo")]
 		public Repository repository { get; set; }
 		[JsonConverter(typeof(EventPayloadConverter))]
 		public IEventPayload payload { get; set; }

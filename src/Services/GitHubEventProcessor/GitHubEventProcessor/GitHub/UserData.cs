@@ -49,12 +49,35 @@ namespace Planet.Dashboard.GitHubEventProcessor
 		}
 
 		/// <summary>
+		/// Returns total lines of code contributed
+		/// </summary>
+		/// <returns></returns>
+		public int GetTotalLinesOfCode()
+		{
+			int total = 0;
+			foreach (Event evt in GetEventsOfType(EventType.PushEvent))
+			{
+				PushEventPayload payload = evt.payload as PushEventPayload;
+				foreach (Commit commit in payload.Commits)
+				{
+					if(commit.details != null)
+					{
+						total += commit.details.stats.total;
+					}
+				}
+			}
+
+			return total;
+		}
+
+		/// <summary>
 		/// Returns numbers of days of active engagement
 		/// </summary>
 		/// <returns></returns>
 		public int GetDaysActive()
 		{
-			return GetEventsGroupedByDate().Count();
+			int daysActive = GetEventsGroupedByDate().Count();
+			return daysActive;
 		}
 
 		/// <summary>
@@ -103,21 +126,11 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			return (double)closedRequests / (double)totalRequests;
 		}
 
-		/// <summary>
-		/// Returns total lines of code contributed
-		/// </summary>
-		/// <returns></returns>
-		public int GetTotalLinesOfCode()
-		{
-			// $todo
-			return 0;
-		}
-
 		private int GetCount(EventType eventType)
 		{
 			return Events.Count(e => e.type == eventType);
 		}
-		private IList<Event> GetEventsOfType(EventType eventType)
+		public IList<Event> GetEventsOfType(EventType eventType)
 		{
 			return Events.Where(e => e.type == eventType).ToList();
 		}
