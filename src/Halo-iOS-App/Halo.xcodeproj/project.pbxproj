@@ -29,6 +29,9 @@
 		717618EF1F203A0700359412 /* line-dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E51F2039DD00359412 /* line-dots.png */; };
 		717618F01F203A0700359412 /* line-solid.png in Resources */ = {isa = PBXBuildFile; fileRef = 717618E31F2039DD00359412 /* line-solid.png */; };
 		717618F11F203A0700359412 /* main.web.js in Resources */ = {isa = PBXBuildFile; fileRef = 717618E91F2039DD00359412 /* main.web.js */; };
+		71AB93911F290AA7008F3352 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB93901F290AA7008F3352 /* RootNavigationController.swift */; };
+		71AB93931F290CAC008F3352 /* indexSmallest.html in Resources */ = {isa = PBXBuildFile; fileRef = 71AB93921F290CA0008F3352 /* indexSmallest.html */; };
+		71AB93951F2926B7008F3352 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB93941F2926B7008F3352 /* ChallengeViewController.swift */; };
 		71B741C41F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B741C31F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift */; };
 		71B741C61F27CD0800CE10D3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B741C51F27CD0800CE10D3 /* ProfileHeaderView.swift */; };
 		71BBF34D1F269C09002717A2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */; };
@@ -86,6 +89,9 @@
 		717618E71F2039DD00359412 /* calories-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calories-gradient.png"; sourceTree = "<group>"; };
 		717618E81F2039DD00359412 /* indexLarge.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = indexLarge.html; sourceTree = "<group>"; };
 		717618E91F2039DD00359412 /* main.web.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.web.js; sourceTree = "<group>"; };
+		71AB93901F290AA7008F3352 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		71AB93921F290CA0008F3352 /* indexSmallest.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = indexSmallest.html; sourceTree = "<group>"; };
+		71AB93941F2926B7008F3352 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		71B741C31F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintHelper.swift; sourceTree = "<group>"; };
 		71B741C51F27CD0800CE10D3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		71BBF34C1F269B6A002717A2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +223,7 @@
 				717618E81F2039DD00359412 /* indexLarge.html */,
 				717618E21F2039DD00359412 /* indexMedium.html */,
 				717618E41F2039DD00359412 /* indexSmall.html */,
+				71AB93921F290CA0008F3352 /* indexSmallest.html */,
 				717618E51F2039DD00359412 /* line-dots.png */,
 				717618E31F2039DD00359412 /* line-solid.png */,
 				717618E91F2039DD00359412 /* main.web.js */,
@@ -235,6 +242,8 @@
 				71B741C31F26F9EB00CE10D3 /* NSLayoutConstraintHelper.swift */,
 				71B741C51F27CD0800CE10D3 /* ProfileHeaderView.swift */,
 				71C32CA11F27D97800D09BB3 /* MapCardView.swift */,
+				71AB93901F290AA7008F3352 /* RootNavigationController.swift */,
+				71AB93941F2926B7008F3352 /* ChallengeViewController.swift */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -380,6 +389,7 @@
 			files = (
 				717618ED1F203A0700359412 /* indexMedium.html in Resources */,
 				717618BB1F20385000359412 /* LaunchScreen.storyboard in Resources */,
+				71AB93931F290CAC008F3352 /* indexSmallest.html in Resources */,
 				717618EA1F203A0700359412 /* calories-gradient.png in Resources */,
 				717618B81F20385000359412 /* Assets.xcassets in Resources */,
 				717618F01F203A0700359412 /* line-solid.png in Resources */,
@@ -468,10 +478,12 @@
 				71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */,
 				7144D0881F203B9B00D9FED7 /* Readme.md in Sources */,
 				7130968E1F26BDCF004988D8 /* HaloCardView.swift in Sources */,
+				71AB93951F2926B7008F3352 /* ChallengeViewController.swift in Sources */,
 				71CCDD061F281E54002E9386 /* WelcomeViewController.swift in Sources */,
 				717618AF1F20385000359412 /* AppDelegate.swift in Sources */,
 				71743B641F282CBD00CE063A /* UserServiceRequest.swift in Sources */,
 				71C32CA21F27D97800D09BB3 /* MapCardView.swift in Sources */,
+				71AB93911F290AA7008F3352 /* RootNavigationController.swift in Sources */,
 				71B741C61F27CD0800CE10D3 /* ProfileHeaderView.swift in Sources */,
 				71C13E221F26AE430082D141 /* Challenge.swift in Sources */,
 				71E5DE261F27FCF500C995B0 /* WebServiceRequest.swift in Sources */,

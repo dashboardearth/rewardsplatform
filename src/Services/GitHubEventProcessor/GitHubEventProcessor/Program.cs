@@ -96,15 +96,12 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			{
 				Error = Program.HandleDeserializationError
 			});
-<<<<<<< HEAD
 
 			// $todo We'll hit rate-limits for non-authenticated callers of the GitHub APIs! We'll
 			// need to support authenticated calls to GitHub before we uncomment the below.
 			// Details on the rate limiting here: https://developer.github.com/v3/#rate-limiting
 			
 			// await GetCommitDetailsForPushEvents(userData);
-=======
->>>>>>> origin/master
 
 			return userData;
 		}
