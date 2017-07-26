@@ -40,7 +40,7 @@ namespace Planet.Dashboard.Rewards.Core.Entities
                 return this.id;
             }
 
-            set
+           set
             {
             }
         }
@@ -95,6 +95,7 @@ namespace Planet.Dashboard.Rewards.Core.Entities
 			get;
 			set;
 		}
+
 		public int CountPushEvents
 		{
 			get;

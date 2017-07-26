@@ -13,7 +13,6 @@
     {
         public override async Task<IHttpActionResult> Get([FromODataUri] string key, ODataQueryOptions<User> queryOptions)
         {
-
             Guid id;
             if (Guid.TryParse(key, out id))
             {

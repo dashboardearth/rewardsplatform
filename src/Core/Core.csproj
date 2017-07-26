@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entities\ActionEdits.cs" />
+    <Compile Include="Entities\AffiliationOrganizationUser.cs" />
     <Compile Include="Entities\DefaultLinksCollection.cs" />
     <Compile Include="Entities\AffiliationUserOrganization.cs" />
     <Compile Include="Entities\Affiliation.cs" />

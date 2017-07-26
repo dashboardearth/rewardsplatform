@@ -23,7 +23,7 @@ namespace Planet.Dashboard.Rewards.Core
 
         Task AddLinks<T>(string sourceId, EntityType sourceType, LinkType linkType, string partitionId, IEnumerable<T> links) where T : Entry;
 
-        Task RemoveLink<T>(string sourceId, EntityType sourceType, LinkType linkType, string partitionId, string linkId) where T : Entry;
+        Task RemoveLink<T>(string sourceId, EntityType sourceType, LinkType linkType, string partitionId, T link) where T : Entry;
 
         Task<PagedResult<T>> ListAsync<T>(Expression<Func<T, bool>> filter, string cursor, bool crossPartition = false) where T : PartitionedEntry;
     }
