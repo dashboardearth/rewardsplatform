@@ -50,7 +50,8 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func scoreTapped() {
-        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: 0.9)
+        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: 0.6)
+        self.haloCardView?.haloView?.setGlobalParam(name: "size", value: 0.8)
     }
     
     func layout() {
@@ -162,7 +163,4 @@ extension ProfileViewController: UITableViewDelegate {
         }
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//    }
 }
