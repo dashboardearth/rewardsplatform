@@ -1,10 +1,14 @@
 ﻿namespace Planet.Dashboard.Rewards.Services.ApiController
 {
+    using Microsoft.OData.Core;
     using Planet.Dashboard.Rewards.Core.Entities;
     using System;
     using System.Linq;
+    using System.Net;
     using System.Threading.Tasks;
+    using System.Web.Http;
     using System.Web.OData;
+    using System.Web.OData.Query;
 
     public class UsersController : BaseController<User>
     {
@@ -20,6 +24,6 @@
                 string.Empty);
 
             throw new NotImplementedException();
-        }
+	    }
     }
 }

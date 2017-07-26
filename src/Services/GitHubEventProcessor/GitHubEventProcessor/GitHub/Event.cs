@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GitHubTypes
+namespace Planet.Dashboard.GitHubEventProcessor
 {	enum EventType
 	{
 		CreateEvent,
@@ -26,7 +26,7 @@ namespace GitHubTypes
 		public IEventPayload payload { get; set; }
 		[JsonProperty(PropertyName = "public")]
 		public bool isPublic { get; set; }
-		public string created_at { get; set; }
+		public DateTime created_at { get; set; }
 		[JsonProperty(PropertyName = "org")]
 		public Organization organization { get; set; }
 	}

@@ -42,5 +42,32 @@ namespace Planet.Dashboard.Rewards.Core.Entities
             get;
             set;
         }
+		
+		public string AddressStreet
+		{
+			get;
+			set;
+		}
+		public string AddressState
+		{
+			get;
+			set;
+		}
+		public int AddressZip
+		{
+			get;
+			set;
+		}
+		public double Currency 
+		{
+			get;
+			set;
+		}
+		
+		public bool IsActive
+		{
+			get;
+			set;
+		}
     }
 }

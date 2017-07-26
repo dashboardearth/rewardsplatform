@@ -20,6 +20,18 @@ namespace Planet.Dashboard.Rewards.Core.Entities
             get;
             set;
         }
+		
+		public string UserName
+		{
+			get;
+			set;
+		}
+		
+		public string HashPassword
+		{
+			get;
+			set;
+		}
 
         public override string PartitionId
         {
@@ -58,5 +70,35 @@ namespace Planet.Dashboard.Rewards.Core.Entities
             get;
             set;
         }
-    }
+		
+		public int Experience
+		{
+			get;
+			set;
+		}
+		
+		//Maybe not needed; can compute level from exp
+		public int Level
+		{
+			get;
+			set;
+		}
+		
+		public double Currency
+		{
+			get;
+			set;
+		}
+		
+		public int LoginStreak
+		{
+			get;
+			set;
+		}
+		public int CountPushEvents
+		{
+			get;
+			set;
+		}
+	}
 }
