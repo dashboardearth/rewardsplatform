@@ -47,14 +47,15 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			public string gitHubUserName { get; set; }
 		}
 
-		public static async Task<string> RetrieveUserDataAsync(string gitHubUserName)
+		public static async Task<GitHubUserData> RetrieveUserDataAsync(string gitHubUserName)
 		{
 			string jsonString = await HttpRequestHelper.DoRequestAsync(gitHubUserName);
+			Console.WriteLine(jsonString);
 
 			GitHubUserData userData = new GitHubUserData();
 			userData.Events = JsonConvert.DeserializeObject<IList<Event>>(jsonString);
 
-			return jsonString;
+			return userData;
 		}
 
 		public static async void ProcessQueueMessage([QueueTrigger("giteventprocessorqueue")] string jsonMessagePayloadString,
@@ -63,11 +64,13 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			JsonMessagePayload messagePayload = JsonConvert.DeserializeObject<JsonMessagePayload>(jsonMessagePayloadString);
 
 			Console.WriteLine("ProcessQueueMessage - Retrieving data for gitHubUserName: " + messagePayload.gitHubUserName);
-		
-			string jsonString = await RetrieveUserDataAsync(messagePayload.gitHubUserName);
 
-			writer.WriteLine(jsonString);
+			GitHubUserData userData = await RetrieveUserDataAsync(messagePayload.gitHubUserName);
+
+			await HaloDBHelpers.WriteUserToEntityDBAsync(HaloDBHelpers.ConvertGitHubUserDataToHaloUser(userData), DBClientSingleton.Instance.Get());
+			return;
 		}
+
 		public static void ProcessGitHubWebHook([WebHookTrigger] string body, TextWriter log)
 		{
 			// $todo Entry point when we start using GitHub WebHooks??
@@ -81,7 +84,9 @@ namespace Planet.Dashboard.GitHubEventProcessor
 
 				try
 				{
-					string jsonString = RetrieveUserDataAsync(gitHubUserName).Result;
+					GitHubUserData userData = RetrieveUserDataAsync(gitHubUserName).Result;
+					HaloDBHelpers.WriteUserToEntityDBAsync(HaloDBHelpers.ConvertGitHubUserDataToHaloUser(userData), DBClientSingleton.Instance.Get()).Wait();
+
 					return 0;
 				}
 				catch (Exception e)

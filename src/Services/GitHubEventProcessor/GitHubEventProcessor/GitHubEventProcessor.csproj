@@ -96,6 +96,7 @@
     <Compile Include="GitHub\Organization.cs" />
     <Compile Include="GitHub\PullRequestEventPayload.cs" />
     <Compile Include="GitHub\PushEventPayload.cs" />
+    <Compile Include="Halo\DBClientSingleton.cs" />
     <Compile Include="Halo\HaloDBHelpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
