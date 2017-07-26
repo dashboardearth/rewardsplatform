@@ -10,7 +10,7 @@ import UIKit
 
 class HaloCardView: UIView {
     
-    private static let haloSize:Double = 300
+    private static let haloSize:Double = 325
     
     private var containerView:UIView?
     

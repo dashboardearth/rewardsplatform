@@ -1,4 +1,4 @@
-﻿// TODO: Copyright
+// TODO: Copyright
 
 namespace Planet.Dashboard.Rewards.Core.Entities
 {
@@ -40,7 +40,7 @@ namespace Planet.Dashboard.Rewards.Core.Entities
                 return this.id;
             }
 
-            set
+           set
             {
             }
         }

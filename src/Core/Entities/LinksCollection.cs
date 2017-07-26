@@ -93,16 +93,7 @@ namespace Planet.Dashboard.Rewards.Core.Entities
             IEnumerable<U> links,
             int sequenceNumber = 0) where U : Entry
         {
-            DefaultLinksCollection<U> result;
-
-            switch (linkType)
-            {
-                case LinkType.Affiliation_UserOrganization:
-                    result = new DefaultLinksCollection<U>();
-                    break;
-                default:
-                    throw new NotImplementedException(linkType.ToString());
-            }
+            DefaultLinksCollection<U> result = new DefaultLinksCollection<U>();            
 
             result.LinkType = linkType;
             result.SourceId = sourceId;
