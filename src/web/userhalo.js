@@ -50,6 +50,28 @@ function generateNewHalo()
     req.send(JSON.stringify(newHaloDefinition));    
 }
 
+function generateUserHalo()
+{
+    var username = $("#usernameInputField").val();
+    console.log(username);
+    var req = new XMLHttpRequest();
+    req.open("GET", "http://planetdashmshackforgood2017.azurewebsites.net/api/beta/Users", true);
+    req.setRequestHeader("Content-Type", "application/text");
+    req.onreadystatechange = function() {
+      if (req.readyState == 4) {
+        var res;
+        try {
+          res = JSON.parse(req.responseText);
+        } catch(e) {
+          console.log("Error parsing server response: " + req.responseText + ":");
+          return;
+        }
+        console.log(res);
+      }
+    }
+    req.send(username);    
+}
+
 function updateHalo()
 {
     var haloId = $("#idInputField").val();
@@ -123,5 +145,11 @@ $(document).ready(function()
     $('#generateHalo').click(function(e)
     {
         generateNewHalo();
+    });
+
+    $('#generateUserHalo').click(function(e)
+    {   
+        e.preventDefault();
+        generateUserHalo();
     });
 });
