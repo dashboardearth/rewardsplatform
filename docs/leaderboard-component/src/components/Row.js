@@ -31,7 +31,7 @@ export class Row extends Component {
         </div>
         <div className='commits-container'>
           <p>{`Commits: ${commits}`}</p>
-          <img src={halo} alt="" className="halo" />
+          <img src="https://user-images.githubusercontent.com/10020218/28635322-0791ebe0-71ef-11e7-8aa3-85eadefdcfed.png" alt="Halo" className="halo" />
         </div>
       </div>
     )
