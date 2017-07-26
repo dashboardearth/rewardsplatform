@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController {
             profileView.translatesAutoresizingMaskIntoConstraints = false
             navigationItem.titleView = profileView
             
-            let scoreButton = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(scoreTapped))
+            let scoreButton = UIBarButtonItem(title: "Credit", style: .plain, target: self, action: #selector(scoreTapped))
             navigationItem.rightBarButtonItem = scoreButton
         }
     }
