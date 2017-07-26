@@ -45,11 +45,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			user.Brightness = Normalize(userData.GetPullConversionRate());
 			user.Complexity = Normalize(userData.GetPullConversionRate()); // $todo
 			user.Color = Normalize(userData.GetCreateEventCount());
-<<<<<<< HEAD
 			user.Wobble = Normalize(userData.GetNumberOfCommits()); // $todo GetTotalLinesOfCode broken because of private repos not reporting data
-=======
-			user.Wobble = Normalize(userData.GetNumberOfCommits());
->>>>>>> origin/master
 			user.ColorCenter= Normalize(userData.GetPushEventCount());
 			user.ColorCenterRatio = Normalize(userData.GetPullRequestEventCount());
 			user.WaveCount = userData.GetEventFrequency();
