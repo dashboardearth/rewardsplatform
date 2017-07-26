@@ -25,7 +25,7 @@ class ProfileHeaderView: UIView {
         
         let profileTitleLabel = UILabel()
         profileTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        profileTitleLabel.text = Player.SharedInstance().name
+        profileTitleLabel.text = Player.SharedInstance().userName
         profileTitleLabel.font = UIFont.boldSystemFont(ofSize: 12)
         self.addSubview(profileTitleLabel)
         self.profileTitleLabel = profileTitleLabel
@@ -42,11 +42,6 @@ class ProfileHeaderView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
-        let width = max(size.width, 420) // min is 420
-        return CGSize(width: width, height: size.height)
     }
     
     func setupConstraints() {

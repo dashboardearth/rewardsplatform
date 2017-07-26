@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     // Data Model
     private var player:Player = Player()
     private var challenges:[Challenge] = []
+    private var userServiceRequest:UserServiceRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,9 @@ class ProfileViewController: UIViewController {
         self.setupNavigationBarItems()
         self.layout()
         self.setupConstraints()
+        
+        let request = UserServiceRequest()
+        request.getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +41,9 @@ class ProfileViewController: UIViewController {
     func setupNavigationBarItems() {
         if let navigationItem = self.navigationController?.navigationBar.topItem {
 
-            navigationItem.titleView = ProfileHeaderView(frame: CGRect.zero)
+            let profileView = ProfileHeaderView(frame: CGRect.zero)
+            profileView.translatesAutoresizingMaskIntoConstraints = false
+            navigationItem.titleView = profileView
             
             let scoreButton = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(scoreTapped))
             navigationItem.rightBarButtonItem = scoreButton
@@ -45,7 +51,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func scoreTapped() {
-        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: 0.9)
+        
     }
     
     func layout() {
@@ -91,6 +97,9 @@ class ProfileViewController: UIViewController {
     func setupDataModel() {
         self.challenges = Challenge.GetCompletedList()
         self.player = Player.SharedInstance()
+        self.userServiceRequest = UserServiceRequest()
+        self.userServiceRequest?.delegate = self
+        self.userServiceRequest?.scheduleGetDataTask()
     }
 }
 
@@ -157,7 +166,18 @@ extension ProfileViewController: UITableViewDelegate {
         }
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//    }
+}
+
+extension ProfileViewController: UserServiceDelegate {
+    
+    func onUpdate(countPushEvents: Int) {
+        
+        let size:Float = min(1.0, max(0.0, Float(countPushEvents) / 10.0))
+        
+        print("update halo to size:\(size)")
+        
+        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: 0.6)
+        self.haloCardView?.haloView?.setGlobalParam(name: "size", value: size)
+    }
+    
 }

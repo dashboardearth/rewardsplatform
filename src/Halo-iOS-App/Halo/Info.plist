@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDocumentTypes</key>
+	<array/>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -24,6 +26,8 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Let&apos;s display location-based challenges near you</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -51,5 +55,23 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+<key>NSAppTransportSecurity</key>
+<dict>
+  <key>NSExceptionDomains</key>
+  <dict>
+    <key>planetdashmshackforgood2017.azurewebsites.net</key>
+    <dict>
+      <!--Include to allow subdomains-->
+      <key>NSIncludesSubdomains</key>
+      <true/>
+      <!--Include to allow HTTP requests-->
+      <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+      <true/>
+      <!--Include to specify minimum TLS version-->
+      <key>NSTemporaryExceptionMinimumTLSVersion</key>
+      <string>TLSv1.1</string>
+    </dict>
+  </dict>
+</dict>
 </dict>
 </plist>
