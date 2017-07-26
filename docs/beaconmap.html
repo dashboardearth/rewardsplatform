@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script src="https://maps.google.com/maps/api/js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="http://d3.geotheory.co.uk/d3-transform.js"></script>
+
+        <style>
+            html, body, #map {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .users, .users svg {
+                position: absolute;
+            }
+
+            .users svg {
+                width: 100px;
+                height: 50px;
+                padding-right: 100px;
+                font: 20px sans-serif;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+            var beaconData = {"volunteer event": [47.641750, -122.129363]} 
+            
+            var map = new google.maps.Map(d3.select("#map").node(), {
+                zoom: 17,
+                center: new google.maps.LatLng(47.640920, -122.126981), // Santa Monica
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+
+
+            // overlay our data on top of Google Maps
+            var overlay = new google.maps.OverlayView();
+
+            overlay.onAdd = function() {
+
+                var layer = d3.select(this.getPanes().overlayLayer).append("div")
+                .attr("class", "users");
+
+                overlay.draw = function() {
+
+                    var projection = this.getProjection();
+                    var padding = 10;
+
+                    // Turn the overlay projection into a d3 projection
+                    function transform(d) {
+                        d = new google.maps.LatLng(d.value[0], d.value[1]);
+                        d = projection.fromLatLngToDivPixel(d);
+                        return d3.select(this)
+                            .style("left", (d.x - padding) + "px")
+                            .style("top", (d.y - padding) + "px");
+                    }
+
+
+                    //                console.log(d3.entries(users));
+                    var marker = layer.selectAll("svg")
+                    .data(d3.entries(beaconData))
+                    .each(transform) // update existing markers
+                    .enter().append("svg")
+                    .each(transform);
+                    
+                    // rotated square as a diamond
+                    var rotateTranslate = d3.svg.transform().rotate(-45).translate(0, 15.5);
+                    marker.append("rect")
+                        .attr("height", 15)
+                        .attr("width", 15)
+                        .attr("transform", rotateTranslate)
+                        .style("fill", "red")
+                        .style("stroke", "black");
+                        
+
+                    // Add a label.
+                    marker.append("text")
+                        .attr("x", padding*4)
+                        .attr("y", padding)
+                        .attr("dy", ".31em")
+                        .text(function(d) { return d.key; });
+
+
+
+                };
+            };
+            overlay.setMap(map);
+
+
+        </script>
+    </body>
+
+
+</html>
