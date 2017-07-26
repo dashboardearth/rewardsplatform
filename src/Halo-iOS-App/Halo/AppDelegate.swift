@@ -22,16 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("\(UIScreen.main.bounds.size.width)")
         
-        if !Player.isFirstLaunchCompleted() {
-            
-            // onboarding experience
-            let welcome = UIStoryboard(name: "Onboard", bundle: nil).instantiateViewController(withIdentifier: "WelcomeViewController")
-            self.window?.rootViewController = welcome
-            
-        } else {
-            let root = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-            self.window?.rootViewController = root
-        }
+//        if !Player.isFirstLaunchCompleted() {
+//
+//            // onboarding experience
+//            let welcome = UIStoryboard(name: "Onboard", bundle: nil).instantiateViewController(withIdentifier: "WelcomeViewController")
+//            self.window?.rootViewController = welcome
+//
+//        } else {
+        let root = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        self.window?.rootViewController = root
+//        }
         
         self.window?.makeKeyAndVisible()
         

@@ -36,5 +36,42 @@ class WebServiceRequest: NSObject {
             
         }
         task.resume()
+    
+        
+    }
+    
+
+    
+    public func post(url: URL, param:[String:Any], callback: @escaping (Bool) -> Void) {
+        let session = URLSession.shared
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.cachePolicy = .reloadIgnoringLocalCacheData
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: param, options: [])
+        
+        let task = session.downloadTask(with: request) { (location, response, error) in
+            
+            if location == nil {
+                callback(false)
+                return
+            }
+            
+            if let anyObj = try? JSONSerialization.jsonObject(with:Data(contentsOf: location!), options: .allowFragments) as! [String:Any] {
+                DispatchQueue.main.async {
+                    callback(true)
+                }
+            } else {
+                print("error no anyObj")
+            }
+            
+            callback(false)
+            
+        }
+        task.resume()
+        
     }
 }

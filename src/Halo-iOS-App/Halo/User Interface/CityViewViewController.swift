@@ -32,6 +32,13 @@ class CityViewViewController: UIViewController {
         self.setupConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let nc = self.navigationController as? RootNavigationController
+        nc?.showHalo()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,6 +47,9 @@ class CityViewViewController: UIViewController {
     func layout() {
         
         // layout tableView
+        
+        let nc = self.navigationController as? RootNavigationController
+        nc?.showHalo()
         
         self.tableView = UITableView()
         let tableView = self.tableView!
@@ -160,6 +170,13 @@ extension CityViewViewController: UITableViewDelegate {
         } else {
             return 80
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView?.deselectRow(at: indexPath, animated: true)
+        
+//        let vc = ChallengeViewController()
+//        self.navigationController?.present(vc, animated: true, completion: nil)
     }
     
 }
