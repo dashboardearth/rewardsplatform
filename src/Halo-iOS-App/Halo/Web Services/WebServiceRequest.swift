@@ -10,7 +10,7 @@ import Foundation
 
 class WebServiceRequest: NSObject {
     
-    public func get(url: URL) {
+    public func get(url: URL, callback: @escaping ([String:Any]) -> Void) {
         let session = URLSession.shared
         
         var request = URLRequest(url: url)
@@ -19,8 +19,7 @@ class WebServiceRequest: NSObject {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
         
-        let task = session.downloadTask(with: request) {
-            (location, response, error) in
+        let task = session.downloadTask(with: request) { (location, response, error) in
             
             if location == nil {
                 print("error no file")
@@ -28,17 +27,13 @@ class WebServiceRequest: NSObject {
             }
             
             if let anyObj = try? JSONSerialization.jsonObject(with:Data(contentsOf: location!), options: .allowFragments) as! [String:Any] {
-                let org = anyObj["partitionId"] as? String
-                print(org!)
+                DispatchQueue.main.async {
+                    callback(anyObj)
+                }
             } else {
                 print("error no anyObj")
             }
             
-//            DispatchQueue.main.async {
-//                if queryNumber == self.queryNumber {
-//                    self.delegate?.receviedError(error: "Error while fetching data")
-//                }
-//            }
         }
         task.resume()
     }

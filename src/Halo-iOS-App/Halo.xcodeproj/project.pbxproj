@@ -12,6 +12,9 @@
 		713096921F26F07A004988D8 /* SeparatorLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713096911F26F07A004988D8 /* SeparatorLineView.swift */; };
 		7144D0881F203B9B00D9FED7 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 7144D0871F203B9B00D9FED7 /* Readme.md */; };
 		7144D0941F21406B00D9FED7 /* HaloTimeSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */; };
+		71743B601F28250F00CE063A /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71743B5F1F28250F00CE063A /* Onboard.storyboard */; };
+		71743B621F282A2700CE063A /* EnterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71743B611F282A2700CE063A /* EnterProfileViewController.swift */; };
+		71743B641F282CBD00CE063A /* UserServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71743B631F282CBD00CE063A /* UserServiceRequest.swift */; };
 		717618AF1F20385000359412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717618AE1F20385000359412 /* AppDelegate.swift */; };
 		717618B61F20385000359412 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717618B41F20385000359412 /* Main.storyboard */; };
 		717618B81F20385000359412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 717618B71F20385000359412 /* Assets.xcassets */; };
@@ -33,6 +36,7 @@
 		71C13E221F26AE430082D141 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C13E211F26AE430082D141 /* Challenge.swift */; };
 		71C13E241F26B3840082D141 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C13E231F26B3840082D141 /* Player.swift */; };
 		71C32CA21F27D97800D09BB3 /* MapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C32CA11F27D97800D09BB3 /* MapCardView.swift */; };
+		71CCDD061F281E54002E9386 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CCDD051F281E54002E9386 /* WelcomeViewController.swift */; };
 		71E5DE261F27FCF500C995B0 /* WebServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5DE251F27FCF500C995B0 /* WebServiceRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +63,9 @@
 		713096911F26F07A004988D8 /* SeparatorLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLineView.swift; sourceTree = "<group>"; };
 		7144D0871F203B9B00D9FED7 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		7144D0931F21406B00D9FED7 /* HaloTimeSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloTimeSlice.swift; sourceTree = "<group>"; };
+		71743B5F1F28250F00CE063A /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
+		71743B611F282A2700CE063A /* EnterProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterProfileViewController.swift; sourceTree = "<group>"; };
+		71743B631F282CBD00CE063A /* UserServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceRequest.swift; sourceTree = "<group>"; };
 		717618AB1F20385000359412 /* Halo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Halo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717618AE1F20385000359412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717618B51F20385000359412 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +93,7 @@
 		71C13E211F26AE430082D141 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		71C13E231F26B3840082D141 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		71C32CA11F27D97800D09BB3 /* MapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCardView.swift; sourceTree = "<group>"; };
+		71CCDD051F281E54002E9386 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		71E5DE251F27FCF500C995B0 /* WebServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceRequest.swift; sourceTree = "<group>"; };
 		A7E508DACBFE148EF85D5E76 /* Pods-Halo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Halo/Pods-Halo.debug.xcconfig"; sourceTree = "<group>"; };
 		F7758AA0A8DAD59B36493979 /* libPods-Halo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Halo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,12 +168,14 @@
 		717618AD1F20385000359412 /* Halo */ = {
 			isa = PBXGroup;
 			children = (
+				71CCDD041F281E31002E9386 /* Onboarding */,
 				71E5DE241F27FCD400C995B0 /* Web Services */,
 				71C13E201F26AE0D0082D141 /* Data Model */,
 				717618E01F20399D00359412 /* User Interface */,
 				717618DE1F20386D00359412 /* Custom Views */,
 				717618AE1F20385000359412 /* AppDelegate.swift */,
 				717618B41F20385000359412 /* Main.storyboard */,
+				71743B5F1F28250F00CE063A /* Onboard.storyboard */,
 				717618B71F20385000359412 /* Assets.xcassets */,
 				717618B91F20385000359412 /* LaunchScreen.storyboard */,
 				717618BC1F20385000359412 /* Info.plist */,
@@ -238,10 +248,20 @@
 			path = "Data Model";
 			sourceTree = "<group>";
 		};
+		71CCDD041F281E31002E9386 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				71CCDD051F281E54002E9386 /* WelcomeViewController.swift */,
+				71743B611F282A2700CE063A /* EnterProfileViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		71E5DE241F27FCD400C995B0 /* Web Services */ = {
 			isa = PBXGroup;
 			children = (
 				71E5DE251F27FCF500C995B0 /* WebServiceRequest.swift */,
+				71743B631F282CBD00CE063A /* UserServiceRequest.swift */,
 			);
 			path = "Web Services";
 			sourceTree = "<group>";
@@ -363,6 +383,7 @@
 				717618EA1F203A0700359412 /* calories-gradient.png in Resources */,
 				717618B81F20385000359412 /* Assets.xcassets in Resources */,
 				717618F01F203A0700359412 /* line-solid.png in Resources */,
+				71743B601F28250F00CE063A /* Onboard.storyboard in Resources */,
 				717618F11F203A0700359412 /* main.web.js in Resources */,
 				717618B61F20385000359412 /* Main.storyboard in Resources */,
 				717618EE1F203A0700359412 /* indexSmall.html in Resources */,
@@ -442,11 +463,14 @@
 			files = (
 				717618EB1F203A0700359412 /* HaloView.swift in Sources */,
 				7144D0941F21406B00D9FED7 /* HaloTimeSlice.swift in Sources */,
+				71743B621F282A2700CE063A /* EnterProfileViewController.swift in Sources */,
 				713096921F26F07A004988D8 /* SeparatorLineView.swift in Sources */,
 				71BBF34F1F269CFD002717A2 /* CityViewViewController.swift in Sources */,
 				7144D0881F203B9B00D9FED7 /* Readme.md in Sources */,
 				7130968E1F26BDCF004988D8 /* HaloCardView.swift in Sources */,
+				71CCDD061F281E54002E9386 /* WelcomeViewController.swift in Sources */,
 				717618AF1F20385000359412 /* AppDelegate.swift in Sources */,
+				71743B641F282CBD00CE063A /* UserServiceRequest.swift in Sources */,
 				71C32CA21F27D97800D09BB3 /* MapCardView.swift in Sources */,
 				71B741C61F27CD0800CE10D3 /* ProfileHeaderView.swift in Sources */,
 				71C13E221F26AE430082D141 /* Challenge.swift in Sources */,

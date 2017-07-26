@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     // Data Model
     private var player:Player = Player()
     private var challenges:[Challenge] = []
+    private var userServiceRequest:UserServiceRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,8 @@ class ProfileViewController: UIViewController {
         self.layout()
         self.setupConstraints()
         
-        let request = WebServiceRequest()
-        request.get(url: URL(string: "http://planetdashmshackforgood2017.azurewebsites.net/api/beta/Organizations(%272df036ed-0041-4fb1-a1d0-046d12f4542d%27)")!)
+        let request = UserServiceRequest()
+        request.getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,8 +51,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func scoreTapped() {
-        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: 0.6)
-        self.haloCardView?.haloView?.setGlobalParam(name: "size", value: 0.8)
+        
     }
     
     func layout() {
@@ -97,6 +97,9 @@ class ProfileViewController: UIViewController {
     func setupDataModel() {
         self.challenges = Challenge.GetCompletedList()
         self.player = Player.SharedInstance()
+        self.userServiceRequest = UserServiceRequest()
+        self.userServiceRequest?.delegate = self
+        self.userServiceRequest?.scheduleGetDataTask()
     }
 }
 
@@ -161,6 +164,20 @@ extension ProfileViewController: UITableViewDelegate {
         } else {
             return 80
         }
+    }
+    
+}
+
+extension ProfileViewController: UserServiceDelegate {
+    
+    func onUpdate(countPushEvents: Int) {
+        
+        let size:Float = min(1.0, max(0.0, Float(countPushEvents) / 10.0))
+        
+        print("update halo to size:\(size)")
+        
+        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: 0.6)
+        self.haloCardView?.haloView?.setGlobalParam(name: "size", value: size)
     }
     
 }

@@ -25,7 +25,7 @@ class ProfileHeaderView: UIView {
         
         let profileTitleLabel = UILabel()
         profileTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        profileTitleLabel.text = Player.SharedInstance().name
+        profileTitleLabel.text = Player.SharedInstance().userName
         profileTitleLabel.font = UIFont.boldSystemFont(ofSize: 12)
         self.addSubview(profileTitleLabel)
         self.profileTitleLabel = profileTitleLabel

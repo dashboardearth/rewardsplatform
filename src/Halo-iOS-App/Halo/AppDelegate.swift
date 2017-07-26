@@ -20,6 +20,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("AIzaSyA8a_Cdq4AY4GAkaE2j6gdvkCvX8YqOou4")
         
+        if !Player.isFirstLaunchCompleted() {
+            
+            // onboarding experience
+            let welcome = UIStoryboard(name: "Onboard", bundle: nil).instantiateViewController(withIdentifier: "WelcomeViewController")
+            self.window?.rootViewController = welcome
+            
+        } else {
+            let root = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+            self.window?.rootViewController = root
+        }
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
