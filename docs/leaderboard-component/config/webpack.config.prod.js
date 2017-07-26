@@ -66,8 +66,9 @@ module.exports = {
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath,
     // Config for component Library
-    library: 'dashboardEarthLib',
+    library: 'DE',
     libraryTarget: 'umd',
+    umdNamedDefine: true,
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path
