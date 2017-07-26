@@ -1,4 +1,4 @@
-﻿// TODO: Copyright
+// TODO: Copyright
 
 namespace Planet.Dashboard.Rewards.Core.Entities
 {
@@ -7,19 +7,13 @@ namespace Planet.Dashboard.Rewards.Core.Entities
     /// <summary>
     /// Refer documentation for details : https://docs.google.com/document/d/1ZSCsIiMyTydRYW9p0uYF0yrWoHJ8WB9flHt9pB9NRZQ/edit
     /// </summary>
-    public class Organization : Entity
+    public class BeaconAction : Entity
     {
-        public string Name
-        {
-            get;
-            set;
-        }
-
-        public override string PartitionId
+         public override string PartitionId
         {
             get
             {
-                return this.id;
+                return this.BeaconId;
             }
             set
             {
@@ -30,44 +24,57 @@ namespace Planet.Dashboard.Rewards.Core.Entities
         {
             get
             {
-                return EntityType.Organization;
+                return EntityType.BeaconAction;
             }
             set
             {
-            }            
+            }
         }
 
-        public IList<CauseEnrolled> Causes
+        public string BeaconId
         {
             get;
             set;
         }
 		
-		public string AddressStreet
-		{
-			get;
-			set;
-		}
-		public string AddressState
-		{
-			get;
-			set;
-		}
-		public int AddressZip
-		{
-			get;
-			set;
-		}
-		public double Currency 
+		public string ActionId
 		{
 			get;
 			set;
 		}
 		
-		public bool IsActive
+		public string BeaconActionId
 		{
 			get;
 			set;
 		}
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

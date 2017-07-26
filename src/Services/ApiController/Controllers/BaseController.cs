@@ -12,11 +12,11 @@
     using System.Web.OData.Query;
     using System.Web.OData.Routing;
     using Planet.Dashboard.Rewards.Core.Entities;
-    using Microsoft.OData.Core;
     using Microsoft.Azure.Documents.Client;
     using Core;
     using System.Configuration;
     using System.Threading.Tasks;
+    using Microsoft.OData;
 
     public abstract class BaseController<T> : ODataController where T : PartitionedEntry
     {
@@ -83,7 +83,7 @@
         [AcceptVerbs("PATCH")]
         public virtual async Task<IHttpActionResult> Patch([FromODataUri] string key, Delta<T> delta)
         {
-            Validate(delta.GetEntity());
+            Validate(delta);
 
             if (!ModelState.IsValid)
             {

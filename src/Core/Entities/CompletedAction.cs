@@ -1,13 +1,11 @@
-﻿// TODO: Copyright
-
-using System;
+// TODO: Copyright
 
 namespace Planet.Dashboard.Rewards.Core.Entities
 {
     /// <summary>
     /// Refer documentation for details : https://docs.google.com/document/d/1ZSCsIiMyTydRYW9p0uYF0yrWoHJ8WB9flHt9pB9NRZQ/edit
     /// </summary>
-    public class Action : Entity
+    public class CompletedAction : Entity
     {
         public override string PartitionId
         {
@@ -25,12 +23,18 @@ namespace Planet.Dashboard.Rewards.Core.Entities
         {
             get
             {
-                return EntityType.Action;
+                return EntityType.CompletedAction;
             }
             set
             {
             }
         }
+		
+		public string CompletionId
+		{
+			get;
+			set;
+		}
 
         public string OrganizationId
         {
@@ -38,91 +42,37 @@ namespace Planet.Dashboard.Rewards.Core.Entities
             set;
         }
 		
-		public string Name
+		public string ActionId
 		{
 			get;
 			set;
 		}
 		
-		public string Description
+		public string EventBeaconId
 		{
 			get;
 			set;
 		}
 		
-		public string CreatedByUser
+		public int ExperienceGained
 		{
 			get;
 			set;
 		}
 		
-		public DateTime CreatedDate
+		public double CurrencyGained
 		{
 			get;
 			set;
 		}
 		
-		public DateTime ModifiedDate
-		{
-			get;
-			set;
-		}
-		
-		public string ApprovedBy
-		{
-			get;
-			set;
-		}
-		
-		public DateTime ApprovedDate
-		{
-			get;
-			set;
-		}
-		
-		public double PointsGranted
-		{
-			get;
-			set;
-		}
-		
-		public int InvolvementLevel
-		{
-			get;
-			set;
-		}
-		
-		public bool Enabled
+		public DateTime DateTimeCompleted
 		{
 			get;
 			set;
 		}
 		
 		public string Category
-		{
-			get;
-			set;
-		}
-		
-		public bool Repeatable
-		{
-			get;
-			set;
-		}
-		
-		public int CompletionLimitDay
-		{
-			get;
-			set;
-		}
-		
-		public int CompletionLimitMonth
-		{
-			get;
-			set;
-		}
-		
-		public int CompletionLimitYear
 		{
 			get;
 			set;

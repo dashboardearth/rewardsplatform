@@ -1,5 +1,7 @@
 ﻿// TODO: Copyright
 
+using System;
+
 namespace Planet.Dashboard.Rewards.Core.Entities
 {
     /// <summary>
@@ -35,5 +37,66 @@ namespace Planet.Dashboard.Rewards.Core.Entities
             get;
             set;
         }
+		
+		public string Name 
+		{
+			get;
+			set;
+		}
+		
+		public string Description
+		{
+			get;
+			set;
+		}
+		
+		public string CreatedBy
+		{
+			get;
+			set;
+		}
+		
+		public DateTime CreatedDate
+		{
+			get;
+			set;
+		}
+		
+		public string ApprovedBy
+		{
+			get;
+			set;
+		}
+		
+		public DateTime ApprovedDated
+		{
+			get;
+			set;
+		}
+		
+		public bool OpenEnded 
+		{
+			get;
+			set;
+		}
+		
+		public DateTime StartDateTime
+		{
+			get;
+			set;
+		}
+		
+		public DateTime EndDateTime
+		{
+			get;
+			set;
+		}
+		
+		public bool RegistrationRequired
+		{
+			get;
+			set;
+		}
+		
     }
 }

@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace GitHubTypes
 {
+	enum State
+	{
+		open,
+		closed,
+		all
+	}
+
 	class PullRequestEventPayload : IEventPayload
 	{
+		public State action { get; set; }
 	}
 }
