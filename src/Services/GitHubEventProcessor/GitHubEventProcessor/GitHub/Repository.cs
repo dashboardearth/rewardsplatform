@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Planet.Dashboard.GitHubEventProcessor
 {
-	class Repository
+	public class Repository
 	{
 		public int id { get; set; }
 		public string name { get; set; }

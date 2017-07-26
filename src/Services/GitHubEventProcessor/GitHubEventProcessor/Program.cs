@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Planet.Dashboard.Rewards.Core;
+using System.Configuration;
 
 namespace Planet.Dashboard.GitHubEventProcessor
 {
@@ -40,7 +41,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 		}
 	}
 
-	class Program
+	public class Program
 	{
 		class JsonMessagePayload
 		{
@@ -59,10 +60,17 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			return userData;
 		}
 
-		public static async void ProcessQueueMessage([QueueTrigger("giteventprocessorqueue")] string jsonMessagePayloadString,
+		public static async void ProcessQueueMessage(
+            [QueueTrigger("giteventprocessorqueue")] string jsonMessagePayloadString,
 			[Blob("containername/blobname")]TextWriter writer)
 		{
 			JsonMessagePayload messagePayload = JsonConvert.DeserializeObject<JsonMessagePayload>(jsonMessagePayloadString);
+
+            if(messagePayload == null ||
+               string.IsNullOrWhiteSpace(messagePayload.gitHubUserName))
+            {
+                return;
+            }
 
 			Console.WriteLine("ProcessQueueMessage - Retrieving data for gitHubUserName: " + messagePayload.gitHubUserName);
 
@@ -98,7 +106,12 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			}
 			else
 			{
-				JobHost host = new JobHost();
+                JobHostConfiguration config = new JobHostConfiguration();
+                config.StorageConnectionString = ConfigurationManager.AppSettings["WebJobStorage"];
+                config.DashboardConnectionString = null;
+                config.Queues.BatchSize = 1;
+                config.UseCore();
+                JobHost host = new JobHost(config);
 				host.RunAndBlock();
 
 				return 0;
