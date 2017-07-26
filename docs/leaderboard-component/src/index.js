@@ -4,7 +4,7 @@ import './index.css';
 import { LeaderBoard } from './components/LeaderBoard';
 // import registerServiceWorker from './registerServiceWorker';
 
-
+// Uncomment this to build for production
 export default {
   
   DEConfig: null,
@@ -14,11 +14,8 @@ export default {
   },
 
   components: {
-
     leaderboard: {
-
       new: (config) => {
-
         return {
           render: (args) => {
             ReactDOM.render(
@@ -29,10 +26,11 @@ export default {
           }
         }
       }
-    }
+    } // Add another component here
   }
 }
 
+// Uncomment this to run locally
 // ReactDOM.render(<LeaderBoard />, document.getElementById('root'));
 
 // registerServiceWorker();
