@@ -8,6 +8,19 @@
 
 import Foundation
 
+class Halo {
+    var size:Float = 0.1
+    var speed:Float = 0.2
+    var brightness:Float = 0.0
+    var complexity:Float = 0.0
+    var color:Float = 0.05
+    var wobble:Float = 0.0
+    var colorCenter:Float = 0.0
+    var colorCenterRatio:Float = 0.0
+    var waveCount:Int = 0
+    var highlightRing:Float = 0.0
+}
+
 class Player {
     public var userName:String = ""
     public var firstName:String = ""
@@ -15,6 +28,7 @@ class Player {
     public var activeDays:Double = 0
     public var firstSeenDate:Date = Date()
     public var score:Int = 0
+    public var halo:Halo = Halo()
 }
 
 extension Player {
@@ -32,7 +46,7 @@ extension Player {
             if let userName = defaults.string(forKey: Player.defaultsKeyForUserName) {
                 p.userName = userName
             } else {
-                p.userName = "oneCodeSlinger"
+                p.userName = "un1crom"
             }
             
             if let firstSeenDate = defaults.object(forKey: Player.defaultsKeyForFirstSeenDate) as? Date {

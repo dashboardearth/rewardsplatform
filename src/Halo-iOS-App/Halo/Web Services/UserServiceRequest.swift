@@ -12,19 +12,6 @@ protocol UserServiceDelegate {
     func onUpdate(countPushEvents: Int, halo: Halo)
 }
 
-class Halo {
-    var size:Float = 0.0
-    var speed:Float = 0.0
-    var brightness:Float = 0.0
-    var complexity:Float = 0.0
-    var color:Float = 0.0
-    var wobble:Float = 0.0
-    var colorCenter:Float = 0.0
-    var colorCenterRatio:Float = 0.0
-    var waveCount:Int = 0
-    var highlightRing:Float = 0.0
-}
-
 class UserServiceRequest:NSObject {
     
     private var request:WebServiceRequest?
@@ -56,17 +43,15 @@ class UserServiceRequest:NSObject {
     func getData() {
         
         let request = WebServiceRequest()
+        self.request = request
         
-//        let userName = Player.SharedInstance().userName
-        let userName = "un1crom"
+        let userName = Player.SharedInstance().userName
         if let url = URL(string: "http://planetdashmshackforgood2017.azurewebsites.net/api/beta/Users(%27\(userName)%27)") {
             request.get(url: url) { (anyObj:[String:Any]) in
                 
                 
 //                {"@odata.context":"http://planetdashmshackforgood2017.azurewebsites.net/api/beta/$metadata#Users/$entity","givenName":"R","lastName":"F","userName":"un1crom","hashPassword":null,"partitionId":"29dfc935-f699-468e-8104-158f2faa71f8","entityType":"User","alternateIds":[],"experience":0,"level":0,"currency":0.0,"loginStreak":0,"countPushEvents":0,"size":2.0,"speed":7.5,"brightness":1.0,"complexity":1.0,"color":0.0,"wobble":1.0,"colorCenter":15.0,"colorCenterRatio":14.0,"waveCount":2,"highlightRing":15.0,"haloUrl":null,"id":"29dfc935-f699-468e-8104-158f2faa71f8"}
                 
-                let givenName = anyObj["givenName"] as? String
-                let lastName = anyObj["lastName"] as? String
                 let countPushEvents = anyObj["countPushEvents"] as? Int
                 
                 let halo = Halo()
@@ -99,9 +84,9 @@ class UserServiceRequest:NSObject {
     
     func createUser(userName:String, givenName:String, lastName:String) {
         
-        let param = ["userName": userName, "givenName": givenName, "lastName": lastName]
-        
-        let request = WebServiceRequest()
+//        let param = ["userName": userName, "givenName": givenName, "lastName": lastName]
+//
+//        let request = WebServiceRequest()
         
 //        request.post(url: "http://planetdashmshackforgood2017.azurewebsites.net/api/beta/Users", param: param) { (sucess:Bool) in
         

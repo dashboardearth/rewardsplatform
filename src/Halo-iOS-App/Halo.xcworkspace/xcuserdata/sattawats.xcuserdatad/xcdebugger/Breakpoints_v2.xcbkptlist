@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Halo/User Interface/CityViewViewController.swift"
-            timestampString = "522788818.187446"
+            timestampString = "522792170.588767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "setupDataModel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Halo/Data Model/Player.swift"
-            timestampString = "522728606.057088"
+            timestampString = "522792170.589231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "SharedInstance()"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Halo/User Interface/ProfileViewController.swift"
-            timestampString = "522788818.188121"
+            timestampString = "522792170.589318"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "onUpdate(countPushEvents:halo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Halo/Web Services/UserServiceRequest.swift"
-            timestampString = "522788818.188596"
+            timestampString = "522792170.589422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "getData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -112,6 +112,22 @@
             startingLineNumber = "146"
             endingLineNumber = "146"
             landmarkName = "haloHtmlPrefix()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Halo/Web Services/UserServiceRequest.swift"
+            timestampString = "522792170.589606"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "getData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

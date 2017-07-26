@@ -22,6 +22,8 @@ class RootNavigationController: UINavigationController {
         haloCardBackgroundView.backgroundColor = UIColor.white
         haloCardBackgroundView.layer.cornerRadius = 12
         haloCardBackgroundView.layer.masksToBounds = true
+        haloCardBackgroundView.layer.borderColor = UIColor.gray.cgColor
+        haloCardBackgroundView.layer.borderWidth = 5.0
         self.haloCardBackgroundView = haloCardBackgroundView
         self.view.addSubview(haloCardBackgroundView)
         
@@ -39,6 +41,27 @@ class RootNavigationController: UINavigationController {
     
     public func showHalo() {
         self.haloCardBackgroundView?.isHidden = false
+        
+        let player = Player.SharedInstance()
+        self.haloCardView?.setGlobalParam(name: "speed", value: player.halo.speed)
+        self.haloCardView?.setGlobalParam(name: "color", value: player.halo.color)
+        self.haloCardView?.setGlobalParam(name: "size", value: player.halo.size)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            
+            self.haloCardView?.setGlobalParam(name: "speed", value: player.halo.speed + 0.3)
+            self.haloCardView?.setGlobalParam(name: "color", value: player.halo.color + 0.3)
+            self.haloCardView?.setGlobalParam(name: "size", value: player.halo.size + 0.3)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                
+                self.haloCardView?.setGlobalParam(name: "speed", value: player.halo.speed + 0.5)
+                self.haloCardView?.setGlobalParam(name: "color", value: player.halo.color + 0.5)
+                self.haloCardView?.setGlobalParam(name: "size", value: player.halo.size + 0.5)
+                
+            }
+            
+        }
     }
     
     public func hideHalo() {

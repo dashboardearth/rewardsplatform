@@ -28,9 +28,13 @@ class ProfileViewController: UIViewController {
         self.setupNavigationBarItems()
         self.layout()
         self.setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let request = UserServiceRequest()
-        request.getData()
+        let nc = self.navigationController as? RootNavigationController
+        nc?.hideHalo()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,9 +43,8 @@ class ProfileViewController: UIViewController {
     }
     
     func setupNavigationBarItems() {
-        let nc = self.navigationController as? RootNavigationController
-        nc?.hideHalo()
-        if let navigationItem = nc?.navigationBar.topItem {
+        
+        if let navigationItem = self.navigationController?.navigationBar.topItem {
 
             let profileView = ProfileHeaderView(frame: CGRect.zero)
             profileView.translatesAutoresizingMaskIntoConstraints = false
@@ -177,6 +180,8 @@ extension ProfileViewController: UserServiceDelegate {
     }
     
     func onUpdate(countPushEvents: Int, halo: Halo) {
+        
+        Player.SharedInstance().halo = halo
         
         self.haloCardView?.haloView?.setGlobalParam(name: "size", value: self.normalize(halo.size))
         
