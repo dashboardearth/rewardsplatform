@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Planet.Dashboard.GitHubEventProcessor
-{	enum EventType
+{	public enum EventType
 	{
 		CreateEvent,
 		ForkEvent,
@@ -15,7 +15,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 		PullRequestEvent,
 	}
 
-	class Event
+	public class Event
 	{
 		public string id { get; set; }
 		public EventType type { get; set; }

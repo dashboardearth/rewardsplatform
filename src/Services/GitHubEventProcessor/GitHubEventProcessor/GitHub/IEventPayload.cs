@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Planet.Dashboard.GitHubEventProcessor
 {
-	class IEventPayload
+	public class IEventPayload
 	{
 	}
 

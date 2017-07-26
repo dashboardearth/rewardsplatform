@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Planet.Dashboard.GitHubEventProcessor
 {
-	class GitHubUserData
+	public class GitHubUserData
 	{
 		public string UserName { get; set; }
 		public IList<Event> Events { get; set; }
