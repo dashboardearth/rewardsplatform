@@ -46,7 +46,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 
 				await dbClient.Update<User>(user);
 				
-				user = await dbClient.GetUserByUsernameAsync(userData.UserName);
+				//user = await dbClient.GetUserByUsernameAsync(userData.UserName);
 
 				return;
 			}
