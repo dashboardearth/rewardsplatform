@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GitHubTypes
+namespace Planet.Dashboard.GitHubEventProcessor
 {
-	class IEventPayload
+	public class IEventPayload
 	{
 	}
 

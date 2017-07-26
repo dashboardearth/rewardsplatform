@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GitHubTypes
+namespace Planet.Dashboard.GitHubEventProcessor
 {
-	class Organization
+	public class Organization
 	{
 		public int id { get; set; }
 		public string login { get; set; }

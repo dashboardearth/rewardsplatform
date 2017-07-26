@@ -1,5 +1,7 @@
 ﻿// TODO: Copyright
 
+using System;
+
 namespace Planet.Dashboard.Rewards.Core.Entities
 {
     /// <summary>

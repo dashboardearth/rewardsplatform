@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     // Data Model
     private var player:Player = Player()
     private var challenges:[Challenge] = []
+    private var userServiceRequest:UserServiceRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,13 @@ class ProfileViewController: UIViewController {
         self.layout()
         self.setupConstraints()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let nc = self.navigationController as? RootNavigationController
+        nc?.hideHalo()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,17 +43,20 @@ class ProfileViewController: UIViewController {
     }
     
     func setupNavigationBarItems() {
+        
         if let navigationItem = self.navigationController?.navigationBar.topItem {
 
-            navigationItem.titleView = ProfileHeaderView(frame: CGRect.zero)
+            let profileView = ProfileHeaderView(frame: CGRect.zero)
+            profileView.translatesAutoresizingMaskIntoConstraints = false
+            navigationItem.titleView = profileView
             
-            let scoreButton = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(scoreTapped))
+            let scoreButton = UIBarButtonItem(title: "Credit", style: .plain, target: self, action: #selector(scoreTapped))
             navigationItem.rightBarButtonItem = scoreButton
         }
     }
     
     @objc func scoreTapped() {
-        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: 0.9)
+        
     }
     
     func layout() {
@@ -91,6 +102,9 @@ class ProfileViewController: UIViewController {
     func setupDataModel() {
         self.challenges = Challenge.GetCompletedList()
         self.player = Player.SharedInstance()
+//        self.userServiceRequest = UserServiceRequest()
+//        self.userServiceRequest?.delegate = self
+//        self.userServiceRequest?.scheduleGetDataTask()
     }
 }
 
@@ -157,7 +171,30 @@ extension ProfileViewController: UITableViewDelegate {
         }
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//    }
+}
+
+extension ProfileViewController: UserServiceDelegate {
+    
+    func normalize(_ x: Float) -> Float {
+        return min(10.0, max(0.0, x / 10.0))
+    }
+    
+    func onUpdate(countPushEvents: Int, halo: Halo) {
+        
+        Player.SharedInstance().halo = halo
+        
+        self.haloCardView?.haloView?.setGlobalParam(name: "size", value: self.normalize(halo.size))
+        
+        self.haloCardView?.haloView?.setGlobalParam(name: "speed", value: self.normalize(halo.speed))
+        self.haloCardView?.haloView?.setGlobalParam(name: "brightness", value: self.normalize(halo.brightness))
+        self.haloCardView?.haloView?.setGlobalParam(name: "complexity", value: self.normalize(halo.complexity))
+        self.haloCardView?.haloView?.setGlobalParam(name: "color", value: self.normalize(halo.color))
+        self.haloCardView?.haloView?.setGlobalParam(name: "wobble", value: self.normalize(halo.wobble))
+        
+        self.haloCardView?.haloView?.setGlobalParam(name: "colorCenter", value: self.normalize(halo.colorCenter))
+        self.haloCardView?.haloView?.setGlobalParam(name: "colorCenterRatio", value: self.normalize(halo.colorCenterRatio))
+        self.haloCardView?.haloView?.setGlobalParam(name: "waveCount", value:Float(halo.waveCount))
+        self.haloCardView?.haloView?.setGlobalParam(name: "highlightRing", value: self.normalize(halo.highlightRing))
+    }
+    
 }

@@ -5,17 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GitHubTypes
-{	enum EventType
+namespace Planet.Dashboard.GitHubEventProcessor
+{	public enum EventType
 	{
 		CreateEvent,
 		ForkEvent,
 		IssueCommentEvent,
 		PushEvent,
 		PullRequestEvent,
+		Max
 	}
 
-	class Event
+	public class Event
 	{
 		public string id { get; set; }
 		public EventType type { get; set; }

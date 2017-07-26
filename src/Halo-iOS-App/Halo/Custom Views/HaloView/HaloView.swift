@@ -142,7 +142,9 @@ public class HaloView: WKWebView, WKScriptMessageHandler, WKNavigationDelegate {
     }
 
     func haloHtmlPrefix() -> String {
-        if self.frame.width < 255.0 {
+        if self.frame.width < 121.0 {
+            return "indexSmallest"
+        } else if self.frame.width < 255.0 {
             return "indexSmall"
         } else if self.frame.width < 320.0 {
             return "indexMedium"

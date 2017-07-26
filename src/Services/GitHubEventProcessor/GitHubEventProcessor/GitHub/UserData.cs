@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GitHubTypes
+namespace Planet.Dashboard.GitHubEventProcessor
 {
-	class UserData
+	public class GitHubUserData
 	{
+		public string UserName { get; set; }
 		public IList<Event> Events { get; set; }
-
 		/// <summary>
 		/// Returns the number of creation events
 		/// </summary>
@@ -26,7 +26,19 @@ namespace GitHubTypes
 		{
 			return GetCount(EventType.PushEvent);
 		}
-
+		/// <summary>
+		/// Returns the number of commits
+		/// </summary>
+		/// <returns></returns>
+		public int GetNumberOfCommits()
+		{
+			int count = 0;
+			foreach(Event e in GetEventsOfType(EventType.PushEvent))
+			{
+				count += (e.payload as PushEventPayload).size;
+			}
+			return count;
+		}
 		/// <summary>
 		/// Returns the number of pull request events
 		/// </summary>
@@ -44,6 +56,24 @@ namespace GitHubTypes
 		{
 			return GetEventsGroupedByDate().Count();
 		}
+
+		/// <summary>
+		/// Returns event frequency as a single number
+		/// </summary>
+		/// <returns></returns>
+		public int GetEventFrequency()
+		{
+			// $todo come up with a better heuristic than this
+
+			int eventFrequency = 0;
+			for(int i = 0; i < (int)EventType.Max; ++i)
+			{
+				eventFrequency += GetCount((EventType)i);
+			}
+
+			return eventFrequency;
+		}
+
 		/// <summary>
 		/// Returns number of commits per day
 		/// </summary>

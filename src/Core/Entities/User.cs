@@ -1,4 +1,4 @@
-﻿// TODO: Copyright
+// TODO: Copyright
 
 namespace Planet.Dashboard.Rewards.Core.Entities
 {
@@ -40,7 +40,7 @@ namespace Planet.Dashboard.Rewards.Core.Entities
                 return this.id;
             }
 
-            set
+           set
             {
             }
         }
@@ -62,10 +62,16 @@ namespace Planet.Dashboard.Rewards.Core.Entities
             set;
         }
 
-        /// <summary>
-        /// User can have many ids in different system. (eg: GitHub Id, Facebook id etc). They will have a unique id in 
-        /// </summary>
-        public IList<string> AlternateIds
+		public string HaloUrl
+		{
+			get;
+			set;
+		}
+
+		/// <summary>
+		/// User can have many ids in different system. (eg: GitHub Id, Facebook id etc). They will have a unique id in 
+		/// </summary>
+		public IList<string> AlternateIds
         {
             get;
             set;
@@ -95,5 +101,55 @@ namespace Planet.Dashboard.Rewards.Core.Entities
 			get;
 			set;
 		}
-    }
+		public double Size
+		{
+			get;
+			set;
+		}
+		public double Speed
+		{
+			get;
+			set;
+		}
+		public double Brightness
+		{
+			get;
+			set;
+		}
+		public double Complexity
+		{
+			get;
+			set;
+		}
+		public double Color
+		{
+			get;
+			set;
+		}
+		public double Wobble
+		{
+			get;
+			set;
+		}
+		public double ColorCenter
+		{
+			get;
+			set;
+		}
+		public double ColorCenterRatio
+		{
+			get;
+			set;
+		}
+		public int WaveCount
+		{
+			get;
+			set;
+		}
+		public double HighlightRing
+		{
+			get;
+			set;
+		}
+	}
 }

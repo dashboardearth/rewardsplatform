@@ -15,13 +15,15 @@ namespace Planet.Dashboard.Rewards.Core
     {
         Task<T> GetAsync<T>(string id, string partitionId) where T: PartitionedEntry;
 
+        Task<User> GetUserByUsernameAsync(string username);
+
         Task<T> Create<T>(T data) where T : PartitionedEntry;
         Task Update<T>(T data) where T : PartitionedEntry;
         Task Delete(string id, string partitionId);
 
         Task AddLinks<T>(string sourceId, EntityType sourceType, LinkType linkType, string partitionId, IEnumerable<T> links) where T : Entry;
 
-        Task RemoveLink<T>(string sourceId, EntityType sourceType, LinkType linkType, string partitionId, string linkId) where T : Entry;
+        Task RemoveLink<T>(string sourceId, EntityType sourceType, LinkType linkType, string partitionId, T link) where T : Entry;
 
         Task<PagedResult<T>> ListAsync<T>(Expression<Func<T, bool>> filter, string cursor, bool crossPartition = false) where T : PartitionedEntry;
     }

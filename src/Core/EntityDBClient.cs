@@ -85,11 +85,30 @@ namespace Planet.Dashboard.Rewards.Core
             }
         }
 
+        public async Task<Entities.User> GetUserByUsernameAsync(string username)
+        {
+            Guard.AgainstNullOrWhitespace(nameof(username), username);
+
+            Entities.PagedResult<Entities.User> result = await this.ListAsync<Entities.User>(item => item.UserName == username, string.Empty, true);
+
+            while(result.More && !result.Result.Any())
+            {
+                result = await this.ListAsync<Entities.User>(item => item.id == username, result.Cursor, true);
+            }
+
+
+            return result.Result.FirstOrDefault();
+        }
+
         public async Task<T> Create<T>(T data) where T : Entities.PartitionedEntry
         {
             Guard.AgainstNull(nameof(data), data);
             Guard.AgainstNullOrWhitespace(nameof(data.PartitionId), data.PartitionId);
-            Guard.AgainstNullOrWhitespace(nameof(data.id), data.id);
+
+            if (string.IsNullOrWhiteSpace(data.id))
+            {
+                data.id = Guid.NewGuid().ToString();
+            }
 
             await this.EnsureInitialized();
 
@@ -149,10 +168,11 @@ namespace Planet.Dashboard.Rewards.Core
             
             Entities.LinksCollection<T> result = this
                 .client
-                .CreateDocumentQuery<Entities.LinksCollection<T>>(
+                .CreateDocumentQuery<Entities.DefaultLinksCollection<T>>(
                     collectionLink,
                     new FeedOptions() { PartitionKey = new PartitionKey(partitionId) })
                 .Where(item => item.SourceId == sourceId && item.LinkType == linkType && item.SourceType == sourceType && item.IsFull == false)
+                .ToList()
                 .FirstOrDefault();
 
             if (result == null)
@@ -177,7 +197,7 @@ namespace Planet.Dashboard.Rewards.Core
             Entities.EntityType sourceType,
             Entities.LinkType linkType,
             string partitionId,
-            string linkId) where T : Entities.Entry
+            T link) where T : Entities.Entry
         {
             Guard.AgainstNullOrWhitespace(nameof(sourceId), sourceId);
             Guard.AgainstNullOrWhitespace(nameof(partitionId), partitionId);
@@ -188,10 +208,11 @@ namespace Planet.Dashboard.Rewards.Core
 
             Entities.LinksCollection<T> result = this
                 .client
-                .CreateDocumentQuery<Entities.LinksCollection<T>>(
+                .CreateDocumentQuery<Entities.DefaultLinksCollection<T>>(
                     collectionLink,
                     new FeedOptions() { PartitionKey = new PartitionKey(partitionId) })
-                .Where(item => item.SourceId == sourceId && item.LinkType == linkType && item.SourceType == sourceType && item.TargetEntities.Any(target => target.id == linkId))
+                .Where(item => item.SourceId == sourceId && item.LinkType == linkType && item.SourceType == sourceType && item.TargetEntities.Contains(link))
+                .ToList()
                 .FirstOrDefault();
 
             if (result == null)
@@ -200,8 +221,8 @@ namespace Planet.Dashboard.Rewards.Core
                 return;
             }
 
-            T link = result.TargetEntities.First(item => item.id == linkId);
-            result.TargetEntities.Remove(link);
+            T linkToRemove = result.TargetEntities.First(item => item.id == link.id);
+            result.TargetEntities.Remove(linkToRemove);
 
             await this.Update(result);            
         }
