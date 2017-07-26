@@ -13,7 +13,6 @@ export class LeaderBoard extends Component {
 
   style = {
     border: "1px solid #c1c1c1",
-    margin: '20px',
     borderRadius: '4px',
     padding: '10px',
   }
@@ -57,7 +56,8 @@ export class LeaderBoard extends Component {
 
   render() {
     return (
-      <div className="leader-board-container">
+      <div>
+        <h2>Leaderboard</h2>
         <List
           width={600}
           height={500}
