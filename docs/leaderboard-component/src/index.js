@@ -5,34 +5,34 @@ import { LeaderBoard } from './components/LeaderBoard';
 // import registerServiceWorker from './registerServiceWorker';
 
 
-export default {
+// export default {
   
-  DEConfig: null,
+//   DEConfig: null,
   
-  config: (config) => {
-    this.DEConfig = config;
-  },
+//   config: (config) => {
+//     this.DEConfig = config;
+//   },
 
-  components: {
+//   components: {
 
-    leaderboard: {
+//     leaderboard: {
 
-      new: (config) => {
+//       new: (config) => {
 
-        return {
-          render: (args) => {
-            ReactDOM.render(
-              <LeaderBoard 
-                selector={config.selector || this.DEConfig.selector}
-              />, document.querySelector(config.selector)
-            )
-          }
-        }
-      }
-    }
-  }
-}
+//         return {
+//           render: (args) => {
+//             ReactDOM.render(
+//               <LeaderBoard 
+//                 selector={config.selector || this.DEConfig.selector}
+//               />, document.querySelector(config.selector)
+//             )
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-// ReactDOM.render(<LeaderBoard />, document.getElementById('root'));
+ReactDOM.render(<LeaderBoard />, document.getElementById('root'));
 
 // registerServiceWorker();

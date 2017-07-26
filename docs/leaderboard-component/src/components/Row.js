@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import './Row.css';
-// import halo from '../img/halo.png'
+import './styles.css';
 
 export class Row extends Component {
   static propTypes = {

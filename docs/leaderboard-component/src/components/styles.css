@@ -10,6 +10,7 @@
   color: #5B5B5B;
   margin: 0;
   font-size: 14px;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }
 
@@ -17,6 +18,7 @@
   color: #5B5B5B;
   margin: 0;
   font-size: 12px;
+  font-family: 'Roboto', sans-serif;
 }
 
 @media(min-width: 600px) {
@@ -48,14 +50,15 @@
 
 .de-leaderboard--button {
   cursor: pointer;
-    background: transparent;
-    border: 1px solid gray;
-    border-radius: 4px;
-    padding: 0 15px;
-    font-size: 14px;
-    color: gray;
-    margin: 15px;
-    outline: none;
+  background: transparent;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 14px;
+  color: gray;
+  margin: 15px;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
 }
 
 .de-leaderboard--button-active {

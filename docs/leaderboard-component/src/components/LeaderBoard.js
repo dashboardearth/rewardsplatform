@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Row } from './Row';
 import { List, AutoSizer } from 'react-virtualized';
-import './Row.css';
+import './styles.css';
 import axios from 'axios';
 import 'react-virtualized/styles.css';
 
@@ -32,41 +32,36 @@ export class LeaderBoard extends Component {
 
   componentDidMount() {
     // Set fake number of commits
-    this.setState({ fakeLines: this.renderFakeLines(), fakePoints: this.renderFakePoints(), sortOrder: 'points' })
+    this.setState({ fakeLines: this.renderFakeNumbers(30, 3), fakePoints: this.renderFakeNumbers(30, 2), sortOrder: 'points' })
     // Get random users from GitHub
     axios.get('https://api.github.com/users')
       .then(({data}) => {
         let dataWithCommits = [];
         data.forEach((user, i) => {
-          dataWithCommits.push(Object.assign({}, user, {points: this.state.fakePoints[i], lines: this.state.fakeLines[i]} ));
+          dataWithCommits.push(Object.assign({}, user, { points: this.state.fakePoints[i], lines: this.state.fakeLines[i] }));
         })
         dataWithCommits.sort((a, b) => {
           if (a.points > b.points) {
             return -1;
-          } 
-          if (a.points < b.points) {
+          } else if (a.points < b.points) {
             return 1;
+          } else {
+            return 0;
           }
-          return 0;
         })
         this.setState({ users: dataWithCommits, sortOrder: 'points' });
       })
+      .then(() => {
+        this.sortBy('points');
+      })
   }
 
-  renderFakeLines = () => {
-    let fakeLines = [];
+  renderFakeNumbers = (numberOfItems, decimals) => {
+    let fakeNumbers = [];
     for (let i = 0; i < 30; i++) {
-      fakeLines.push(Math.random().toString().split('').splice(2, 3).join(''));
+      fakeNumbers.push(Math.random().toString().split('').splice(2, decimals).join(''));
     }
-    return fakeLines;
-  }
-
-  renderFakePoints = () => {
-    let fakePoints = [];
-    for (let i = 0; i < 30; i++) {
-      fakePoints.push(Math.random().toString().split('').splice(2, 2).join(''));
-    }
-    return fakePoints;
+    return fakeNumbers;
   }
 
   sortBy = (arg) => {
@@ -108,7 +103,7 @@ export class LeaderBoard extends Component {
           </button>
         </div>
         <AutoSizer disableHeight>
-          {({ width }) => (
+          {({ width, height }) => (
             <List
               width={width}
               height={500}
