@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GitHubTypes
+namespace Planet.Dashboard.GitHubEventProcessor
 {
 	internal class WebHookTriggerAttribute : Attribute
 	{

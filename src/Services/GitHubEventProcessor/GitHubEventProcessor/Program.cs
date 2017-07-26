@@ -11,8 +11,9 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Planet.Dashboard.Rewards.Core;
 
-namespace GitHubTypes
+namespace Planet.Dashboard.GitHubEventProcessor
 {
 	static class HttpRequestHelper
 	{
@@ -50,7 +51,7 @@ namespace GitHubTypes
 		{
 			string jsonString = await HttpRequestHelper.DoRequestAsync(gitHubUserName);
 
-			UserData userData = new UserData();
+			GitHubUserData userData = new GitHubUserData();
 			userData.Events = JsonConvert.DeserializeObject<IList<Event>>(jsonString);
 
 			return jsonString;
