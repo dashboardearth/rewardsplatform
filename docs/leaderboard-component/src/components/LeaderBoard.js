@@ -15,6 +15,7 @@ export class LeaderBoard extends Component {
     border: "1px solid #c1c1c1",
     borderRadius: '4px',
     padding: '10px',
+    margin: '0 auto'
   }
 
   componentDidMount() {
