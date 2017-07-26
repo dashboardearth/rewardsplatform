@@ -34,7 +34,7 @@ export class LeaderBoard extends Component {
     // Set fake number of commits
     this.setState({ fakeLines: this.renderFakeLines(), fakePoints: this.renderFakePoints(), sortOrder: 'points' })
     // Get random users from GitHub
-    axios.get('https://api.github.com/users?client_id=854691e56c97a813e264&client_secret=a39fe6ab961c4cee2c611ce2fb3670011781dd13')
+    axios.get('https://api.github.com/users')
       .then(({data}) => {
         let dataWithCommits = [];
         data.forEach((user, i) => {
