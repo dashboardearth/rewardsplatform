@@ -53,6 +53,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			Console.WriteLine(jsonString);
 
 			GitHubUserData userData = new GitHubUserData();
+			userData.UserName = gitHubUserName;
 			userData.Events = JsonConvert.DeserializeObject<IList<Event>>(jsonString);
 
 			return userData;
@@ -67,7 +68,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 
 			GitHubUserData userData = await RetrieveUserDataAsync(messagePayload.gitHubUserName);
 
-			await HaloDBHelpers.WriteUserToEntityDBAsync(HaloDBHelpers.ConvertGitHubUserDataToHaloUser(userData), DBClientSingleton.Instance.Get());
+			await HaloDBHelpers.UpdateUserAsync(userData, DBClientSingleton.Instance.Get());
 			return;
 		}
 
@@ -85,7 +86,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 				try
 				{
 					GitHubUserData userData = RetrieveUserDataAsync(gitHubUserName).Result;
-					HaloDBHelpers.WriteUserToEntityDBAsync(HaloDBHelpers.ConvertGitHubUserDataToHaloUser(userData), DBClientSingleton.Instance.Get()).Wait();
+					HaloDBHelpers.UpdateUserAsync(userData, DBClientSingleton.Instance.Get()).Wait();
 
 					return 0;
 				}

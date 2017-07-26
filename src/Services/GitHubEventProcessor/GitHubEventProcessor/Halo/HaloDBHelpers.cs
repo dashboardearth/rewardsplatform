@@ -11,18 +11,28 @@ namespace Planet.Dashboard.GitHubEventProcessor
 {
 	static class HaloDBHelpers
 	{
-		public static User ConvertGitHubUserDataToHaloUser(GitHubUserData userData)
+		public static void ConvertGitHubUserDataToHaloUserAsync(GitHubUserData userData, ref User user)
 		{
-			User user = new User();
 			user.CountPushEvents = userData.GetPushEventCount();
-
-			return user;
 		}
 
-		public static async Task WriteUserToEntityDBAsync(User user, IEntityDBClient dbClient)
+		public static async Task UpdateUserAsync(GitHubUserData userData, IEntityDBClient dbClient)
 		{
-			await dbClient.Update<User>(user);
-			return;
+			try
+			{
+				User user = await dbClient.GetUserByUsernameAsync(userData.UserName);
+				ConvertGitHubUserDataToHaloUserAsync(userData, ref user);
+
+				await dbClient.Update<User>(user);
+
+				user = await dbClient.GetUserByUsernameAsync(userData.UserName);
+
+				return;
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Exception caught: " + e.ToString());
+			}
 		}
 
 		public static IEntityDBClient CreateDBClient()

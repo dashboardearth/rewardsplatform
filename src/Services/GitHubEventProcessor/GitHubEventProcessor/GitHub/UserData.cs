@@ -8,8 +8,8 @@ namespace Planet.Dashboard.GitHubEventProcessor
 {
 	class GitHubUserData
 	{
+		public string UserName { get; set; }
 		public IList<Event> Events { get; set; }
-
 		/// <summary>
 		/// Returns the number of creation events
 		/// </summary>
