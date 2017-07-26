@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 		public string message { get; set; }
 		public bool distinct { get; set; }
 		public string url { get; set; }
+		[JsonIgnoreAttribute]
+		public CommitDetails details { get; set; }
 	}
 }
