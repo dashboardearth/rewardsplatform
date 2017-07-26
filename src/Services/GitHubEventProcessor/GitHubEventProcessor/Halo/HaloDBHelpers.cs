@@ -24,7 +24,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 				ConvertGitHubUserDataToHaloUserAsync(userData, ref user);
 
 				await dbClient.Update<User>(user);
-
+				
 				user = await dbClient.GetUserByUsernameAsync(userData.UserName);
 
 				return;
