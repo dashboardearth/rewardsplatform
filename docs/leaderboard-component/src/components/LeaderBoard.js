@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Row } from './Row';
-import { List } from 'react-virtualized';
+import { List, AutoSizer } from 'react-virtualized';
 import axios from 'axios';
 import 'react-virtualized/styles.css';
 
@@ -59,14 +59,18 @@ export class LeaderBoard extends Component {
     return (
       <div>
         <h2>Leaderboard</h2>
-        <List
-          width={600}
-          height={500}
-          rowCount={this.state.users.length}
-          rowHeight={100}
-          rowRenderer={this.rowRenderer}
-          style={this.style}
-        />
+        <AutoSizer disableHeight>
+          {({ width }) => (
+            <List
+              width={width}
+              height={500}
+              rowCount={this.state.users.length}
+              rowHeight={100}
+              rowRenderer={this.rowRenderer}
+              style={this.style}
+            />
+          )}
+        </AutoSizer>
       </div>
     );
   }
