@@ -22,11 +22,11 @@
                 width: 60px;
                 height: 20px;
                 padding-right: 100px;
-                font: 10px sans-serif;
+                font: 15px sans-serif;
             }
 
             .users circle, .marker {
-                fill: brown;
+                fill: red;
                 stroke: black;
                 stroke-width: 1.5px;
             }
@@ -38,13 +38,13 @@
     <script>
         var map = new google.maps.Map(d3.select("#map").node(), {
             zoom: 15,
-            center: new google.maps.LatLng(34.020172, -118.492523),
+            center: new google.maps.LatLng(34.020172, -118.492523), // Santa Monica
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
 
 
-
+        // overlay our data on top of Google Maps
         var overlay = new google.maps.OverlayView();
 
         overlay.onAdd = function() {
@@ -67,26 +67,49 @@
                 }
 
 
-                console.log(d3.entries(users));
+                //                console.log(d3.entries(users));
                 var marker = layer.selectAll("svg")
                 .data(d3.entries(users))
                 .each(transform) // update existing markers
                 .enter().append("svg")
                 .each(transform)
                 .attr("class", "marker");
+                
+                // dynamically associate an image to a user
+                // add to circle using pattern
+                var defs = marker.append("defs");
+                defs.selectAll(".patterns")
+                    .data(d3.entries(users))
+                    .enter().append("pattern")
+                    .attr("id", function(d) {
+                    return "image" + (d.key);
+                })
+                    .attr("width", 1)
+                    .attr("height", 1)
+                    .append("svg:image")
+                    .attr("xlink:href", function(d) {
+                    return d.value[2];
+                })
+                    .attr("width", 18)
+                    .attr("height", 18);
 
                 // Add a circle.
                 marker.append("circle")
-                    .attr("r", 4.5)
+                    .attr("r", 7)
                     .attr("cx", padding)
-                    .attr("cy", padding);
+                    .attr("cy", padding)
+                    .style("fill", function(d) {
+                        return "url(#image" + d.key + ")";
+                    });
 
                 // Add a label.
                 marker.append("text")
-                    .attr("x", padding + 7)
+                    .attr("x", padding*2)
                     .attr("y", padding)
                     .attr("dy", ".31em")
                     .text(function(d) { return d.key; });
+
+                
 
             };
         };
