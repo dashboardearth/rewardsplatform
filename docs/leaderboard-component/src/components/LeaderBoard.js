@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Row } from './Row';
 import { List } from 'react-virtualized';
 import axios from 'axios';
-import './LeaderBoard.css';
 import 'react-virtualized/styles.css';
 
 export class LeaderBoard extends Component {
