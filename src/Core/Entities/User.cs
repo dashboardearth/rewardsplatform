@@ -95,5 +95,11 @@ namespace Planet.Dashboard.Rewards.Core.Entities
 			get;
 			set;
 		}
+
+        public int CountPushEvents
+        {
+            get;
+            set;
+        }
     }
 }
