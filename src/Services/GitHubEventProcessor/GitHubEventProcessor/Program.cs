@@ -46,6 +46,11 @@ namespace Planet.Dashboard.GitHubEventProcessor
 		{
 			public string gitHubUserName { get; set; }
 		}
+		public static void HandleDeserializationError(object sender, Newtonsoft.Json.Serialization.ErrorEventArgs errorArgs)
+		{
+			var currentError = errorArgs.ErrorContext.Error.Message;
+			errorArgs.ErrorContext.Handled = true;
+		}
 
 		public static async Task<GitHubUserData> RetrieveUserDataAsync(string gitHubUserName)
 		{
@@ -54,7 +59,10 @@ namespace Planet.Dashboard.GitHubEventProcessor
 
 			GitHubUserData userData = new GitHubUserData();
 			userData.UserName = gitHubUserName;
-			userData.Events = JsonConvert.DeserializeObject<IList<Event>>(jsonString);
+			userData.Events = JsonConvert.DeserializeObject<IList<Event>>(jsonString, new JsonSerializerSettings
+			{
+				Error = Program.HandleDeserializationError
+			});
 
 			return userData;
 		}

@@ -13,6 +13,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 		IssueCommentEvent,
 		PushEvent,
 		PullRequestEvent,
+		Max
 	}
 
 	class Event
