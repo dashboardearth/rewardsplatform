@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { LeaderBoard } from './components/LeaderBoard';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 
 export default {
@@ -32,5 +32,7 @@ export default {
     }
   }
 }
+
+// ReactDOM.render(<LeaderBoard />, document.getElementById('root'));
 
 // registerServiceWorker();

@@ -12,18 +12,33 @@ export class LeaderBoard extends Component {
   }
 
   style = {
-    border: "2px solid #666666",
+    border: "1px solid #c1c1c1",
     margin: '20px',
+    borderRadius: '4px',
+    padding: '10px',
   }
 
   componentDidMount() {
+    // Set fake number of commits
+    this.setState({ fakeCommits: this.renderFakeCommits() })
     // Get random users from GitHub
     axios.get('https://api.github.com/users')
       .then(({data}) => {
-        this.setState({ users: data });
+        let dataWithCommits = [];
+        data.forEach((user, i) => {
+          dataWithCommits.push(Object.assign({}, user, {commits: this.state.fakeCommits[i]}));
+        })
+        dataWithCommits.sort((a, b) => {
+          if (a.commits > b.commits) {
+            return -1;
+          } 
+          if (a.commits < b.commits) {
+            return 1;
+          }
+          return 0;
+        })
+        this.setState({ users: dataWithCommits });
       })
-    // Set fake number of commits
-    this.setState({ fakeCommits: this.renderFakeCommits() })
   }
 
   renderFakeCommits = () => {
@@ -38,16 +53,16 @@ export class LeaderBoard extends Component {
     key,
     index,
     style
-  }) => <Row key={key} index={index} style={style} users={this.state.users} commits={this.state.fakeCommits[index]} />
+  }) => <Row key={key} index={index} style={style} users={this.state.users} commits={this.state.users[index].commits} />
 
   render() {
     return (
       <div className="leader-board-container">
         <List
-          width={500}
-          height={300}
+          width={600}
+          height={500}
           rowCount={this.state.users.length}
-          rowHeight={50}
+          rowHeight={100}
           rowRenderer={this.rowRenderer}
           style={this.style}
         />
