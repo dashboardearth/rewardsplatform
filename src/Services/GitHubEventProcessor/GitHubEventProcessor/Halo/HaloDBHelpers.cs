@@ -11,6 +11,21 @@ namespace Planet.Dashboard.GitHubEventProcessor
 {
 	static class HaloDBHelpers
 	{
+		static double Normalize(double value)
+		{
+			if(value >= 100)
+			{
+				return 1.0;
+			}
+
+			if(value < 0)
+			{
+				return 0.0;
+			}
+
+			return value / 100.0;
+		}
+
 		public static void ConvertGitHubUserDataToHaloUserAsync(GitHubUserData userData, ref User user)
 		{
 			//DaysActive => 'size':       (float),
@@ -25,16 +40,16 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			//OverallContributorRanking => 'highlightRing': (float)
 			// that last one is... by adding up all the other ones, sort all users by total, then rank order
 
-			user.Size = userData.GetDaysActive();
-			user.Speed = userData.GetVelocity();
-			user.Brightness = userData.GetPullConversionRate();
-			user.Complexity = userData.GetPullConversionRate(); // $todo
-			user.Color = userData.GetCreateEventCount();
-			user.Wobble = userData.GetPullConversionRate(); // $todo
-			user.ColorCenter= userData.GetPushEventCount();
-			user.ColorCenterRatio = userData.GetPullRequestEventCount();
-			user.WaveCount = userData.GetDaysActive(); // $todo;
-			user.HighlightRing = userData.GetCreateEventCount() + userData.GetPushEventCount(); // $todo
+			user.Size = Normalize(userData.GetDaysActive());
+			user.Speed = Normalize(userData.GetVelocity());
+			user.Brightness = Normalize(userData.GetPullConversionRate());
+			user.Complexity = Normalize(userData.GetPullConversionRate()); // $todo
+			user.Color = Normalize(userData.GetCreateEventCount());
+			user.Wobble = Normalize(userData.GetNumberOfCommits());
+			user.ColorCenter= Normalize(userData.GetPushEventCount());
+			user.ColorCenterRatio = Normalize(userData.GetPullRequestEventCount());
+			user.WaveCount = userData.GetEventFrequency();
+			user.HighlightRing = Normalize(userData.GetCreateEventCount() + userData.GetPushEventCount()); // $todo
 		}
 
 		public static async Task UpdateUserAsync(GitHubUserData userData, IEntityDBClient dbClient)
