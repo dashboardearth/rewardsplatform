@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="1127"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Root Navigation Controller-->
         <scene sceneID="sgD-8M-zNv">
             <objects>
-                <navigationController id="RVC-9U-JH7" sceneMemberID="viewController">
+                <navigationController id="RVC-9U-JH7" customClass="RootNavigationController" customModule="Halo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KLL-DZ-Kbx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

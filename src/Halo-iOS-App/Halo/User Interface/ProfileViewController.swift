@@ -188,7 +188,6 @@ extension ProfileViewController: UserServiceDelegate {
         self.haloCardView?.haloView?.setGlobalParam(name: "colorCenterRatio", value: self.normalize(halo.colorCenterRatio))
         self.haloCardView?.haloView?.setGlobalParam(name: "waveCount", value:Float(halo.waveCount))
         self.haloCardView?.haloView?.setGlobalParam(name: "highlightRing", value: self.normalize(halo.highlightRing))
-        
     }
     
 }

@@ -58,7 +58,7 @@ class HaloCardView: UIView {
         // middle view
         
         let viewModel = HaloTimeSlice()
-        let frame = CGRect(x: 0, y: 0, width: HaloCardView.haloSize, height: HaloCardView.haloSize)
+        let frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         let haloView = HaloView(frame: frame, viewModel: viewModel)
         haloView.translatesAutoresizingMaskIntoConstraints = false
         middleView.addSubview(haloView)
