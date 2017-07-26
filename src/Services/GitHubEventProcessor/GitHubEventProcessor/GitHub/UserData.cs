@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GitHubTypes
+namespace Planet.Dashboard.GitHubEventProcessor
 {
-	class UserData
+	class GitHubUserData
 	{
 		public IList<Event> Events { get; set; }
 
