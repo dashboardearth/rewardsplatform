@@ -1,0 +1,79 @@
+.de-leaderboard--p {
+  color: #5B5B5B;
+  margin: 0;
+  padding: 0 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+}
+
+.de-leaderboard--p-medium {
+  color: #5B5B5B;
+  margin: 0;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.de-leaderboard--p-small {
+  color: #5B5B5B;
+  margin: 0;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media(min-width: 600px) {
+  .de-leaderboard--p {
+    font-size: 18px;
+  }
+}
+
+.de-leaderboard--avatar{
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.de-leaderboard--halo {
+  width: 35px;
+  padding: 0 10px;
+}
+
+.de-leaderboard--user-info-container {
+  display: flex;
+  align-items: center;
+}
+
+.de-leaderboard--commits-container {
+  display: flex;
+  align-items: center;
+}
+
+.de-leaderboard--button {
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 14px;
+  color: gray;
+  margin: 15px;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.de-leaderboard--button-active {
+  background-color: black;
+  color: #cccccc;
+}
+
+.de-leaderboard--row {
+  border: .5px solid #c1c1c1;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.175);
+  justify-content: space-between;
+  width: 98%;
+  margin: 0 auto;
+  padding: 5px 0;
+  border-radius: 4px;
+}
