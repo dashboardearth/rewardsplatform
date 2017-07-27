@@ -41,9 +41,9 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			// that last one is... by adding up all the other ones, sort all users by total, then rank order
 
 			user.Size = Normalize(userData.GetDaysActive());
-			user.Speed = Normalize(userData.GetVelocity());
-			user.Brightness = Normalize(userData.GetPullConversionRate());
-			user.Complexity = Normalize(userData.GetPullConversionRate()); // $todo
+			user.Speed = userData.GetVelocity();
+			user.Brightness = userData.GetPullConversionRate();
+			user.Complexity = userData.GetPullConversionRate(); // $todo
 			user.Color = Normalize(userData.GetCreateEventCount());
 			user.Wobble = Normalize(userData.GetNumberOfCommits());
 			user.ColorCenter= Normalize(userData.GetPushEventCount());
