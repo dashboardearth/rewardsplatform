@@ -14,7 +14,7 @@ class ChallengeViewController: UIViewController {
     private var imageView:UIImageView?
     private var completeButton:UIButton?
     
-    private var 
+    //private var 
 
     override func viewDidLoad() {
         super.viewDidLoad()
