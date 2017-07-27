@@ -1,0 +1,8 @@
+{
+  "short_name": "Leaderboard",
+  "name": "Dashboard Earth Leaderboard",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
