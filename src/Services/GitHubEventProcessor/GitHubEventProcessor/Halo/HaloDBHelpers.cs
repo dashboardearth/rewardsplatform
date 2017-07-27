@@ -13,14 +13,19 @@ namespace Planet.Dashboard.GitHubEventProcessor
 	{
 		static double Normalize(double value)
 		{
-			if(value >= 100)
+			if(value >= 100.0)
 			{
 				return 1.0;
 			}
 
-			if(value < 0)
+			if(value < 0.0)
 			{
 				return 0.0;
+			}
+
+			if(value >= 0.0 && value < 10.0)
+			{
+				return value / 10.0
 			}
 
 			return value / 100.0;
@@ -41,14 +46,14 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			// that last one is... by adding up all the other ones, sort all users by total, then rank order
 
 			user.Size = Normalize(userData.GetDaysActive());
-			user.Speed = Normalize(userData.GetVelocity());
-			user.Brightness = Normalize(userData.GetPullConversionRate());
-			user.Complexity = Normalize(userData.GetPullConversionRate()); // $todo
-			user.Color = Normalize(userData.GetCreateEventCount());
+			user.Speed = userData.GetVelocity();
+			user.Brightness = userData.GetPullConversionRate();
+			user.Complexity = userData.GetPullConversionRate(); // $todo
+			user.Color = Normalize(userData.GetEventFrequency());
 			user.Wobble = Normalize(userData.GetNumberOfCommits()); // $todo GetTotalLinesOfCode broken because of private repos not reporting data
 			user.ColorCenter= Normalize(userData.GetPushEventCount());
 			user.ColorCenterRatio = Normalize(userData.GetPullRequestEventCount());
-			user.WaveCount = userData.GetEventFrequency();
+			user.WaveCount = userData.GetCreateEventCount();
 			user.HighlightRing = Normalize(userData.GetCreateEventCount() + userData.GetPushEventCount()); // $todo
 		}
 

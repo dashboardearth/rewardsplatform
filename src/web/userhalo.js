@@ -22,11 +22,11 @@ function generateRandomVertices()
     return vertices;
 }
 
-function generateNewHalo() 
+function generateNewHalo(vertices) 
 {
     var newHaloDefinition = {
         "app": 1000401,
-        "vertices": generateRandomVertices()
+        "vertices": vertices
     };
     var req = new XMLHttpRequest();
     req.open("POST", "http://sandbox.ora.me:6196/halo", true);
@@ -55,7 +55,7 @@ function generateUserHalo()
     var username = $("#usernameInputField").val();
     console.log(username);
     var req = new XMLHttpRequest();
-    req.open("GET", "http://planetdashmshackforgood2017.azurewebsites.net/api/beta/Users", true);
+    req.open("GET", "http://planetdashmshackforgood2017.azurewebsites.net/api/beta/Users(%27" + username + "%27)", true);
     req.setRequestHeader("Content-Type", "application/text");
     req.onreadystatechange = function() {
       if (req.readyState == 4) {
@@ -67,6 +67,19 @@ function generateUserHalo()
           return;
         }
         console.log(res);
+        var uservertices = {
+            "size": res.size,
+            "speed": res.speed,
+            "brightness": res.brightness,
+            "complexity": res.complexity,
+            "color": res.color,
+            "wobble": res.wobble,
+            "colorCenter": res.colorCenter,
+            "colorCenterRatio": res.colorCenterRatio,
+            "waveCount": 10,
+            "highlightRing": res.highlightRing
+        };
+        generateNewHalo(uservertices);
       }
     }
     req.send(username);    
@@ -144,7 +157,7 @@ $(document).ready(function()
 
     $('#generateHalo').click(function(e)
     {
-        generateNewHalo();
+        generateNewHalo(generateRandomVertices());
     });
 
     $('#generateUserHalo').click(function(e)
