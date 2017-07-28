@@ -25,7 +25,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 
 			if(value >= 0.0 && value < 10.0)
 			{
-				return value / 10.0
+                return value / 10.0;
 			}
 
 			return value / 100.0;

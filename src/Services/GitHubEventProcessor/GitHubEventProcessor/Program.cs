@@ -122,7 +122,7 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			}
 		}
 
-		public static async void ProcessQueueMessage(
+		public static async Task ProcessQueueMessage(
             [QueueTrigger("giteventprocessorqueue")] string jsonMessagePayloadString,
 			[Blob("containername/blobname")]TextWriter writer)
 		{
