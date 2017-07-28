@@ -151,5 +151,40 @@ namespace Planet.Dashboard.Rewards.Core.Entities
 			get;
 			set;
 		}
+		public int CreateEventCount
+		{
+			get;
+			set;
+		}
+		public int PushEventCount
+		{
+			get;
+			set;
+		}
+		public int CommitCount
+		{
+			get;
+			set;
+		}
+		public int PullRequestCount
+		{
+			get;
+			set;
+		}
+		public int DaysActive
+		{
+			get;
+			set;
+		}
+		public double ActionVelocity
+		{
+			get;
+			set;
+		}
+		public double PullConversionRate
+		{
+			get;
+			set;
+		}
 	}
 }

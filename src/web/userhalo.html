@@ -6,7 +6,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>		
         <script src="userhalo.js"></script>
     </head>
-    <body>
+    <body style="text-align: center">
         <!--<form id="my-form" action="">
             Enter a Halo ID: <input id="idInputField" type="text" name="username">
             <input id="showHalo" type="submit" value="Show Halo">
@@ -15,10 +15,20 @@
         <br />
         <button id="generateHalo">Generate New Halo</button> Halo ID: <span id="haloId"></span>-->
         <form id="username-form" action="">
-            GitHub username: <input id="usernameInputField" type="text">
+        GitHub username: <!-- <input id="usernameInputField" type="text"> -->
+            <select id="usernames">
+                <option value="SeanSassenrath">SeanSassenrath</option>
+                <option value="sattawatsup">sattawatsup</option>
+                <option value="oneCodeSlinger">oneCodeSlinger</option>
+                <option value="un1crom">un1crom</option>
+                <option value="someshchandra">someshchandra</option>
+                <option value="helenanderson">helenanderson</option>
+                <option value="smadenian">smadenian</option>
+                <option value="ParkerDSlote">ParkerDSlote</option>
+            </select>
             <input id="generateUserHalo" type="submit" value="Show User's Halo">
         </form>
         <br />
-        <iframe id="userhalo" style="border:0px #ffffff none;" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="600px" allowfullscreen></iframe>
+        <iframe id="userhalo" style="border:0px #ffffff none;" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="600px" margin="auto" allowfullscreen></iframe>
     </body>
 </html>

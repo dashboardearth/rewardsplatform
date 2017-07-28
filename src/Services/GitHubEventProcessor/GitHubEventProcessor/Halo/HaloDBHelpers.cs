@@ -55,6 +55,15 @@ namespace Planet.Dashboard.GitHubEventProcessor
 			user.ColorCenterRatio = Normalize(userData.GetPullRequestEventCount());
 			user.WaveCount = userData.GetCreateEventCount();
 			user.HighlightRing = Normalize(userData.GetCreateEventCount() + userData.GetPushEventCount()); // $todo
+			
+			//raw github metrics (for prototyping halo)
+			user.CreateEventCount = userData.GetCreateEventCount();
+			user.PushEventCount = userData.GetPushEventCount();
+			user.CommitCount = userData.GetNumberOfCommits();
+			user.PullRequestCount = userData.GetPullRequestEventCount();
+			user.DaysActive = userData.GetDaysActive();
+			user.ActionVelocity = userData.GetVelocity();
+			user.PullConversionRate = userData.GetPullConversionRate();
 		}
 
 		public static async Task UpdateUserAsync(GitHubUserData userData, IEntityDBClient dbClient)
