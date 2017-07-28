@@ -1,3 +1,14 @@
+var users = [
+    "SeanSassenrath",
+    "sattawatsup",
+    "oneCodeSlinger",
+    "un1crom",
+    "someshchandra",
+    "helenanderson",
+    "smadenian",
+    "ParkerDSlote"
+]
+
 function getRandomIntInclusive(min, max) 
 {
     min = Math.ceil(min);
@@ -52,7 +63,7 @@ function generateNewHalo(vertices)
 
 function generateUserHalo()
 {
-    var username = $("#usernameInputField").val();
+    var username = $("#usernames").val();
     console.log(username);
     var req = new XMLHttpRequest();
     req.open("GET", "http://planetdashmshackforgood2017.azurewebsites.net/api/beta/Users(%27" + username + "%27)", true);
